@@ -1,0 +1,4 @@
+Meta Title: Thu hồi thư Outlook gửi nhầm và dùng Undo Send đúng lúc
+Meta Description: Xử lý thư gửi nhầm trong Outlook với hướng dẫn từng bước, sơ đồ giao diện và ví dụ đính chính phụ lục hợp đồng.
+Slug: thu-hoi-thu-outlook-gui-nham-va-dung-undo-send-dung-luc
+Tài liệu Microsoft tham khảo: https://support.microsoft.com/en-us/outlook/can-i-undo-recall-a-sent-email

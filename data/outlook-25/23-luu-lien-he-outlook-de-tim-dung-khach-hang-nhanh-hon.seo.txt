@@ -1,0 +1,4 @@
+Meta Title: Lưu liên hệ Outlook để tìm đúng khách hàng nhanh hơn
+Meta Description: Quản lý liên hệ trong Outlook với hướng dẫn từng bước, sơ đồ giao diện và ví dụ phân biệt hai đầu mối cùng tên.
+Slug: luu-lien-he-outlook-de-tim-dung-khach-hang-nhanh-hon
+Tài liệu Microsoft tham khảo: https://support.microsoft.com/en-us/outlook/create-view-and-edit-contacts-and-contact-lists-in-outlook

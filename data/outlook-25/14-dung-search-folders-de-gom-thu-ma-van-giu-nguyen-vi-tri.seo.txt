@@ -1,0 +1,4 @@
+Meta Title: Dùng Search Folders để gom thư mà vẫn giữ nguyên vị trí
+Meta Description: Tạo thư mục tìm kiếm trong Outlook với hướng dẫn từng bước, sơ đồ giao diện và ví dụ rà thư chưa đọc trước khi tan ca.
+Slug: dung-search-folders-de-gom-thu-ma-van-giu-nguyen-vi-tri
+Tài liệu Microsoft tham khảo: https://support.microsoft.com/en-us/outlook/mail/use-search-folders-to-find-messages-or-other-outlook-items

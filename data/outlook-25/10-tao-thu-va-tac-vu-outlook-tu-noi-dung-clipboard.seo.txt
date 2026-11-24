@@ -1,0 +1,4 @@
+Meta Title: Tạo thư và tác vụ Outlook từ nội dung Clipboard
+Meta Description: Tạo mục từ văn bản trong Outlook với hướng dẫn từng bước, sơ đồ giao diện và ví dụ từ biên bản họp sang việc cần làm.
+Slug: tao-thu-va-tac-vu-outlook-tu-noi-dung-clipboard
+Tài liệu Microsoft tham khảo: https://support.microsoft.com/en-us/accessibility/outlook/keyboard-shortcuts-for-outlook

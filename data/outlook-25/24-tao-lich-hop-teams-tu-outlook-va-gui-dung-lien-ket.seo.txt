@@ -1,0 +1,4 @@
+Meta Title: Tạo lịch họp Teams từ Outlook và gửi đúng liên kết
+Meta Description: Đặt cuộc họp Teams trong Outlook với hướng dẫn từng bước, sơ đồ giao diện và ví dụ mời họp với đối tác ngoài công ty.
+Slug: tao-lich-hop-teams-tu-outlook-va-gui-dung-lien-ket
+Tài liệu Microsoft tham khảo: https://support.microsoft.com/en-us/teams/meetings/schedule-a-microsoft-teams-meeting-from-outlook

@@ -1,0 +1,4 @@
+Meta Title: Giao đúng người bằng @đề cập trong Outlook
+Meta Description: Đề cập đồng nghiệp trong Outlook với hướng dẫn từng bước, sơ đồ giao diện và ví dụ duyệt báo giá trước giờ gửi khách.
+Slug: giao-dung-nguoi-bang-de-cap-trong-outlook
+Tài liệu Microsoft tham khảo: https://support.microsoft.com/en-us/outlook/training/create-and-send-email-in-outlook

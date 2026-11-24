@@ -1,0 +1,4 @@
+Meta Title: Chỉ hiện thông báo Outlook cho người gửi quan trọng
+Meta Description: Lọc thông báo trong Outlook với hướng dẫn từng bước, sơ đồ giao diện và ví dụ trực phê duyệt thanh toán.
+Slug: chi-hien-thong-bao-outlook-cho-nguoi-gui-quan-trong
+Tài liệu Microsoft tham khảo: https://support.microsoft.com/en-gb/outlook/getstarted/turn-new-message-alert-pop-up-on-or-off-in-outlook?redirectsourcepath=%252fen-us%252farticle%252fturn-desktop-alerts-on-or-off-a83fe224-3109-4de0-a1ab-c33fd103a422

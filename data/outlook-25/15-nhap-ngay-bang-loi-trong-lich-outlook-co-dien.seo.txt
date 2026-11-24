@@ -1,0 +1,4 @@
+Meta Title: Nhập ngày bằng lời trong lịch Outlook cổ điển
+Meta Description: Nhập ngày tự nhiên trong Outlook với hướng dẫn từng bước, sơ đồ giao diện và ví dụ đặt lịch gặp sau kỳ nghỉ.
+Slug: nhap-ngay-bang-loi-trong-lich-outlook-co-dien
+Tài liệu Microsoft tham khảo: https://support.microsoft.com/en-us/outlook/create-or-schedule-an-appointment

@@ -1,0 +1,4 @@
+Meta Title: Gom việc lặp lại vào một nút Quick Steps của Outlook
+Meta Description: Gom thao tác trong Outlook với hướng dẫn từng bước, sơ đồ giao diện và ví dụ khép hồ sơ hóa đơn.
+Slug: gom-viec-lap-lai-vao-mot-nut-quick-steps-cua-outlook
+Tài liệu Microsoft tham khảo: https://support.microsoft.com/en-us/outlook/mail/automate-common-or-repetitive-tasks-with-quick-steps-in-outlook

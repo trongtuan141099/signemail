@@ -20,6 +20,10 @@ $canonical = post_url($post['slug']);
 $cover = blog_cover($post);
 $date = published_date($post['published_at']);
 [$dom, $body] = document_fragment($post['content']);
+$articleHeading = $body->getElementsByTagName('h1')->item(0);
+if ($articleHeading && trim($articleHeading->textContent) === trim($post['title'])) {
+    $articleHeading->parentNode->removeChild($articleHeading);
+}
 foreach ($body->getElementsByTagName('img') as $image) {
     $src = $image->getAttribute('src');
     if (editorial_image($src)) $image->setAttribute('src', linkto($src));

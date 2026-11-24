@@ -1,0 +1,4 @@
+Meta Title: Tạo mẫu email Outlook để soạn thư lặp lại nhanh hơn
+Meta Description: Dùng mẫu email trong Outlook với hướng dẫn từng bước, sơ đồ giao diện và ví dụ nhắc số liệu cuối tháng.
+Slug: tao-mau-email-outlook-de-soan-thu-lap-lai-nhanh-hon
+Tài liệu Microsoft tham khảo: https://support.microsoft.com/en-us/outlook/download-add-and-share-templates-as-oft-files-in-outlook

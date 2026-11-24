@@ -1,0 +1,4 @@
+Meta Title: Đặt thao tác vuốt Outlook để xử lý thư trên điện thoại
+Meta Description: Vuốt để xử lý thư trong Outlook với hướng dẫn từng bước, sơ đồ giao diện và ví dụ dọn thư sau chuyến công tác.
+Slug: dat-thao-tac-vuot-outlook-de-xu-ly-thu-tren-dien-thoai
+Tài liệu Microsoft tham khảo: https://support.microsoft.com/en-us/outlook/optimize-the-outlook-mobile-app-for-your-ios-or-android-phone

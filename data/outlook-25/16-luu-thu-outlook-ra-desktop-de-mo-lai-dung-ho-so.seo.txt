@@ -1,0 +1,4 @@
+Meta Title: Lưu thư Outlook ra Desktop để mở lại đúng hồ sơ
+Meta Description: Lưu bản sao ra máy trong Outlook với hướng dẫn từng bước, sơ đồ giao diện và ví dụ bàn giao hồ sơ mua hàng.
+Slug: luu-thu-outlook-ra-desktop-de-mo-lai-dung-ho-so
+Tài liệu Microsoft tham khảo: https://support.microsoft.com/en-us/outlook/mail/save-an-outlook-message-as-a-eml-file-a-pdf-file-or-as-a-draft

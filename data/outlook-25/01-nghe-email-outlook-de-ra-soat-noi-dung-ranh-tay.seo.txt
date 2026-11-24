@@ -1,0 +1,4 @@
+Meta Title: Nghe email Outlook để rà soát nội dung rảnh tay
+Meta Description: Nghe đọc trong Outlook với hướng dẫn từng bước, sơ đồ giao diện và ví dụ bàn giao ca kho.
+Slug: nghe-email-outlook-de-ra-soat-noi-dung-ranh-tay
+Tài liệu Microsoft tham khảo: https://support.microsoft.com/en-us/outlook/listen-to-your-outlook-email-messages

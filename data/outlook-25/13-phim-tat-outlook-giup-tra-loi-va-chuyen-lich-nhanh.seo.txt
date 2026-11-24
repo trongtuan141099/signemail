@@ -1,0 +1,4 @@
+Meta Title: Phím tắt Outlook giúp trả lời và chuyển lịch nhanh
+Meta Description: Dùng bàn phím trong Outlook với hướng dẫn từng bước, sơ đồ giao diện và ví dụ xử lý thư hẹn rồi mở lịch.
+Slug: phim-tat-outlook-giup-tra-loi-va-chuyen-lich-nhanh
+Tài liệu Microsoft tham khảo: https://support.microsoft.com/en-us/accessibility/outlook/keyboard-shortcuts-for-outlook

@@ -1,0 +1,4 @@
+Meta Title: Gắn cờ Outlook để theo dõi thư đến hạn
+Meta Description: Theo dõi thư trong Outlook với hướng dẫn từng bước, sơ đồ giao diện và ví dụ nhắc báo giá chưa phản hồi.
+Slug: gan-co-outlook-de-theo-doi-thu-den-han
+Tài liệu Microsoft tham khảo: https://support.microsoft.com/en-us/outlook/flag-email-messages-for-follow-up

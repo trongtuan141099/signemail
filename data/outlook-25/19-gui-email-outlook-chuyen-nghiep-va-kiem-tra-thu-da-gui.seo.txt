@@ -1,0 +1,4 @@
+Meta Title: Gửi email Outlook chuyên nghiệp và kiểm tra thư đã gửi
+Meta Description: Soạn thư công việc trong Outlook với hướng dẫn từng bước, sơ đồ giao diện và ví dụ gửi báo giá để khách duyệt.
+Slug: gui-email-outlook-chuyen-nghiep-va-kiem-tra-thu-da-gui
+Tài liệu Microsoft tham khảo: https://support.microsoft.com/en-us/outlook/mail/create-an-email-message-in-outlook

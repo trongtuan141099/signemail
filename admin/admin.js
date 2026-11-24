@@ -78,9 +78,27 @@
         const initial = quill.clipboard.convert({ html: textarea.value, text: '' });
         quill.setContents(initial, 'silent');
     }
+    const sourceButton = document.createElement('button');
+    sourceButton.type = 'button';
+    sourceButton.className = 'button button-secondary';
+    sourceButton.textContent = 'Dán hoặc sửa mã HTML';
+    editor.after(sourceButton);
+    function showSource() {
+        textarea.hidden = false;
+        editor.hidden = true;
+        quill.getModule('toolbar').container.hidden = true;
+        sourceButton.hidden = true;
+        textarea.focus();
+    }
     textarea.hidden = true;
+    sourceButton.addEventListener('click', () => {
+        textarea.value = quill.getSemanticHTML();
+        showSource();
+    });
+    if (/<svg\b/i.test(textarea.value)) showSource();
     textarea.previousElementSibling.htmlFor = '';
     form.addEventListener('submit', () => {
+        if (!textarea.hidden) return;
         const output = document.createElement('template');
         output.innerHTML = quill.getSemanticHTML();
         const walker = document.createTreeWalker(output.content, NodeFilter.SHOW_TEXT);

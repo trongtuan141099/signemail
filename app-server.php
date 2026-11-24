@@ -14,10 +14,10 @@ function db(): PDO
         PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
     ]);
     $connection->exec('PRAGMA busy_timeout = 5000; PRAGMA foreign_keys = ON');
-    if ((int) $connection->query('PRAGMA user_version')->fetchColumn() < 7) {
+    if ((int) $connection->query('PRAGMA user_version')->fetchColumn() < 8) {
         immediate_write($connection, static function () use ($connection): void {
             $version = (int) $connection->query('PRAGMA user_version')->fetchColumn();
-            if ($version >= 7) return;
+            if ($version >= 8) return;
             $connection->exec(file_get_contents(__DIR__ . '/database.sql'));
             add_release_columns($connection);
 
@@ -41,7 +41,8 @@ function db(): PDO
                 $current = guide_references()['hen-gio-gui-va-hoan-tac-gmail']['figures'][0]['source'];
                 $source->execute([$previous, $current, 'hen-gio-gui-va-hoan-tac-gmail', $previous]);
             }
-            $connection->exec('PRAGMA user_version = 7');
+            install_outlook_guides($connection);
+            $connection->exec('PRAGMA user_version = 8');
         });
     }
     return $db = $connection;
@@ -74,9 +75,35 @@ function install_templates(PDO $db, string $file): void
     }
 }
 
+function install_outlook_guides(PDO $db): void
+{
+    $files = glob(__DIR__ . '/data/outlook-25/*.html');
+    if (!$files || count($files) !== 25) throw new RuntimeException('Thiếu bài trong bộ 25 hướng dẫn Outlook.');
+    $items = [];
+    foreach ($files as $file) {
+        $content = file_get_contents($file);
+        [, $body] = document_fragment($content);
+        $metadata = [];
+        foreach (file(substr($file, 0, -5) . '.seo.txt', FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES) as $line) {
+            [$key, $value] = explode(': ', $line, 2);
+            $metadata[$key] = trim($value);
+        }
+        $items[] = ['title' => $body->getElementsByTagName('h1')->item(0)->textContent,
+            'slug' => $metadata['Slug'], 'meta_title' => $metadata['Meta Title'],
+            'excerpt' => $metadata['Meta Description'], 'meta_description' => $metadata['Meta Description'],
+            'category' => 'Outlook', 'art' => 'outlook', 'content' => $content];
+    }
+    publish_seed_posts($db, $items);
+}
+
 function install_posts(PDO $db, string $file): void
 {
     $items = json_decode(file_get_contents(__DIR__ . '/data/' . $file), true, 64, JSON_THROW_ON_ERROR);
+    publish_seed_posts($db, $items);
+}
+
+function publish_seed_posts(PDO $db, array $items): void
+{
     $publish = $db->prepare("INSERT OR IGNORE INTO posts(title,slug,excerpt,content,meta_title,meta_description,category,art,status,published_at)
         VALUES (:title,:slug,:excerpt,:content,:meta_title,:meta_description,:category,:art,'published',CURRENT_TIMESTAMP)");
     foreach (array_reverse($items) as $post) {
@@ -340,7 +367,7 @@ function clean_fragment(string $html, bool $signature): string
     [$dom, $body] = document_fragment($html);
     $tags = explode(' ', $signature
         ? 'table tbody thead tfoot tr td th img a span strong b em i br p div'
-        : 'p div br h2 h3 h4 strong b em i u s ul ol li blockquote pre code a img hr small figure figcaption');
+        : 'p div br h1 h2 h3 h4 strong b em i u s ul ol li blockquote pre code a img hr small figure figcaption');
     $discard = ['script', 'style', 'iframe', 'object', 'embed', 'svg', 'math', 'template', 'form', 'textarea'];
     $walk = function (DOMNode $parent) use (&$walk, $tags, $discard, $signature): void {
         foreach (iterator_to_array($parent->childNodes) as $node) {
@@ -351,6 +378,11 @@ function clean_fragment(string $html, bool $signature): string
                 continue;
             }
             $tag = $node->tagName;
+            if (!$signature && $tag === 'svg') {
+                static $guideDiagrams;
+                $guideDiagrams ??= array_flip(file(__DIR__ . '/data/outlook-diagrams.sha256', FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES));
+                if (isset($guideDiagrams[hash('sha256', $node->C14N())])) continue;
+            }
             if (in_array($tag, $discard, true)) {
                 $parent->removeChild($node);
                 continue;
