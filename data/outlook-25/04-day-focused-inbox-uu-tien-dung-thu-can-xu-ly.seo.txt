@@ -1,4 +1,4 @@
 Meta Title: Dạy Focused Inbox ưu tiên đúng thư cần xử lý
-Meta Description: Hộp thư ưu tiên trong Outlook với hướng dẫn từng bước, sơ đồ giao diện và ví dụ trực đơn hàng đầu tuần.
+Meta Description: Hộp thư ưu tiên trong Outlook với hướng dẫn từng bước, ảnh Outlook thật và ví dụ trực đơn hàng đầu tuần.
 Slug: day-focused-inbox-uu-tien-dung-thu-can-xu-ly
 Tài liệu Microsoft tham khảo: https://support.microsoft.com/en-us/outlook/mail/focused-inbox-for-outlook

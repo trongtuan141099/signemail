@@ -1,4 +1,4 @@
 Meta Title: Cài chữ ký Outlook có logo cho thư mới và thư trả lời
-Meta Description: Cài chữ ký trong Outlook với hướng dẫn từng bước, sơ đồ giao diện và ví dụ chuẩn hóa chữ ký nhóm kinh doanh.
+Meta Description: Cài chữ ký trong Outlook với hướng dẫn từng bước, ảnh Outlook thật và ví dụ chuẩn hóa chữ ký nhóm kinh doanh.
 Slug: cai-chu-ky-outlook-co-logo-cho-thu-moi-va-thu-tra-loi
 Tài liệu Microsoft tham khảo: https://support.microsoft.com/en-us/topic/create-an-email-signature-in-outlook-0f6ec33a-94dc-c87b-ad05-3bd04e89f51c

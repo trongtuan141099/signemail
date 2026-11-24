@@ -1,4 +1,4 @@
 Meta Title: Đăng nhập Outlook Web trên máy mới và mở đúng hộp thư
-Meta Description: Đăng nhập web trong Outlook với hướng dẫn từng bước, sơ đồ giao diện và ví dụ mở hộp thư trên máy dự phòng.
+Meta Description: Đăng nhập web trong Outlook với hướng dẫn từng bước, ảnh Outlook thật và ví dụ mở hộp thư trên máy dự phòng.
 Slug: dang-nhap-outlook-web-tren-may-moi-va-mo-dung-hop-thu
 Tài liệu Microsoft tham khảo: https://support.microsoft.com/en-us/outlook/how-to-sign-in-to-outlook-on-the-web

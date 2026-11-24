@@ -1,0 +1,152 @@
+{
+  "nghe-email-outlook-de-ra-soat-noi-dung-ranh-tay": {
+    "file": "assets/guides/outlook-01-2.webp",
+    "source": "https://support.microsoft.com/en-us/outlook/listen-to-your-outlook-email-messages",
+    "by": "Microsoft",
+    "previous_hash": "15d3b6ece5f775fa285ff2390a4b1b21abd90be4e77d1a35dbb72677798545a0"
+  },
+  "giao-dung-nguoi-bang-de-cap-trong-outlook": {
+    "file": "assets/guides/outlook-02-2.webp",
+    "source": "https://support.microsoft.com/en-us/outlook/training/create-and-send-email-in-outlook",
+    "by": "Microsoft",
+    "previous_hash": "8085835a4820bf886401e69055de10bc5b42e0861dba0fe818caeb971efa8705"
+  },
+  "chia-se-lich-outlook-de-dong-nghiep-tu-tim-gio-trong": {
+    "file": "assets/guides/outlook-03-1.webp",
+    "source": "https://support.microsoft.com/en-us/outlook/sharing/share-and-access-a-calendar-with-edit-or-delegate-permissions-in-outlook",
+    "by": "Microsoft",
+    "previous_hash": "5813109ea931378e1313eb1118913b0e4fd7e3b9a17c86cbc80e38cd16401037"
+  },
+  "day-focused-inbox-uu-tien-dung-thu-can-xu-ly": {
+    "file": "assets/guides/outlook-04-3.webp",
+    "source": "https://support.microsoft.com/en-us/outlook/mail/focused-inbox-for-outlook",
+    "by": "Microsoft",
+    "previous_hash": "a8d4f70748001923a56d90ea99df289c130d76e3508e428d26727b51e2c2182e"
+  },
+  "dat-thao-tac-vuot-outlook-de-xu-ly-thu-tren-dien-thoai": {
+    "file": "assets/guides/outlook-05-2.webp",
+    "source": "https://admin.resources.osu.edu/sites/default/files/2019-11/MS_Cheatsheet_OutlookMobile_Android.pdf",
+    "by": "Microsoft",
+    "previous_hash": "86853ae2f1c4779f57593ec16ca92fff8710a30b469198d1e26e393d893e0165"
+  },
+  "chi-hien-thong-bao-outlook-cho-nguoi-gui-quan-trong": {
+    "file": "assets/guides/outlook-06-1.webp",
+    "source": "https://support.microsoft.com/en-gb/outlook/getstarted/turn-new-message-alert-pop-up-on-or-off-in-outlook?redirectsourcepath=%252fen-us%252farticle%252fturn-desktop-alerts-on-or-off-a83fe224-3109-4de0-a1ab-c33fd103a422",
+    "by": "Microsoft",
+    "previous_hash": "8af1266660a209630e389fc152c66636a1b28a1904a0d3a7832a825796680057"
+  },
+  "tao-mau-email-outlook-de-soan-thu-lap-lai-nhanh-hon": {
+    "file": "assets/guides/outlook-07-2.webp",
+    "source": "https://support.microsoft.com/en-us/outlook/mail/save-an-outlook-message-as-a-eml-file-a-pdf-file-or-as-a-draft",
+    "by": "Microsoft",
+    "previous_hash": "899fdeb68e294a248fef5c13316f101443537723232efb6db62c6624bee5178f"
+  },
+  "hen-gio-yen-lang-cho-thong-bao-outlook-di-dong": {
+    "file": "assets/guides/outlook-08-1.webp",
+    "source": "https://admin.resources.osu.edu/sites/default/files/2019-11/MS_Cheatsheet_OutlookMobile_Android.pdf",
+    "by": "Microsoft",
+    "previous_hash": "b67e7502534731a805dfdbd5705f9f85d2ac96aeae02793112e6f0e80a775a95"
+  },
+  "gom-viec-lap-lai-vao-mot-nut-quick-steps-cua-outlook": {
+    "file": "assets/guides/outlook-09-2.webp",
+    "source": "https://support.microsoft.com/en-us/outlook/mail/automate-common-or-repetitive-tasks-with-quick-steps-in-outlook",
+    "by": "Microsoft",
+    "previous_hash": "8a10f6c927924d2aa611b162975ec3f439e6d28a484202ff31ad5056e727afb3"
+  },
+  "tao-thu-va-tac-vu-outlook-tu-noi-dung-clipboard": {
+    "file": "assets/guides/outlook-10-2.webp",
+    "source": "https://support.microsoft.com/en-us/outlook/training/create-and-send-email-in-outlook",
+    "by": "Microsoft",
+    "previous_hash": "6afa8b975fe035a8c126839f3a08ea70790eb84c7f5ff2fe7602c501f759cb91"
+  },
+  "gan-co-outlook-de-theo-doi-thu-den-han": {
+    "file": "assets/guides/outlook-11-2.webp",
+    "source": "https://support.microsoft.com/en-us/outlook/flag-email-messages-for-follow-up",
+    "by": "Microsoft",
+    "previous_hash": "ac2f329527e84eabd49f260535cfc3d3b8563c651ef8d6fb1a2c717a1e8acbf8"
+  },
+  "tach-thu-cc-trong-outlook-de-doc-theo-tung-dot": {
+    "file": "assets/guides/outlook-12-1.webp",
+    "source": "https://support.microsoft.com/en-us/outlook/mail/manage-email-messages-by-using-rules-in-outlook",
+    "by": "Microsoft",
+    "previous_hash": "f5f804cd8dd83fb53af2a817cf35752452c9d3f9e5b7362296e53947ca61f7f8"
+  },
+  "phim-tat-outlook-giup-tra-loi-va-chuyen-lich-nhanh": {
+    "file": "assets/guides/outlook-13-1.webp",
+    "source": "https://support.microsoft.com/en-us/outlook/mail/save-an-outlook-message-as-a-eml-file-a-pdf-file-or-as-a-draft",
+    "by": "Microsoft",
+    "previous_hash": "ff5c06dbe46023ffc66a0450b8469b01b6eda08b1bc74452ee33eaf1d93a996b"
+  },
+  "dung-search-folders-de-gom-thu-ma-van-giu-nguyen-vi-tri": {
+    "file": "assets/guides/outlook-14-2.webp",
+    "source": "https://support.microsoft.com/en-us/outlook/mail/use-search-folders-to-find-messages-or-other-outlook-items",
+    "by": "Microsoft",
+    "previous_hash": "4d84724cf3277b036f7258bbc5fcc6b95598d53a2e00a804f586bebb75ddec64"
+  },
+  "nhap-ngay-bang-loi-trong-lich-outlook-co-dien": {
+    "file": "assets/guides/outlook-15-1.webp",
+    "source": "https://support.microsoft.com/en-us/outlook/create-or-schedule-an-appointment",
+    "by": "Microsoft",
+    "previous_hash": "c0166eeca6cbb53d4b5ab3b8d884ebbf5968ffd472ad3b90b236d85625b4937a"
+  },
+  "luu-thu-outlook-ra-desktop-de-mo-lai-dung-ho-so": {
+    "file": "assets/guides/outlook-16-3.webp",
+    "source": "https://support.microsoft.com/en-us/outlook/mail/save-an-outlook-message-as-a-eml-file-a-pdf-file-or-as-a-draft",
+    "by": "Microsoft",
+    "previous_hash": "f0da7fb07f253890aebf78f31d22f20da400a2b3fdc18c1f322a5ee0cf5c74e3"
+  },
+  "cai-outlook-tren-dien-thoai-va-kiem-tra-dong-bo-thu": {
+    "file": "assets/guides/outlook-17-2.webp",
+    "source": "https://support.microsoft.com/en-us/outlook/install-mobile/set-up-email-in-the-outlook-for-android-app",
+    "by": "Microsoft",
+    "previous_hash": "5b86f6dbcf190c5edb0d4657605b39dff1ea0d3a00c62e9edd850b84246cce4f"
+  },
+  "dang-nhap-outlook-web-tren-may-moi-va-mo-dung-hop-thu": {
+    "file": "assets/guides/outlook-18-3.webp",
+    "source": "https://support.microsoft.com/en-us/outlook/how-to-sign-in-to-outlook-on-the-web",
+    "by": "Microsoft",
+    "previous_hash": "e96ce17dcb571eb5fabe4829393680be2e28c066e6398a6ae7c7d879e4e3ce70"
+  },
+  "gui-email-outlook-chuyen-nghiep-va-kiem-tra-thu-da-gui": {
+    "file": "assets/guides/outlook-19-2.webp",
+    "source": "https://download.microsoft.com/download/F/5/0/F50F2390-6BCF-4F17-8B1E-4D37310A3C8F/MS_Cheatsheet_OutlookMobile_iOS.pdf",
+    "by": "Microsoft",
+    "previous_hash": "8d3ee6982dff57c46a82704dc1cb246008d13856a7be234a6dc388fe98729a50"
+  },
+  "cai-chu-ky-outlook-co-logo-cho-thu-moi-va-thu-tra-loi": {
+    "file": "assets/guides/outlook-20-2.webp",
+    "source": "https://support.microsoft.com/en-us/outlook/training/sign-in-and-create-a-signature-for-outlook-on-the-web",
+    "by": "Microsoft",
+    "previous_hash": "02fe839dddb39145f69ecf1540bb7cb70ddc1be19e6e4331f014f8fa15d6032c"
+  },
+  "hen-gio-gui-outlook-dung-mui-gio-cua-doi-tac": {
+    "file": "assets/guides/outlook-21-2.webp",
+    "source": "https://support.microsoft.com/en-us/outlook/mail/delay-or-schedule-sending-email-messages-in-outlook",
+    "by": "Microsoft",
+    "previous_hash": "a1f40ec5767e94a4b7fc00eb42da779c99a0ed8e744d9a2738f959ad9b1a31d2"
+  },
+  "thu-hoi-thu-outlook-gui-nham-va-dung-undo-send-dung-luc": {
+    "file": "assets/guides/outlook-22-2.webp",
+    "source": "https://support.microsoft.com/en-us/outlook/mail/how-to-recall-an-email-in-outlook-requirements-limitations-steps",
+    "by": "Microsoft",
+    "previous_hash": "6589c1bd7b7514ff9710e0f44402408a5c4afed53a62f5469be6d854f105e2dd"
+  },
+  "luu-lien-he-outlook-de-tim-dung-khach-hang-nhanh-hon": {
+    "file": "assets/guides/outlook-23-1.webp",
+    "source": "https://support.microsoft.com/en-us/outlook/create-view-and-edit-contacts-and-contact-lists-in-outlook",
+    "by": "Microsoft",
+    "previous_hash": "36bf2e4b21d21023d0d81aa999e24dc34a69acd0633cae42552d94bd7ae1fd45"
+  },
+  "tao-lich-hop-teams-tu-outlook-va-gui-dung-lien-ket": {
+    "file": "assets/guides/outlook-24-2.webp",
+    "source": "https://helpdesk.tti.tamu.edu/support/solutions/articles/18000079400",
+    "by": "Texas A&M Transportation Institute",
+    "previous_hash": "4ed16c11c0156c83113b5096fd70b16761552b392b014626eb3022438067fff4"
+  },
+  "don-hop-thu-outlook-de-lay-lai-dung-luong-co-kiem-soat": {
+    "file": "assets/guides/outlook-25-2.webp",
+    "source": "https://support.microsoft.com/en-us/outlook/empty-the-deleted-items-folder-in-outlook",
+    "by": "Microsoft",
+    "previous_hash": "230e341401da230d9f0e560422b3d75823d4abcc64d855b5c3b7caf56e4992fc"
+  }
+}

@@ -295,6 +295,9 @@ html { scroll-padding-top: 12px; }
 .reference-credit { font-size: .74rem; color: inherit; opacity: .88; }
 .post-photo img[src$="-11.webp"], .blog-lead-photo img[src$="-11.webp"] { object-fit: contain; object-position: center; background: #edf2e9; }
 .post-card:hover .post-photo img[src$="-11.webp"] { transform: none; }
+.post-photo img[src*="/guides/outlook-"], .blog-lead-photo img[src*="/guides/outlook-"], .article-reference-cover img[src*="/guides/outlook-"] { object-fit: contain; object-position: center; background: #f2f5f7; }
+.post-card:hover .post-photo img[src*="/guides/outlook-"] { transform: none; }
+.article-content figure img[src*="/guides/outlook-"] { width: auto; max-width: 100%; height: auto; margin-inline: auto; border-radius: 0; }
 .article-content .ad-slot { grid-column: auto; margin-block: 17px; }
 @media (max-width: 900px) {
     .template-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }

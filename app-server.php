@@ -14,10 +14,10 @@ function db(): PDO
         PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
     ]);
     $connection->exec('PRAGMA busy_timeout = 5000; PRAGMA foreign_keys = ON');
-    if ((int) $connection->query('PRAGMA user_version')->fetchColumn() < 8) {
+    if ((int) $connection->query('PRAGMA user_version')->fetchColumn() < 9) {
         immediate_write($connection, static function () use ($connection): void {
             $version = (int) $connection->query('PRAGMA user_version')->fetchColumn();
-            if ($version >= 8) return;
+            if ($version >= 9) return;
             $connection->exec(file_get_contents(__DIR__ . '/database.sql'));
             add_release_columns($connection);
 
@@ -41,8 +41,8 @@ function db(): PDO
                 $current = guide_references()['hen-gio-gui-va-hoan-tac-gmail']['figures'][0]['source'];
                 $source->execute([$previous, $current, 'hen-gio-gui-va-hoan-tac-gmail', $previous]);
             }
-            install_outlook_guides($connection);
-            $connection->exec('PRAGMA user_version = 8');
+            install_outlook_guides($connection, $version === 8);
+            $connection->exec('PRAGMA user_version = 9');
         });
     }
     return $db = $connection;
@@ -75,7 +75,13 @@ function install_templates(PDO $db, string $file): void
     }
 }
 
-function install_outlook_guides(PDO $db): void
+function outlook_photo_index(): array
+{
+    static $index;
+    return $index ??= json_decode(file_get_contents(__DIR__ . '/data/outlook-photo-index.json'), true, 64, JSON_THROW_ON_ERROR);
+}
+
+function install_outlook_guides(PDO $db, bool $upgrade = false): void
 {
     $files = glob(__DIR__ . '/data/outlook-25/*.html');
     if (!$files || count($files) !== 25) throw new RuntimeException('Thiếu bài trong bộ 25 hướng dẫn Outlook.');
@@ -93,7 +99,18 @@ function install_outlook_guides(PDO $db): void
             'excerpt' => $metadata['Meta Description'], 'meta_description' => $metadata['Meta Description'],
             'category' => 'Outlook', 'art' => 'outlook', 'content' => $content];
     }
-    publish_seed_posts($db, $items);
+    if (!$upgrade) {
+        publish_seed_posts($db, $items);
+        return;
+    }
+    $read = $db->prepare('SELECT content FROM posts WHERE slug=?');
+    $update = $db->prepare('UPDATE posts SET content=?, excerpt=replace(excerpt,?,?), meta_description=replace(meta_description,?,?), updated_at=CURRENT_TIMESTAMP WHERE slug=?');
+    foreach ($items as $item) {
+        $read->execute([$item['slug']]);
+        $previous = $read->fetchColumn();
+        if ($previous === false || hash('sha256', $previous) !== outlook_photo_index()[$item['slug']]['previous_hash']) continue;
+        $update->execute([clean_fragment($item['content'], false), 'sơ đồ giao diện', 'ảnh Outlook thật', 'sơ đồ giao diện', 'ảnh Outlook thật', $item['slug']]);
+    }
 }
 
 function install_posts(PDO $db, string $file): void
@@ -187,9 +204,9 @@ function guide_html(array $guide, ?array $reference = null): string
 function guide_cover_credit(array $post): ?string
 {
     if ($post['cover']) return null;
-    $photo = guide_references()[$post['slug']]['figures'][0] ?? null;
+    $photo = outlook_photo_index()[$post['slug']] ?? guide_references()[$post['slug']]['figures'][0] ?? null;
     if (!$photo || !$photo['source']) return null;
-    return $photo['by'] === 'Microsoft' ? 'Microsoft Support · Used with permission from Microsoft.' : 'Ảnh giao diện: Google.';
+    return $photo['by'] === 'Microsoft' ? 'Microsoft · Used with permission from Microsoft.' : 'Ảnh giao diện: ' . $photo['by'] . '.';
 }
 
 function editorial_image(string $src): bool
@@ -516,7 +533,7 @@ function blog_categories(): array
 function blog_cover(array $post): string
 {
     if ($post['cover']) return linkto('uploads/' . $post['cover']);
-    $reference = guide_references()[$post['slug']]['figures'][0]['file'] ?? '';
+    $reference = outlook_photo_index()[$post['slug']]['file'] ?? guide_references()[$post['slug']]['figures'][0]['file'] ?? '';
     if ($reference && is_file(__DIR__ . '/' . $reference)) return linkto($reference);
     $edition = 'assets/guides/' . $post['slug'] . '-cover.webp';
     if (preg_match('/^[a-z0-9-]+$/D', $post['slug']) && is_file(__DIR__ . '/' . $edition)) return linkto($edition);

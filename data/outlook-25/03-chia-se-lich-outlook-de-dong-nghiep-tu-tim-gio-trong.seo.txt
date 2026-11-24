@@ -1,4 +1,4 @@
 Meta Title: Chia sẻ lịch Outlook để đồng nghiệp tự tìm giờ trống
-Meta Description: Chia sẻ lịch trong Outlook với hướng dẫn từng bước, sơ đồ giao diện và ví dụ xếp lịch phỏng vấn.
+Meta Description: Chia sẻ lịch trong Outlook với hướng dẫn từng bước, ảnh Outlook thật và ví dụ xếp lịch phỏng vấn.
 Slug: chia-se-lich-outlook-de-dong-nghiep-tu-tim-gio-trong
 Tài liệu Microsoft tham khảo: https://support.microsoft.com/en-us/outlook/sharing/share-and-access-a-calendar-with-edit-or-delegate-permissions-in-outlook

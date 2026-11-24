@@ -1,4 +1,4 @@
 Meta Title: Dọn hộp thư Outlook để lấy lại dung lượng có kiểm soát
-Meta Description: Dọn dung lượng trong Outlook với hướng dẫn từng bước, sơ đồ giao diện và ví dụ thu hồi dung lượng trước kỳ chốt sổ.
+Meta Description: Dọn dung lượng trong Outlook với hướng dẫn từng bước, ảnh Outlook thật và ví dụ thu hồi dung lượng trước kỳ chốt sổ.
 Slug: don-hop-thu-outlook-de-lay-lai-dung-luong-co-kiem-soat
 Tài liệu Microsoft tham khảo: https://support.microsoft.com/en-us/outlook/empty-the-deleted-items-folder-in-outlook

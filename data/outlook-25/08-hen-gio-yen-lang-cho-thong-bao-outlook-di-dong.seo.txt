@@ -1,4 +1,4 @@
 Meta Title: Hẹn giờ yên lặng cho thông báo Outlook di động
-Meta Description: Tạm ngắt thông báo trong Outlook với hướng dẫn từng bước, sơ đồ giao diện và ví dụ bảo vệ giờ làm việc sâu.
+Meta Description: Tạm ngắt thông báo trong Outlook với hướng dẫn từng bước, ảnh Outlook thật và ví dụ bảo vệ giờ làm việc sâu.
 Slug: hen-gio-yen-lang-cho-thong-bao-outlook-di-dong
 Tài liệu Microsoft tham khảo: https://support.microsoft.com/en-us/outlook/training/manage-your-notifications-in-outlook-mobile

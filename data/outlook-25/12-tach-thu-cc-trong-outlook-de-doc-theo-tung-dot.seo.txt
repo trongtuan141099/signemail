@@ -1,4 +1,4 @@
 Meta Title: Tách thư CC trong Outlook để đọc theo từng đợt
-Meta Description: Phân luồng thư CC trong Outlook với hướng dẫn từng bước, sơ đồ giao diện và ví dụ xử lý thư sao gửi của dự án.
+Meta Description: Phân luồng thư CC trong Outlook với hướng dẫn từng bước, ảnh Outlook thật và ví dụ xử lý thư sao gửi của dự án.
 Slug: tach-thu-cc-trong-outlook-de-doc-theo-tung-dot
 Tài liệu Microsoft tham khảo: https://support.microsoft.com/en-us/outlook/mail/manage-email-messages-by-using-rules-in-outlook

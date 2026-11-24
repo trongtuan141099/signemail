@@ -1,4 +1,4 @@
 Meta Title: Hẹn giờ gửi Outlook đúng múi giờ của đối tác
-Meta Description: Hẹn giờ gửi trong Outlook với hướng dẫn từng bước, sơ đồ giao diện và ví dụ gửi đề xuất sáng thứ hai tại tokyo.
+Meta Description: Hẹn giờ gửi trong Outlook với hướng dẫn từng bước, ảnh Outlook thật và ví dụ gửi đề xuất sáng thứ hai tại tokyo.
 Slug: hen-gio-gui-outlook-dung-mui-gio-cua-doi-tac
 Tài liệu Microsoft tham khảo: https://support.microsoft.com/en-us/outlook/create-reply-to-or-forward-email-messages-in-outlook-com

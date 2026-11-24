@@ -95,7 +95,7 @@
         textarea.value = quill.getSemanticHTML();
         showSource();
     });
-    if (/<svg\b/i.test(textarea.value)) showSource();
+    if (/<svg\b|assets\/guides\/outlook-\d+-\d+\.webp/i.test(textarea.value)) showSource();
     textarea.previousElementSibling.htmlFor = '';
     form.addEventListener('submit', () => {
         if (!textarea.hidden) return;
