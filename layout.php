@@ -2,7 +2,7 @@
 declare(strict_types=1);
 require_once __DIR__ . '/app-server.php';
 
-function page_header(string $title, string $description, string $active = '', string $canonical = '', string $image = '', string $activity = ''): void
+function page_header(string $title, string $description, string $active = '', string $canonical = '', string $image = '', string $activity = '', ?array $structuredData = null): void
 {
     header('Content-Type: text/html; charset=UTF-8');
     header('X-Content-Type-Options: nosniff');
@@ -14,6 +14,9 @@ function page_header(string $title, string $description, string $active = '', st
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title><?= h($title) ?></title>
     <meta name="description" content="<?= h($description) ?>">
+    <link rel="icon" href="<?= h(linkto('favicon.png')) ?>" type="image/png" sizes="96x96">
+    <link rel="icon" href="<?= h(linkto('favicon.svg')) ?>" type="image/svg+xml" sizes="any">
+    <link rel="apple-touch-icon" href="<?= h(linkto('favicon.png')) ?>" sizes="96x96">
     <?php if ($canonical): ?>
     <link rel="canonical" href="<?= h(canonical_url($canonical)) ?>">
     <meta property="og:url" content="<?= h(canonical_url($canonical)) ?>">
@@ -21,6 +24,9 @@ function page_header(string $title, string $description, string $active = '', st
     <meta property="og:title" content="<?= h($title) ?>">
     <meta property="og:description" content="<?= h($description) ?>">
     <?php if ($image): ?><meta property="og:image" content="<?= h(canonical_url($image)) ?>"><?php endif; ?>
+    <?php if ($structuredData !== null): ?>
+    <script type="application/ld+json"><?= json_encode($structuredData, JSON_HEX_TAG | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_THROW_ON_ERROR) ?></script>
+    <?php endif; ?>
     <link rel="stylesheet" href="<?= h(asset_url('assets/site.css')) ?>">
     <link rel="stylesheet" href="<?= h(asset_url('assets/studio.css')) ?>">
     <script defer src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>

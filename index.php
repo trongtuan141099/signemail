@@ -5,7 +5,15 @@ require __DIR__ . '/layout.php';
 $templates = array_map('template_record', db()->query('SELECT id,name,style,role,html,animated,accent,motion FROM templates WHERE visible=1 ORDER BY id')->fetchAll());
 $posts = published_posts(3);
 $popular = array_map('intval', array_column(popular_templates(30, 6), 'id'));
-page_header('SignEmail Studio · Tạo chữ ký email chuyên nghiệp', 'Thiết kế chữ ký email có logo công ty, liên kết và GIF cho Gmail, Outlook.', 'tool', linkto(), '', 'editor');
+page_header(
+    'Tạo Chữ Ký Email Online Miễn Phí (Gmail & Outlook) | SignEmail Studio',
+    'Công cụ tạo chữ ký email chuyên nghiệp miễn phí cho Gmail và Outlook. Hơn 100 mẫu đẹp, chữ ký động GIF, chèn logo & mạng xã hội chỉ với 1 cú nhấp copy-paste.',
+    'tool',
+    linkto(),
+    '',
+    'editor',
+    ['@context' => 'https://schema.org', '@type' => 'WebSite', 'name' => 'SignEmail Studio - TT-Hub', 'url' => 'https://tt-hub.io.vn/']
+);
 
 function editor_field(string $key, string $label, string $type = 'text', string $placeholder = '', string $value = '', string $class = ''): void
 {
@@ -51,7 +59,7 @@ $steps = ['templates'=>['▤','Mẫu chữ ký'], 'personal'=>['◉','Hồ sơ']
     <section class="studio-hero shell">
         <div class="studio-intro">
             <p class="eyebrow"><span aria-hidden="true"></span> SignEmail Studio</p>
-            <h1>Chữ ký email<em>mang dấu ấn riêng.</em></h1>
+            <h1>Chữ ký email <em>mang dấu ấn riêng.</em></h1>
             <p>Tạo chữ ký có logo thương hiệu, liên kết và GIF. Xem trước rồi sao chép vào Gmail hoặc Outlook.</p>
             <a class="button studio-start" href="#editor">Bắt đầu thiết kế</a>
         </div>
