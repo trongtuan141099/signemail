@@ -29,13 +29,27 @@
         featuredStyles.add(model.style);
         return true;
     });
-    const curated = [...highlights, ...templates.filter((model) => !highlights.includes(model))];
-    const demoLogo = new URL(config.demoLogo, window.location.href).href;
+    const popularIds = new Set(config.popular);
+    const ranked = config.popular.map((id) => templates.find((model) => model.id === id)).filter(Boolean);
+    const curated = [...new Set([...ranked, ...highlights, ...templates])];
+    const wideMotions = new Set(config.wideMotions);
     const motionDirectory = new URL(config.motionDirectory, window.location.href);
-    const iconDirectory = new URL(config.icons, window.location.href);
+    const iconRenderer = new URL(config.iconRenderer, window.location.href);
+    const exampleFill = byId('example-fill');
+    const components = Object.fromEntries([...document.querySelectorAll('[data-component]')].map((input) => [input.dataset.component, input]));
+    const touched = new Set();
+    const groups = {
+        name: ['full_name'], role: ['job_title'], company: ['company'],
+        phone: ['phone','phone_href'], email: ['email'], website: ['website'], address: ['address'],
+        logo: ['logo_url'], avatar: ['avatar_url'],
+        social: ['social_icons'], cta: ['cta_url'], banner: ['banner_url'], motion: ['motion_url'],
+        greeting: ['greeting']
+    };
 
     let selected = curated[0];
-    let visibleLimit = 6;
+    const initialLimit = () => window.matchMedia('(max-width: 540px)').matches ? 2 : 4;
+    let visibleLimit = initialLimit();
+    let exampleMode = true;
     let motionFilter = '';
     let customColor = false;
 
@@ -65,8 +79,35 @@
         return luminance > .179 ? '#000000' : '#ffffff';
     }
 
+    function setMotion(values, key) {
+        values.motion_url = !config.motionKeys.includes(key) ? ''
+            : key === 'dots' ? new URL(config.motion, window.location.href).href : new URL(key + '.gif', motionDirectory).href;
+        [values.motion_width, values.motion_height] = wideMotions.has(key) ? [108,28] : key === 'dots' ? [36,10] : [52,18];
+        return values;
+    }
+
+    function exampleFields(model, thumbnail = false) {
+        const asset = (name) => new URL(config[name], window.location.href).href;
+        return setMotion({
+            full_name: 'Minh Anh', job_title: 'Quản lý thương hiệu', company: 'Studio North',
+            phone: '090 123 4567', phone_href: '0901234567', email: 'minh@example.com',
+            website: 'https://example.com', address: 'TP. Hồ Chí Minh',
+            avatar_url: asset('demoAvatar'), logo_url: asset('demoLogo'), logo_width: thumbnail ? 33 : 52,
+            social_icons: '1', social_facebook: 'https://example.com/facebook', social_zalo: 'https://example.com/zalo',
+            social_linkedin: 'https://example.com/linkedin', social_motion: !thumbnail && model.animated && !prefersStill.matches ? 'animated' : 'static',
+            cta_label: 'Đặt lịch hẹn', cta_url: 'https://example.com/booking',
+            banner_url: asset('demoBanner'), banner_link: 'https://example.com/studio',
+            primary_color: model.accent, contrast_color: contrastColor(model.accent),
+            font_family: 'Arial, sans-serif', font_size: '13', name_size: '18', avatar_radius: '50%',
+        }, model.animated && !prefersStill.matches ? model.motion : 'off');
+    }
+
     function readFields(model) {
         const values = Object.fromEntries(fields.map((field) => [field.dataset.field, field.value.trim()]));
+        return renderValues(model, values);
+    }
+
+    function renderValues(model, values) {
         for (const name of ['website', 'avatar_url', 'logo_url', 'banner_url', 'banner_link', 'cta_url']) {
             values[name] = httpUrl(values[name]);
         }
@@ -78,10 +119,24 @@
         values.name_size = String(Number(values.font_size) + 5);
         let motion = values.motion_choice;
         if (motion === 'auto') motion = model.animated && !prefersStill.matches ? model.motion : 'off';
-        values.motion_url = !config.motionKeys.includes(motion) ? ''
-            : motion === 'dots' ? new URL(config.motion, window.location.href).href : new URL(motion + '.gif', motionDirectory).href;
         values.social_icons = Object.keys(socialNetworks).some((key) => httpUrl(values['social_' + key])) ? '1' : '';
+        setMotion(values, motion);
+        for (const [key, names] of Object.entries(groups)) {
+            if (!components[key].checked) for (const name of names) values[name] = '';
+        }
         return values;
+    }
+
+    function draftPreview(model, data) {
+        if (!exampleFill.checked) return data;
+        const sample = exampleFields(model);
+        const merged = {};
+        const content = ['full_name','job_title','company','phone','email','website','address','avatar_url','logo_url','banner_url','banner_link',
+            'cta_url', ...Object.keys(socialNetworks).map((key) => 'social_' + key)];
+        for (const key of content) {
+            merged[key] = data[key] || (touched.has(key) ? '' : (sample[key] || ''));
+        }
+        return renderValues(model, { ...data, ...merged });
     }
 
     function socialTable(values) {
@@ -97,9 +152,11 @@
             link.href = url;
             link.setAttribute('style', 'text-decoration:none');
             const icon = document.createElement('img');
-            icon.src = values.social_motion === 'animated'
-                ? new URL('social-' + key + '.gif', motionDirectory).href
-                : new URL(key + '.png', iconDirectory).href;
+            const source = new URL(iconRenderer);
+            source.searchParams.set('network', key);
+            if (values.icon_tone !== 'network') source.searchParams.set('color', values.primary_color.slice(1));
+            if (values.social_motion === 'animated') source.searchParams.set('animated', '1');
+            icon.src = source.href;
             icon.alt = label;
             icon.width = 22;
             icon.height = 22;
@@ -139,6 +196,12 @@
                     }
                 }
                 element.setAttribute(name, resolved);
+                if (name === 'src' && value === '{{motion_url}}') {
+                    element.width = values.motion_width;
+                    element.height = values.motion_height;
+                    element.style.width = values.motion_width + 'px';
+                    element.style.height = values.motion_height + 'px';
+                }
             }
         }
 
@@ -160,11 +223,27 @@
         }
         const table = fragment.firstElementChild;
         if (table?.tagName === 'TABLE') {
+            const nested = Array.from(table.querySelectorAll('table')).reverse();
+            for (const inner of nested) {
+                if (Array.from(inner.rows).some((row) => row.cells.length > 0)) continue;
+                const cell = inner.parentElement;
+                inner.remove();
+                if (cell.tagName === 'TD' && !cell.childElementCount && !cell.textContent.trim()) {
+                    const row = cell.parentElement;
+                    cell.remove();
+                    if (!row.cells.length) row.remove();
+                }
+            }
             if (values.logo_url && !model.html.includes('{{logo_url}}')) {
                 appendSignatureImage(table, values.logo_url, Number(values.logo_width), 0, 'Logo ' + values.company, 0);
             }
+            if (values.greeting) {
+                const cell = table.insertRow(0).insertCell();
+                cell.style.cssText = 'padding:0 0 8px;font-family:' + values.font_family + ';font-size:' + values.font_size + 'px';
+                cell.textContent = values.greeting;
+            }
             if (values.motion_url && !model.html.includes('{{motion_url}}')) {
-                appendSignatureImage(table, values.motion_url, 52, 18, '', -1);
+                appendSignatureImage(table, values.motion_url, values.motion_width, values.motion_height, '', -1);
             }
         }
         return fragment;
@@ -184,9 +263,17 @@
 
     function render() {
         signature.replaceChildren();
-        if (selected) signature.append(buildSignature(selected, readFields(selected)));
+        const personal = selected && readFields(selected);
+        const data = personal ? (exampleMode ? exampleFields(selected) : draftPreview(selected, personal)) : null;
+        if (data) signature.append(buildSignature(selected, data));
+        const hasProfile = personal && ['full_name','company','job_title','phone','email','website','address','logo_url','avatar_url','banner_url','social_icons','cta_url','greeting'].some((key) => personal[key]);
+        byId('mail-signoff').hidden = !!data?.greeting;
+        byId('example-fill-label').hidden = exampleMode;
         byId('selected-preview').textContent = selected ? selected.name + ' · ' + selected.style : 'Chưa có mẫu để xem';
-        copy.disabled = !signature.firstElementChild || pendingUploads.size > 0;
+        byId('preview-mode').textContent = exampleMode ? 'Bản minh họa đầy đủ' : exampleFill.checked ? 'Xem trước có dữ liệu mẫu' : hasProfile ? 'Chữ ký để sao chép' : 'Thêm thông tin để sao chép';
+        byId('example-toggle').textContent = exampleMode ? 'Dùng mẫu này' : 'Xem mẫu gốc';
+        byId('example-toggle').disabled = !selected;
+        copy.disabled = exampleMode || !hasProfile || !signature.firstElementChild || pendingUploads.size > 0;
     }
 
     function searchable(value) {
@@ -227,15 +314,7 @@
             artwork.setAttribute('aria-hidden', 'true');
             const miniature = document.createElement('div');
             miniature.className = 'template-mini';
-            miniature.append(buildSignature(model, {
-                full_name: 'Minh Anh', job_title: 'Brand Manager', company: 'Studio North',
-                phone: '+84 901 234 567', phone_href: '+84901234567', email: 'hello@example.com',
-                website: 'https://example.com', address: '', avatar_url: '', social_icons: '',
-                logo_url: model.html.includes('{{logo_url}}') ? demoLogo : '', logo_width: '33',
-                primary_color: model.accent, contrast_color: contrastColor(model.accent),
-                font_family: 'Arial, sans-serif', font_size: '13', name_size: '18', avatar_radius: '50%',
-                cta_url: '', banner_url: '', banner_link: '', motion_url: ''
-            }));
+            miniature.append(buildSignature(model, exampleFields(model, true)));
             for (const node of miniature.querySelectorAll('a')) node.removeAttribute('href');
             artwork.append(miniature);
             const label = document.createElement('span');
@@ -243,7 +322,7 @@
             label.textContent = model.name;
             const detail = document.createElement('span');
             detail.className = 'template-detail';
-            detail.textContent = model.style;
+            detail.textContent = model.style + (popularIds.has(model.id) ? ' · Được chọn nhiều' : '');
             if (model.animated) {
                 const tag = document.createElement('span');
                 tag.className = 'template-motion-tag';
@@ -253,6 +332,7 @@
             button.append(artwork, label, detail);
             button.addEventListener('click', () => {
                 selected = model;
+                document.dispatchEvent(new CustomEvent('signemail:template', { detail: model.id }));
                 if (!customColor) colorField.value = selected.accent;
                 grid.querySelector('[aria-pressed="true"]')?.setAttribute('aria-pressed', 'false');
                 button.setAttribute('aria-pressed', 'true');
@@ -267,17 +347,28 @@
             more.textContent = 'Xem thêm mẫu';
             more.addEventListener('click', () => {
                 const next = matches[visibleLimit].id;
-                visibleLimit += 6;
+                visibleLimit += 4;
                 drawTemplates();
                 grid.querySelector('[data-id="' + next + '"]')?.focus();
             });
             grid.append(more);
         }
+        fitGallery();
     }
+
+    function fitGallery() {
+        for (const art of grid.querySelectorAll('.template-art')) {
+            const mini = art.querySelector('.template-mini');
+            mini.style.zoom = '1';
+            const width = mini.getBoundingClientRect().width;
+            if (width && art.clientWidth) mini.style.zoom = String(Math.min(1, (art.clientWidth - 20) / width));
+        }
+    }
+    if ('ResizeObserver' in window) new ResizeObserver(fitGallery).observe(grid);
 
     for (const control of [search, styleFilter, roleFilter]) {
         control.addEventListener(control === search ? 'input' : 'change', () => {
-            visibleLimit = 6;
+            visibleLimit = initialLimit();
             drawTemplates();
         });
     }
@@ -285,13 +376,24 @@
     for (const button of motionFilters) {
         button.addEventListener('click', () => {
             motionFilter = button.dataset.templateMotion;
-            visibleLimit = 6;
+            visibleLimit = initialLimit();
             motionFilters.forEach((item) => item.setAttribute('aria-pressed', String(item === button)));
             drawTemplates();
         });
     }
 
-    for (const field of fields) field.addEventListener('input', render);
+    for (const field of fields) field.addEventListener('input', () => {
+        touched.add(field.dataset.field);
+        exampleMode = false;
+        render();
+    });
+    for (const input of Object.values(components)) {
+        input.addEventListener('change', () => {
+            exampleMode = false;
+            render();
+        });
+    }
+    exampleFill.addEventListener('change', render);
     colorField.addEventListener('input', () => { customColor = true; });
     byId('template-color').addEventListener('click', () => {
         if (!selected) return;
@@ -299,7 +401,42 @@
         colorField.value = selected.accent;
         render();
     });
-    prefersStill.addEventListener('change', render);
+    prefersStill.addEventListener('change', () => {
+        drawTemplates();
+        render();
+    });
+    signature.addEventListener('click', (event) => {
+        const link = event.target.closest('a');
+        if (!link || !selected || (!exampleMode && !exampleFill.checked)) return;
+        const fields = readFields(selected);
+        const providedLinks = ['website','cta_url','banner_link', ...Object.keys(socialNetworks).map((key) => 'social_' + key)]
+            .map((key) => httpUrl(fields[key]));
+        providedLinks.push('mailto:' + fields.email, 'tel:' + fields.phone_href);
+        if (exampleMode || !providedLinks.includes(link.getAttribute('href'))) event.preventDefault();
+    });
+
+    async function compressRaster(file, key) {
+        const url = URL.createObjectURL(file);
+        try {
+            const source = new Image();
+            source.src = url;
+            await source.decode();
+            const maxEdge = key === 'banner_url' ? 1100 : 640;
+            const ratio = Math.min(1, maxEdge / Math.max(source.naturalWidth, source.naturalHeight));
+            const canvas = document.createElement('canvas');
+            const context = canvas.getContext('2d');
+            for (const reduction of [1, .75, .5]) {
+                canvas.width = Math.max(1, Math.round(source.naturalWidth * ratio * reduction));
+                canvas.height = Math.max(1, Math.round(source.naturalHeight * ratio * reduction));
+                context.drawImage(source, 0, 0, canvas.width, canvas.height);
+                const blob = await new Promise((resolve) => canvas.toBlob(resolve, 'image/png'));
+                if (blob && blob.size <= config.uploadLimit) return blob;
+            }
+            throw new Error('Tệp ảnh vượt giới hạn tải lên của máy chủ.');
+        } finally {
+            URL.revokeObjectURL(url);
+        }
+    }
 
     for (const box of document.querySelectorAll('[data-upload-box]')) {
         const key = box.dataset.uploadBox;
@@ -347,25 +484,47 @@
         async function upload(file) {
             cancelUpload();
             if (!file) return;
-            if (file.size > 2 * 1024 * 1024) {
-                status.textContent = 'Chọn ảnh không quá 2 MB.';
+            const gif = file.type === 'image/gif' || /\.gif$/i.test(file.name);
+            if (gif && file.size > Math.min(config.uploadLimit, 3 * 1024 * 1024)) {
+                status.textContent = 'GIF vượt giới hạn tải. Bạn có thể dùng URL GIF công khai.';
                 return;
             }
             const control = new AbortController();
+            exampleMode = false;
             pendingUploads.set(key, control);
             status.textContent = 'Đang tải ảnh…';
             render();
-            const form = new FormData();
-            form.append('image', file);
-            try {
+            async function requestImage(image, filename) {
+                const form = new FormData();
+                form.append('kind', key);
+                form.append('image', image, filename);
                 const response = await fetch(config.upload, {
                     method: 'POST', body: form, signal: control.signal,
                     headers: { 'X-SignEmail-Upload': 'brand' }
                 });
-                const data = await response.json();
-                if (!response.ok) throw new Error(data.error || 'Không thể tải ảnh.');
+                const data = await response.json().catch(() => ({
+                    code: response.status === 413 ? 'size' : 'server',
+                    error: response.status === 413 ? 'Tệp vượt giới hạn của máy chủ.' : 'Máy chủ chưa nhận được ảnh.'
+                }));
+                return { ok: response.ok && !!data.url, data };
+            }
+
+            try {
+                const needsResize = file.size > config.uploadLimit;
+                let result;
+                if (!needsResize) result = await requestImage(file, file.name);
+                if (!gif && (needsResize || !result.ok && ['size','dimensions','format','decode'].includes(result.data.code))) {
+                    status.textContent = 'Đang chuẩn bị ảnh…';
+                    const compressed = await compressRaster(file, key).catch(() => {
+                        throw new Error(result?.data.error || 'Không đọc được ảnh này. Hãy thử với PNG hoặc JPG.');
+                    });
+                    result = await requestImage(compressed, 'image.png');
+                }
+                if (!result.ok) throw new Error(result.data.error || 'Không thể tải ảnh.');
+                const { data } = result;
                 if (pendingUploads.get(key) !== control) return;
                 urlField.value = new URL(data.url, window.location.href).href;
+                touched.add(key);
                 status.textContent = 'Đã tải ảnh.';
                 syncThumbnail();
             } catch (error) {
@@ -399,6 +558,7 @@
 
     function selectTab(active, moveFocus = false) {
         step = tabs.indexOf(active);
+        if (step > 0) exampleMode = false;
         byId('step-status').textContent = 'Bước ' + (step + 1) + ' / ' + tabs.length;
         byId('step-name').textContent = active.lastElementChild.textContent;
         byId('step-progress').value = step + 1;
@@ -409,15 +569,44 @@
             tab.tabIndex = tab === active ? 0 : -1;
             byId(tab.getAttribute('aria-controls')).hidden = tab !== active;
         }
+        if (active.id === 'tab-templates') fitGallery();
+        render();
         if (moveFocus) {
             active.focus({ preventScroll: true });
             byId('editor').scrollIntoView({ block: 'start' });
         }
     }
 
+    byId('example-toggle').addEventListener('click', () => {
+        if (exampleMode) {
+            exampleMode = false;
+            if (step === 0) {
+                if (selected) document.dispatchEvent(new CustomEvent('signemail:template', { detail: selected.id }));
+                selectTab(tabs[1], true);
+            } else render();
+            return;
+        }
+        exampleMode = true;
+        render();
+    });
+
+    const motionChoice = document.querySelector('[data-field="motion_choice"]');
+    const motionTiles = Array.from(document.querySelectorAll('[data-motion-choice]'));
+    function syncMotionTiles() {
+        motionTiles.forEach((tile) => tile.setAttribute('aria-pressed', String(tile.dataset.motionChoice === motionChoice.value)));
+    }
+    motionChoice.addEventListener('input', syncMotionTiles);
+    for (const tile of motionTiles) {
+        tile.addEventListener('click', () => {
+            motionChoice.value = tile.dataset.motionChoice;
+            motionChoice.dispatchEvent(new Event('input'));
+        });
+    }
+
     previousStep.addEventListener('click', () => selectTab(tabs[step - 1], true));
     nextStep.addEventListener('click', () => {
         if (step < tabs.length - 1) {
+            if (step === 0 && selected) document.dispatchEvent(new CustomEvent('signemail:template', { detail: selected.id }));
             selectTab(tabs[step + 1], true);
             return;
         }
@@ -453,11 +642,13 @@
         dialog.showModal();
     });
 
-    function legacyCopy(html, plain) {
+    dialog.addEventListener('close', () => byId('install-video').pause());
+
+    function legacyCopy(exportArea, html, plain) {
         const selection = window.getSelection();
         if (!selection || !document.execCommand) return false;
         const range = document.createRange();
-        range.selectNodeContents(signature);
+        range.selectNodeContents(exportArea);
         selection.removeAllRanges();
         selection.addRange(range);
         const setFormats = (event) => {
@@ -477,8 +668,14 @@
     }
 
     copy.addEventListener('click', async () => {
-        const html = signature.innerHTML;
-        const plain = signature.innerText.trim();
+        if (copy.disabled) return;
+        const exportArea = document.createElement('div');
+        exportArea.className = 'signature-export';
+        exportArea.setAttribute('aria-hidden', 'true');
+        exportArea.append(buildSignature(selected, readFields(selected)));
+        document.body.append(exportArea);
+        const html = exportArea.innerHTML;
+        const plain = exportArea.innerText.trim();
         let copied = false;
         if (window.isSecureContext && navigator.clipboard?.write && window.ClipboardItem) {
             try {
@@ -488,10 +685,15 @@
                 })]);
                 copied = true;
             } catch {
-                copied = legacyCopy(html, plain);
+                copied = legacyCopy(exportArea, html, plain);
             }
         } else {
-            copied = legacyCopy(html, plain);
+            copied = legacyCopy(exportArea, html, plain);
+        }
+        exportArea.remove();
+        if (!copied) {
+            exampleFill.checked = false;
+            render();
         }
         byId('copy-title').textContent = copied ? 'Đã sao chép chữ ký' : 'Hãy chọn chữ ký trong khung xem trước và sao chép';
         dialog.showModal();

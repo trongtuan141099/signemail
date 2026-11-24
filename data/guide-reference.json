@@ -1,0 +1,373 @@
+{
+  "cai-chu-ky-trong-outlook": {
+    "figures": [
+      {
+        "file": "assets/guides/ms-web-signature-11.webp",
+        "caption": "Chữ ký và lựa chọn mặc định cho thư mới trong Microsoft Outlook trên web.",
+        "source": "https://support.microsoft.com/en-us/outlook/training/sign-in-and-create-a-signature-for-outlook-on-the-web",
+        "by": "Microsoft"
+      },
+      {
+        "file": "assets/guides/ms-classic-stationery-11.webp",
+        "caption": "Hộp thoại Signatures and Stationery của Microsoft Outlook cổ điển. Mở thẻ E-mail Signature để quản lý chữ ký.",
+        "source": "https://support.microsoft.com/en-gb/outlook/create-change-or-customize-a-view-in-outlook?nochrome=true",
+        "by": "Microsoft"
+      }
+    ],
+    "notes": [
+      {
+        "title": "Chọn đúng tài khoản và loại thư",
+        "detail": "Đặt tên dễ nhận biết, ví dụ Công việc – thư mới và Công việc – trả lời. Trong Microsoft Outlook mới hoặc trên web, kiểm tra tài khoản đang chọn trước khi lưu. Outlook cổ điển dùng vùng Choose default signature để gán riêng thư mới và trả lời/chuyển tiếp.",
+        "list": [
+          "Nếu muốn chèn thủ công, để trống mặc định tương ứng và dùng lệnh Signature khi soạn thư.",
+          "Mở một thư mới sau khi lưu. Chữ ký vừa tạo có thể chưa hiện trong cửa sổ soạn đã mở sẵn."
+        ]
+      },
+      {
+        "title": "Khi ảnh hoặc định dạng không đúng",
+        "detail": "Kiểm tra thư đang dùng HTML, sau đó so mẫu vừa sao chép với bản trong ô chỉnh sửa. Kiểm tra URL ảnh từ một cửa sổ riêng tư và thử đường dẫn CTA trên thư đã gửi. Trên Outlook cổ điển, dùng nút chèn ảnh nếu bạn muốn thêm ảnh cục bộ ngay trong trình chỉnh sửa chữ ký.",
+        "list": [
+          "Khi có nhiều tài khoản, gửi một thư thử từ đúng địa chỉ thường dùng.",
+          "Kiểm tra riêng thư mới, thư trả lời và một lần mở trên điện thoại."
+        ]
+      }
+    ]
+  },
+  "don-hop-thu-outlook-rules-sweep": {
+    "figures": [
+      {
+        "file": "assets/guides/ms-rules-11.webp",
+        "caption": "Danh sách quy tắc trong Microsoft Outlook mới và công tắc bật hoặc tắt từng quy tắc.",
+        "source": "https://support.microsoft.com/en-us/outlook/mail/manage-email-messages-by-using-rules-in-outlook",
+        "by": "Microsoft"
+      },
+      {
+        "file": "assets/guides/ms-sweep-11.webp",
+        "caption": "Lệnh Sweep trên thanh lệnh Microsoft Outlook trên web.",
+        "source": "https://support.microsoft.com/en-us/outlook/organize-your-inbox-with-archive-sweep-and-other-tools-in-outlook-on-the-web",
+        "by": "Microsoft"
+      }
+    ],
+    "notes": [
+      {
+        "title": "Tạo và sửa quy tắc từ Cài đặt",
+        "detail": "Vào Cài đặt → Thư → Quy tắc trong Microsoft Outlook mới hoặc trên web. Thêm quy tắc, đặt tên, chọn điều kiện, hành động và ngoại lệ nếu cần, sau đó lưu. Trong Outlook cổ điển, mở Tệp → Quản lý quy tắc và cảnh báo để tạo hoặc sửa quy tắc của tài khoản.",
+        "list": [
+          "Ví dụ, lọc thư từ địa chỉ báo cáo tự động và chuyển vào thư mục Báo cáo định kỳ.",
+          "Thêm ngoại lệ cho tiêu đề chứa từ Khẩn nếu nhóm cần xử lý những thư đó tại Inbox.",
+          "Tắt bằng công tắc khi muốn tạm dừng để kiểm tra."
+        ]
+      },
+      {
+        "title": "Kiểm tra thứ tự và phạm vi tác động",
+        "detail": "Nếu hai quy tắc đều khớp, quy tắc phía trên có thể xử lý thư trước. Tùy chọn dừng xử lý thêm quy tắc quyết định quy tắc sau có được xét hay không. Dùng thao tác chạy quy tắc trên thư hiện có ở phiên bản có hỗ trợ và kiểm tra phạm vi trước khi áp dụng.",
+        "list": [
+          "Dùng một thư thử cho trường hợp chỉ khớp một quy tắc và một thư khớp cả hai.",
+          "Với Sweep, đọc kỹ tùy chọn giữ thư mới nhất hoặc xóa trước khi xác nhận."
+        ]
+      }
+    ]
+  },
+  "tim-email-outlook-search-folders": {
+    "figures": [
+      {
+        "file": "assets/guides/ms-search-folders-11.webp",
+        "caption": "Mục Search Folders trong cài đặt Thư của Microsoft Outlook.",
+        "source": "https://support.microsoft.com/en-us/outlook/mail/use-search-folders-to-find-messages-or-other-outlook-items",
+        "by": "Microsoft"
+      },
+      {
+        "file": "assets/guides/ms-create-folder-11.webp",
+        "caption": "Màn hình tạo Search Folder, chọn tiêu chí và giới hạn theo thư mục.",
+        "source": "https://support.microsoft.com/en-us/outlook/mail/use-search-folders-to-find-messages-or-other-outlook-items",
+        "by": "Microsoft"
+      }
+    ],
+    "notes": [
+      {
+        "title": "Mở Search Folders trên từng phiên bản",
+        "detail": "Trên Microsoft Outlook mới hoặc trên web, có thể vào Cài đặt → Thư → Thư mục tìm kiếm hoặc mở Search Folders trong danh sách thư mục. Chọn một mẫu tiêu chí, ví dụ thư chưa đọc hoặc thư gắn cờ, rồi tạo. Trong Outlook cổ điển, dùng lệnh New Search Folder và chọn tiêu chí tùy chỉnh khi cần.",
+        "list": [
+          "Kiểm tra hộp thư trước khi tạo nếu bạn quản lý nhiều tài khoản.",
+          "Dùng điều kiện giới hạn theo thư mục khi phiên bản đang dùng có tùy chọn đó."
+        ]
+      },
+      {
+        "title": "Khi kết quả không đủ hoặc quá rộng",
+        "detail": "Kiểm tra tên người gửi, phạm vi tìm và điều kiện tệp đính kèm. Bỏ lần lượt một điều kiện để tìm nguyên nhân. Search Folder là chế độ xem ảo. Việc xóa mục tìm kiếm không đồng nghĩa với xóa thư gốc.",
+        "list": [
+          "Dùng Search một lần cho vấn đề riêng lẻ. Dùng Search Folder cho truy vấn bạn cần mở lại hằng tuần.",
+          "Nếu chỉ tìm một tệp, xem ngày gửi và tên phiên bản trong chuỗi trước khi dùng."
+        ]
+      }
+    ]
+  },
+  "to-chuc-email-outlook-bang-danh-muc": {
+    "figures": [
+      {
+        "file": "assets/guides/ms-move-11.webp",
+        "caption": "Vị trí lệnh Move to trên thanh lệnh Microsoft Outlook trên web.",
+        "source": "https://support.microsoft.com/en-us/outlook/organize-your-inbox-with-archive-sweep-and-other-tools-in-outlook-on-the-web",
+        "by": "Microsoft"
+      },
+      {
+        "file": "assets/guides/ms-category-11.webp",
+        "caption": "Tạo tên và chọn màu cho danh mục trong Microsoft Outlook mới.",
+        "source": "https://support.microsoft.com/en-us/outlook/mail/create-and-assign-color-categories-in-outlook",
+        "by": "Microsoft"
+      }
+    ],
+    "notes": [
+      {
+        "title": "Danh mục, thư mục và cờ phục vụ việc gì",
+        "detail": "Thư mục là vị trí lưu thư trong một tài khoản. Danh mục phù hợp với trạng thái vì một thư có thể mang nhiều danh mục. Cờ theo dõi nhắc bạn mở lại một thư cần hành động. Chọn tên danh mục dễ hiểu để màu sắc chỉ là dấu hiệu bổ sung.",
+        "list": [
+          "Dùng thư mục theo khách hàng hoặc dự án.",
+          "Dùng danh mục như Đang chờ hoặc Cần phản hồi.",
+          "Dùng cờ cho thư cần theo dõi tại một thời điểm cụ thể."
+        ]
+      },
+      {
+        "title": "Đổi tên và duy trì danh mục",
+        "detail": "Trong Microsoft Outlook mới hoặc bản web, tìm danh mục dưới Cài đặt → Tài khoản → Danh mục hoặc mở Categorize từ thanh lệnh. Trong Outlook cổ điển, chọn Categorize → All Categories. Nếu dùng hộp thư có nhiều người, thống nhất tên và cách dùng trước khi mở rộng.",
+        "list": [
+          "Mỗi ngày rà các thư đang chờ và gỡ cờ đã xử lý.",
+          "Chốt một danh sách ngắn rồi chỉ thêm mới nếu danh mục hiện tại không đủ."
+        ]
+      }
+    ]
+  },
+  "them-chu-ky-email-vao-gmail": {
+    "figures": [
+      {
+        "file": "assets/guides/signemail-profile-11.webp",
+        "caption": "Hồ sơ đang được nhập trong trình tạo chữ ký TT-Hub.vn.",
+        "source": "",
+        "by": "TT-Hub.vn"
+      },
+      {
+        "file": "assets/guides/signemail-copy-11.webp",
+        "caption": "Sao chép nội dung chữ ký để dán vào phần Chữ ký trong cài đặt chung của Gmail.",
+        "source": "",
+        "by": "TT-Hub.vn"
+      }
+    ],
+    "notes": [
+      {
+        "title": "Chọn mặc định theo địa chỉ gửi",
+        "detail": "Trong Gmail, nếu bạn có nhiều địa chỉ ở mục Gửi thư bằng địa chỉ, hãy kiểm tra cấu hình chữ ký của từng địa chỉ. Đặt một bản cho thư mới và, nếu cần, bản ngắn hơn cho thư trả lời. Khi thử, nhìn vào trường Từ để xác nhận chính xác địa chỉ đang dùng.",
+        "list": [
+          "Mở một thư trống và chuyển sang địa chỉ gửi khác để so sánh.",
+          "Nếu không muốn dùng mặc định, chọn chèn chữ ký trong từng thư."
+        ]
+      },
+      {
+        "title": "Khắc phục ảnh chưa hiện hoặc chữ ký quá dài",
+        "detail": "Mở URL ảnh trong cửa sổ riêng tư. Nếu ảnh cần đăng nhập hoặc chỉ dùng được trên localhost, đổi sang URL công khai. Gmail giới hạn chữ ký ở 10.000 ký tự và ảnh cũng được tính. Nếu thấy lỗi về độ dài, giảm số ảnh hoặc rút bớt bản dành cho thư trả lời.",
+        "list": [
+          "Lưu thay đổi ở cuối trang cài đặt trước khi kiểm tra.",
+          "Gửi một thư thử thật để kiểm tra hình và liên kết sau khi nhận."
+        ]
+      }
+    ]
+  },
+  "bo-loc-va-nhan-gmail-cho-cong-viec": {
+    "figures": [
+      {
+        "file": "assets/guides/gmail-filter-11.webp",
+        "caption": "Giao diện hộp thư Gmail với danh sách nhãn ở thanh điều hướng.",
+        "source": "https://blog.google/products-and-platforms/products/gmail/gmail-design-update/",
+        "by": "Google"
+      },
+      null
+    ],
+    "notes": [
+      {
+        "title": "Đọc kết quả trước khi dùng hành động mạnh",
+        "detail": "Tìm thử theo địa chỉ gửi, chủ đề hoặc từ khóa, sau đó kiểm tra cả trường hợp đúng và trường hợp gần giống nhưng không được khớp. Bắt đầu bằng gắn nhãn. Chỉ bật lưu trữ tự động khi đã kiểm tra vài thư mới.",
+        "list": [
+          "Một thư có thể nhận nhiều nhãn. Gmail dùng nhãn để tổ chức mà không cần chuyển thư vào thư mục độc quyền.",
+          "Thêm tiêu chí cụ thể hơn nếu bộ lọc vô tình khớp thư khách hàng."
+        ]
+      },
+      {
+        "title": "Chỉnh sửa và quản lý bộ lọc đã tạo",
+        "detail": "Trên máy tính, vào Cài đặt → Xem tất cả chế độ cài đặt → Bộ lọc và địa chỉ bị chặn. Chọn sửa hoặc xóa quy tắc. Nếu đổi một hành động cho thư đã có, hãy đọc lựa chọn áp dụng cho thư khớp hiện tại trước khi bấm xác nhận.",
+        "list": [
+          "Ví dụ nguồn gửi báo cáo định kỳ dùng địa chỉ khác vào cuối tháng. Cập nhật người gửi rồi tìm thử lần nữa.",
+          "Với bộ lọc chuyển tiếp, quy tắc áp dụng cho thư mới phù hợp; kiểm tra hộp thư đích bằng một thư thử."
+        ]
+      }
+    ]
+  },
+  "hen-gio-gui-va-hoan-tac-gmail": {
+    "figures": [
+      {
+        "file": "assets/guides/gmail-schedule-11.webp",
+        "caption": "Chọn giờ gửi khi soạn thư trong Gmail.",
+        "source": "https://workspaceupdates.googleblog.com/2019/04/write-now-send-later-with-schedule-send.html",
+        "by": "Google"
+      },
+      {
+        "file": "assets/guides/gmail-undo-11.webp",
+        "caption": "Chọn thời gian cho phép hoàn tác gửi trong cài đặt Gmail.",
+        "source": "https://blog.google/products-and-platforms/products/gmail/how-to-unsend-email-gmail/",
+        "by": "Google"
+      }
+    ],
+    "notes": [
+      {
+        "title": "Kiểm tra múi giờ và trạng thái thư",
+        "detail": "Gmail dùng múi giờ lúc bạn lập lịch. Nếu người nhận làm việc ở một múi giờ khác, quy đổi thời gian trước khi đặt. Thư đã lên lịch có thể được gửi chậm vài phút, nên tránh hẹn sát một hạn quan trọng.",
+        "list": [
+          "Dùng Thư đã lên lịch để kiểm tra ngày giờ và người nhận.",
+          "Khi hủy lịch, thư trở về bản nháp. Hãy đặt lại lịch nếu vẫn muốn gửi sau."
+        ]
+      },
+      {
+        "title": "Phân biệt hủy lịch với hoàn tác gửi",
+        "detail": "Hủy lịch áp dụng khi thư còn đang chờ; Hoàn tác chỉ dùng được trong khoảng ngắn sau khi nhấn Gửi. Trên Gmail máy tính, mục Hoàn tác gửi cho phép chọn khoảng chờ 5, 10, 20 hoặc 30 giây.",
+        "list": [
+          "Tăng khoảng thời gian nếu thường cần kiểm tra lại người nhận, rồi lưu cài đặt.",
+          "Nếu đã hết khoảng chờ, dùng email đính chính khi phù hợp."
+        ]
+      }
+    ]
+  },
+  "thiet-ke-chu-ky-logo-cong-ty": {
+    "figures": [
+      {
+        "file": "assets/guides/signemail-images-11.webp",
+        "caption": "Mục Hình ảnh của TT-Hub.vn dùng để tải logo và chọn cỡ hiển thị.",
+        "source": "",
+        "by": "TT-Hub.vn"
+      },
+      {
+        "file": "assets/guides/signemail-dark-11.webp",
+        "caption": "Khung xem trước trong SignEmail ở chế độ tối để kiểm tra độ tương phản của chữ ký.",
+        "source": "",
+        "by": "TT-Hub.vn"
+      }
+    ],
+    "notes": [
+      {
+        "title": "Chọn bố cục và độ phân giải theo logo",
+        "detail": "Biểu trưng ngang hợp với hàng riêng. Biểu trưng vuông có thể đặt cạnh hồ sơ. Xuất ảnh độ phân giải cao hơn một chút so với cỡ hiển thị để chữ rõ trên màn hình mật độ cao, đồng thời giữ dung lượng phù hợp.",
+        "list": [
+          "Kiểm tra logo trên cả nền sáng và tối.",
+          "Dùng văn bản cho thông tin bắt buộc như tên công ty và số liên hệ."
+        ]
+      },
+      {
+        "title": "Rà soát trong Outlook và Gmail",
+        "detail": "Gửi thử bản ngắn gọn tới hai ứng dụng, mở trên điện thoại và kiểm tra xem logo có đẩy khối liên hệ ra khỏi màn hình không. Nếu nhập địa chỉ dài, ưu tiên mẫu xếp dọc hoặc tránh đặt nhiều cột cạnh nhau.",
+        "list": [
+          "Nếu ảnh tải chậm, giảm độ phân giải hoặc nén ảnh.",
+          "Nếu hình biến mất, kiểm tra quyền mở URL và tùy chọn tải ảnh ngoài của người nhận."
+        ]
+      }
+    ]
+  },
+  "kiem-tra-anh-va-gif-trong-chu-ky-email": {
+    "figures": [
+      {
+        "file": "assets/guides/signemail-images-11.webp",
+        "caption": "Kiểm tra đường dẫn và hình đã tải trong mục Hình ảnh của TT-Hub.vn.",
+        "source": "",
+        "by": "TT-Hub.vn"
+      },
+      {
+        "file": "assets/guides/signemail-dark-11.webp",
+        "caption": "Xem trước chữ ký ở chế độ tối trong TT-Hub.vn.",
+        "source": "",
+        "by": "TT-Hub.vn"
+      }
+    ],
+    "notes": [
+      {
+        "title": "Xác định giai đoạn xảy ra sự cố",
+        "detail": "Kiểm tra lần lượt URL ảnh, khung xem trước, vùng cài đặt chữ ký và thư đã nhận. Nếu ảnh có trong bản xem trước mà mất sau khi gửi, xem đúng thiết lập của ứng dụng gửi và ứng dụng nhận. Giữ lựa chọn kiểm tra nhất quán để thay một yếu tố một lần.",
+        "list": [
+          "Nếu URL ảnh không mở được ở cửa sổ riêng tư, sửa quyền trước.",
+          "Khi chỉ GIF đứng yên, kiểm tra cài đặt hoạt ảnh và khung hình đầu."
+        ]
+      },
+      {
+        "title": "Tạo ma trận thử đơn giản",
+        "detail": "Dùng cùng một chữ ký và hai ứng dụng nhận. Ghi lại ảnh có tải, liên kết có mở và bố cục có đọc được trên mobile hay không. Kiểm tra chế độ tối riêng từ bố cục sáng. Nếu có lỗi, lưu một mẫu thư với dữ liệu minh họa để tái hiện.",
+        "list": [
+          "So thử khi bật và chặn tải ảnh ngoài.",
+          "Không đưa địa chỉ localhost hoặc dữ liệu riêng tư vào ảnh kiểm thử gửi cho người khác."
+        ]
+      }
+    ]
+  },
+  "gif-trong-chu-ky-email": {
+    "figures": [
+      {
+        "file": "assets/guides/signemail-design-11.webp",
+        "caption": "Mục Thiết kế của TT-Hub.vn cho phép chọn GIF trang trí và tắt banner nếu cần.",
+        "source": "",
+        "by": "TT-Hub.vn"
+      },
+      {
+        "file": "assets/guides/signemail-dark-11.webp",
+        "caption": "Khung xem trước ở chế độ tối để xem độ tương phản cùng GIF.",
+        "source": "",
+        "by": "TT-Hub.vn"
+      }
+    ],
+    "notes": [
+      {
+        "title": "Đặt thông tin cần đọc ngoài GIF",
+        "detail": "Tên, chức vụ và liên kết đặt lịch cần là văn bản hoặc liên kết HTML riêng. Chọn hình đầu rõ để chữ ký vẫn truyền đạt được thông tin nếu người nhận chặn ảnh hoặc giới hạn hoạt ảnh. Khi chỉnh banner, giữ tỷ lệ phù hợp với chiều rộng của phần liên hệ.",
+        "list": [
+          "Bắt đầu với duy nhất một GIF nhỏ.",
+          "Chuẩn bị một bản PNG thay thế nếu cả nhóm cần gửi email trong môi trường giới hạn."
+        ]
+      },
+      {
+        "title": "Xử lý khi GIF chỉ đứng ở khung đầu",
+        "detail": "Điều này có thể xảy ra theo thiết đặt hoặc phiên bản Microsoft Outlook. Hãy so đường dẫn GIF với tệp gốc và mở cùng một thư trên một ứng dụng khác trước khi thay ảnh. Nếu cả hai đều đứng yên, kiểm tra URL có thực sự trỏ đến tệp GIF động.",
+        "list": [
+          "Giảm số khung hoặc kích thước nếu ảnh chiếm quá nhiều dung lượng.",
+          "Dùng phiên bản chữ ký gọn trong chuỗi trả lời dài."
+        ]
+      }
+    ]
+  },
+  "checklist-chu-ky-email-doi-ban-hang": {
+    "figures": [
+      {
+        "file": "assets/guides/signemail-links-11.webp",
+        "caption": "Mục Liên kết của TT-Hub.vn để nhập mạng xã hội và nút CTA.",
+        "source": "",
+        "by": "TT-Hub.vn"
+      },
+      {
+        "file": "assets/guides/signemail-design-11.webp",
+        "caption": "Bật hoặc tắt thành phần để chuẩn bị bản dùng chung và bản trả lời ngắn.",
+        "source": "",
+        "by": "TT-Hub.vn"
+      }
+    ],
+    "notes": [
+      {
+        "title": "Chuẩn bị tiêu chí đạt trước khi triển khai",
+        "detail": "Mỗi chữ ký cần có tên đúng, phương thức liên hệ dùng được và logo có URL ổn định. Mọi người có thể dùng một màu và phông chữ nhất quán nhưng thay CTA theo vai trò. Người phụ trách giữ danh sách URL đã kiểm tra để thay nhanh khi chiến dịch kết thúc.",
+        "list": [
+          "Bán hàng nên thử nút đặt lịch ở ngoài tài khoản công ty.",
+          "Dịch vụ nên dùng URL hỗ trợ phù hợp với người nhận ngoài tổ chức."
+        ]
+      },
+      {
+        "title": "Chốt kiểm thử trên hộp thư thật",
+        "detail": "Thử trên Gmail, Microsoft Outlook mới và Outlook cổ điển nếu đội đang dùng. So thử thư mới, thư trả lời và chuyển tiếp. Quy định người quản lý thương hiệu duyệt logo, người phụ trách kênh kiểm tra URL và người triển khai xác minh chữ ký mặc định.",
+        "list": [
+          "Ghi lại một ảnh chụp sau khi nhận thư trên mobile.",
+          "Đặt lịch kiểm tra sau khi đổi tên miền, banner hoặc thông tin liên hệ."
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,647 @@
+[
+  {
+    "slug": "them-chu-ky-email-vao-gmail",
+    "app": "Gmail",
+    "cover": "Cài chữ ký Gmail",
+    "tag": "CÀI ĐẶT CHỮ KÝ",
+    "intro": "Một chữ ký tốt cần dễ đọc, có đúng thông tin liên hệ và được gán cho địa chỉ gửi phù hợp. Hướng dẫn này áp dụng cho Gmail trên máy tính.",
+    "sections": [
+      {
+        "title": "Chuẩn bị và sao chép",
+        "detail": "Mở SignEmail, chọn mẫu rồi điền họ tên, chức vụ và địa chỉ liên hệ. Khung xem trước có thể còn dữ liệu minh họa. Chỉ các mục cá nhân đang bật mới được đưa vào clipboard.",
+        "steps": [
+          "Chọn mẫu và mở Hồ sơ.",
+          "Bật hoặc ẩn từng thành phần trong Thiết kế.",
+          "Chọn Sao chép chữ ký."
+        ],
+        "visual": [
+          "Mẫu chữ ký",
+          "Hồ sơ",
+          "Thiết kế",
+          "Sao chép chữ ký"
+        ]
+      },
+      {
+        "title": "Tạo chữ ký trong Gmail",
+        "detail": "Mở phần cài đặt chung trên máy tính. Bấm tạo chữ ký mới và đặt tên có ý nghĩa, ví dụ Chữ ký khách hàng hoặc Chữ ký nội bộ.",
+        "steps": [
+          "Cài đặt → Xem tất cả chế độ cài đặt.",
+          "Chung → Chữ ký → Tạo mới.",
+          "Bấm trong khung soạn chữ ký và dán bằng Ctrl+V hoặc ⌘+V."
+        ],
+        "visual": [
+          "Cài đặt",
+          "Xem tất cả cài đặt",
+          "Chung",
+          "Chữ ký · Tạo mới"
+        ]
+      },
+      {
+        "title": "Chọn mặc định và lưu",
+        "detail": "Chọn chữ ký mặc định cho thư mới và, nếu cần, cho thư trả lời hoặc chuyển tiếp. Nếu dùng nhiều địa chỉ gửi, chọn đúng địa chỉ trong khu vực chữ ký trước khi lưu.",
+        "steps": [
+          "Chọn mặc định cho thư mới.",
+          "Kiểm tra cài đặt cho thư trả lời hoặc chuyển tiếp.",
+          "Cuộn xuống cuối và chọn Lưu thay đổi."
+        ]
+      },
+      {
+        "title": "Gửi thử và kiểm tra liên kết",
+        "detail": "Mở cửa sổ soạn thư mới, kiểm tra người gửi rồi gửi một email thử. Nếu ảnh chưa hiện, mở URL ảnh trong cửa sổ riêng tư. Nếu chữ ký quá dài, giảm số ảnh và bớt thông tin ít dùng. Gmail áp dụng giới hạn 10.000 ký tự cho chữ ký và tính ảnh vào giới hạn này.",
+        "steps": []
+      }
+    ],
+    "caseText": "Nếu chữ ký dùng cho thư mới dài hơn chữ ký trả lời, hãy tạo hai bản và gán riêng. Chữ ký trả lời có thể chỉ gồm tên, công ty và số điện thoại.",
+    "sources": [
+      [
+        "Google Help · Tạo chữ ký Gmail",
+        "https://support.google.com/mail/answer/8395?hl=vi"
+      ]
+    ]
+  },
+  {
+    "slug": "cai-chu-ky-trong-outlook",
+    "app": "Outlook",
+    "cover": "Cài chữ ký Outlook",
+    "tag": "OUTLOOK · CHỮ KÝ",
+    "intro": "Bắt đầu bằng việc xác định bạn dùng Outlook mới trên Windows, Outlook trên web hay Outlook cổ điển. Đường dẫn cài đặt khác nhau giữa các phiên bản.",
+    "sections": [
+      {
+        "title": "Tạo nội dung trước",
+        "detail": "Chọn mẫu trong SignEmail, nhập dữ liệu và bật các phần muốn sử dụng. Chọn Sao chép chữ ký sau khi đã kiểm tra chiều rộng, liên kết và khả năng đọc ở chế độ tối.",
+        "steps": [
+          "Điền tên và thông tin liên hệ.",
+          "Thêm ảnh công khai nếu cần.",
+          "Bấm Sao chép chữ ký."
+        ],
+        "visual": []
+      },
+      {
+        "title": "Outlook mới và Outlook trên web",
+        "detail": "Mở Outlook và chọn biểu tượng Cài đặt. Nếu bạn dùng nhiều tài khoản, chọn đúng tài khoản trong phần chữ ký trước khi lưu.",
+        "steps": [
+          "Cài đặt → Tài khoản → Chữ ký.",
+          "Chọn Thêm chữ ký và đặt tên.",
+          "Bấm vào khung định dạng rồi dán bằng Ctrl+V.",
+          "Chọn mặc định cho thư mới hoặc trả lời, sau đó Lưu."
+        ],
+        "visual": [
+          "Cài đặt",
+          "Tài khoản",
+          "Chữ ký",
+          "Thêm chữ ký · Ctrl+V · Lưu"
+        ]
+      },
+      {
+        "title": "Outlook cổ điển trên Windows",
+        "detail": "Bạn có thể mở mục Chữ ký từ cửa sổ soạn thư hoặc từ Tệp → Tùy chọn → Thư → Chữ ký. Trong hộp thoại, chọn tài khoản, tạo tên và chọn chữ ký mặc định theo mục đích sử dụng.",
+        "steps": [
+          "Thư mới → Signature → Signatures.",
+          "Chọn New, đặt tên và dán vào Edit signature.",
+          "Chọn OK và mở một thư mới để kiểm tra."
+        ],
+        "visual": [
+          "Thư mới",
+          "Signature",
+          "Signatures",
+          "New · Edit signature · OK"
+        ]
+      },
+      {
+        "title": "Kiểm tra sau khi lưu",
+        "detail": "Gửi thư thử thay vì chỉ nhìn trong cài đặt. Nếu chữ ký không xuất hiện, xác nhận bạn đã đặt mặc định cho đúng tài khoản. Nếu nội dung mất định dạng, kiểm tra thư đang soạn ở dạng HTML và thử dán lại vào vùng chỉnh sửa chữ ký.",
+        "steps": []
+      }
+    ],
+    "caseText": "Với thư khách hàng, thử gửi tới cả Gmail và Outlook rồi mở thư đã nhận. Kiểm tra CTA, đường dẫn ảnh và chữ ký trong thư trả lời.",
+    "sources": [
+      [
+        "Microsoft Support · Tạo và đổi chữ ký Outlook",
+        "https://support.microsoft.com/en-gb/outlook/mail/how-to-add-and-change-an-email-signature-in-outlook"
+      ]
+    ]
+  },
+  {
+    "slug": "kiem-tra-anh-va-gif-trong-chu-ky-email",
+    "app": "SignEmail",
+    "cover": "Kiểm tra ảnh và GIF",
+    "tag": "CHỮ KÝ · KIỂM THỬ",
+    "intro": "Ảnh và GIF có thể hiển thị khác nhau giữa thiết bị, chế độ tối và cấu hình tải ảnh ngoài. Một bài kiểm tra ngắn trước khi triển khai giúp bạn biết chữ ký hoạt động thế nào ở hộp thư người nhận.",
+    "sections": [
+      {
+        "title": "Kiểm tra đường dẫn ảnh",
+        "detail": "Logo, avatar, banner và icon phải truy cập được từ máy người nhận. Tệp trên localhost và liên kết yêu cầu đăng nhập không phù hợp với người nhận bên ngoài.",
+        "steps": [
+          "Sao chép URL ảnh.",
+          "Mở URL trong cửa sổ riêng tư và thử bằng mạng khác nếu cần.",
+          "Xác nhận trình duyệt mở ảnh trực tiếp."
+        ],
+        "visual": [
+          "URL ảnh",
+          "Cửa sổ riêng tư",
+          "Mở ảnh",
+          "Kiểm tra truy cập"
+        ]
+      },
+      {
+        "title": "Kiểm tra bố cục khi ảnh bị ẩn",
+        "detail": "Giữ tên, chức vụ và thông tin liên hệ dưới dạng văn bản. Nếu một ảnh mang ý nghĩa riêng, đặt văn bản thay thế ngắn. Phần trang trí thuần túy có thể có alt trống.",
+        "steps": [
+          "Gửi mail thử tới một hộp thư khác.",
+          "Mở thư ở chế độ tải ảnh tùy chọn nếu ứng dụng hỗ trợ.",
+          "Kiểm tra vẫn thấy được cách liên hệ."
+        ]
+      },
+      {
+        "title": "So sánh Gmail và Outlook",
+        "detail": "Gửi cùng một bản thử đến hai ứng dụng. Kiểm tra bản máy tính, mobile và chế độ tối. Nếu cấu hình Outlook tắt hoạt ảnh, thiết kế phải vẫn đọc được ở khung GIF đầu tiên.",
+        "steps": [
+          "Kiểm tra liên kết CTA.",
+          "So sánh sáng và tối.",
+          "Quan sát ảnh tĩnh và ảnh động."
+        ],
+        "visual": [
+          "Gửi thư thử",
+          "Gmail / Outlook",
+          "Sáng / Tối",
+          "Khung đầu GIF"
+        ]
+      },
+      {
+        "title": "Ghi lại kết quả",
+        "detail": "Ghi lại ứng dụng, phiên bản nếu biết và lỗi quan sát được. Thay từng yếu tố một, như đổi URL ảnh hay giảm chiều rộng, rồi gửi thư thử mới để xác định nguyên nhân.",
+        "steps": []
+      }
+    ],
+    "caseText": "Nếu chỉ người gửi thấy ảnh, thử mở URL từ cửa sổ riêng tư. Nếu ảnh mở được nhưng người nhận vẫn chưa thấy, kiểm tra cài đặt tải ảnh ngoài ở hộp thư đó.",
+    "sources": [
+      [
+        "Microsoft Support · Ảnh động và cài đặt Outlook",
+        "https://support.microsoft.com/en-au/outlook/the-animated-graphic-in-my-e-mail-message-doesn-t-work"
+      ]
+    ]
+  },
+  {
+    "slug": "checklist-chu-ky-email-doi-ban-hang",
+    "app": "SignEmail",
+    "cover": "Chuẩn hóa chữ ký đội nhóm",
+    "tag": "CHỮ KÝ · ĐỘI NHÓM",
+    "intro": "Một chữ ký dùng chung giúp khách hàng xác định đúng đội và đúng kênh liên hệ. Hãy xây một mẫu gốc với phần thương hiệu cố định và phần hồ sơ cá nhân có thể điền.",
+    "sections": [
+      {
+        "title": "Quy định phần cố định và phần thay đổi",
+        "detail": "Chốt phiên bản logo, màu, phông chữ và cách viết tên công ty. Các trường thay đổi nên giới hạn ở tên, vai trò, số máy lẻ, khu vực hoặc liên kết đặt lịch cá nhân.",
+        "steps": [
+          "Chọn mẫu gốc và người phụ trách.",
+          "Lập danh sách trường phải có và trường có thể ẩn.",
+          "Kiểm tra cách ghi số điện thoại và địa chỉ."
+        ],
+        "visual": [
+          "Mẫu gốc",
+          "Logo & màu",
+          "Hồ sơ từng người",
+          "Kiểm tra thông tin"
+        ]
+      },
+      {
+        "title": "Chọn CTA theo mục tiêu của đội",
+        "detail": "Đội bán hàng có thể dẫn đến lịch tư vấn. Đội dịch vụ có thể dẫn đến trang hỗ trợ. Dùng câu ngắn nói rõ người nhận sẽ đến đâu và thử URL với tài khoản bên ngoài.",
+        "steps": [
+          "Bật một CTA phù hợp.",
+          "Thử đường dẫn trên desktop và mobile.",
+          "Ẩn banner nếu chiến dịch đã hết hạn."
+        ]
+      },
+      {
+        "title": "Phát hành theo đợt",
+        "detail": "Chọn hai người dùng Gmail và Outlook để thử. Kiểm tra một thư mới, một thư trả lời, một liên kết và một lần xem khi ảnh ngoài chưa tải.",
+        "steps": [
+          "Thử trên một nhóm nhỏ.",
+          "Gửi checklist và đường dẫn công cụ cho đội.",
+          "Chốt người cập nhật và mốc rà soát."
+        ],
+        "visual": [
+          "Thử gửi",
+          "Gmail + Outlook",
+          "Rà liên kết",
+          "Chốt phiên bản"
+        ]
+      },
+      {
+        "title": "Duy trì bản gọn cho thư trả lời",
+        "detail": "Bản trả lời có thể chỉ giữ tên, công ty và một liên kết cần thiết. Theo dõi các thay đổi nhân sự hoặc chiến dịch để gỡ CTA và banner hết hạn.",
+        "steps": []
+      }
+    ],
+    "caseText": "Dùng cùng logo và tên công ty cho mọi người. Nhân viên bán hàng đặt lịch tư vấn, còn nhân viên hỗ trợ dẫn về cổng yêu cầu dịch vụ.",
+    "sources": []
+  },
+  {
+    "slug": "gif-trong-chu-ky-email",
+    "app": "SignEmail",
+    "cover": "Chuyển động nhẹ với GIF",
+    "tag": "CHỮ KÝ · GIF",
+    "intro": "GIF hiệu quả khi dùng như một điểm nhấn nhỏ. Người nhận vẫn phải nhận ra người gửi, tìm được link và đọc được CTA khi trình đọc thư chỉ hiển thị ảnh tĩnh.",
+    "sections": [
+      {
+        "title": "Chọn nơi có chuyển động",
+        "detail": "Bắt đầu với một biểu tượng trang trí hoặc một banner ngắn. Giữ các phần còn lại tĩnh để các thông tin liên hệ có thứ tự đọc rõ ràng.",
+        "steps": [
+          "Trong Thiết kế, chọn một GIF trang trí.",
+          "Bật các mạng xã hội cần thiết.",
+          "Tránh dùng nhiều vùng động cạnh nhau."
+        ],
+        "visual": [
+          "Thiết kế",
+          "Biểu tượng chuyển động",
+          "Banner tùy chọn",
+          "Xem trước"
+        ]
+      },
+      {
+        "title": "Chuẩn bị khung hình đầu",
+        "detail": "Đặt hình hoàn chỉnh, logo hoặc thông điệp nhận biết ở ngay khung đầu. Tránh bắt đầu bằng khung trắng hay một chuyển cảnh kéo dài. Outlook có thể chỉ hiển thị khung đầu khi hoạt ảnh bị tắt.",
+        "steps": [
+          "Mở GIF và kiểm tra khung đầu.",
+          "So với chế độ xem tĩnh.",
+          "Giữ CTA dưới dạng liên kết văn bản."
+        ]
+      },
+      {
+        "title": "Tải và kiểm tra trong thư thật",
+        "detail": "Tải banner GIF lên hoặc dùng URL công khai. Thử mở URL riêng và gửi bản thử tới Gmail lẫn Outlook. Khi ảnh tải chậm, chuẩn bị bản nhẹ hơn hoặc bản PNG cùng bố cục.",
+        "steps": [
+          "Mở URL công khai.",
+          "Gửi thử tới hai ứng dụng.",
+          "So sánh khi bật và tắt hoạt ảnh."
+        ],
+        "visual": [
+          "GIF công khai",
+          "Gửi thư thử",
+          "Khung đầu",
+          "Vẫn đọc được CTA"
+        ]
+      },
+      {
+        "title": "Rà soát tác động với người xem",
+        "detail": "Dùng chuyển động chậm hoặc nhẹ. Tránh chớp sáng mạnh và các vòng lặp liên tục gây phân tán. Với trao đổi dài, cân nhắc dùng một bản chữ ký gọn ở các thư trả lời.",
+        "steps": []
+      }
+    ],
+    "caseText": "Một GIF minh họa chuyển động có thể nằm cạnh banner. Giữ tên, chức vụ và nút đặt lịch độc lập để chúng vẫn xuất hiện nếu GIF đứng yên.",
+    "sources": [
+      [
+        "Microsoft Support · Vì sao ảnh động có thể đứng yên",
+        "https://support.microsoft.com/en-au/outlook/the-animated-graphic-in-my-e-mail-message-doesn-t-work"
+      ]
+    ]
+  },
+  {
+    "slug": "thiet-ke-chu-ky-logo-cong-ty",
+    "app": "SignEmail",
+    "cover": "Logo rõ trên màn hình nhỏ",
+    "tag": "CHỮ KÝ · THƯƠNG HIỆU",
+    "intro": "Chữ ký phải đọc tốt cả ở cửa sổ email hẹp. Logo nhận diện thương hiệu, còn tên và cách liên hệ nên xuất hiện bằng văn bản riêng.",
+    "sections": [
+      {
+        "title": "Chuẩn bị logo phù hợp",
+        "detail": "Dùng PNG nền trong cho logo có viền trong suốt. Nếu nét mảnh hoặc màu chìm trong chế độ tối, thử bản có nền thương hiệu hoặc độ tương phản cao. Mở tệp ở cỡ gần kích thước chữ ký để kiểm tra.",
+        "steps": [
+          "Xuất PNG hoặc ảnh khác mà Gmail và Outlook có thể tải.",
+          "Cắt phần nền dư quanh hình.",
+          "Thử bản vuông và bản ngang."
+        ],
+        "visual": [
+          "Logo PNG",
+          "Phần nền vừa đủ",
+          "Bản vuông / ngang",
+          "Kiểm tra độ rõ"
+        ]
+      },
+      {
+        "title": "Tải logo và chọn chiều rộng",
+        "detail": "Mở Hình ảnh, tải logo hoặc dùng URL công khai. Chọn chiều rộng vừa đủ đọc chữ trong logo, rồi xem trước trên thiết bị hẹp. Logo ngang thường hợp với vị trí phía trên hoặc dưới thông tin.",
+        "steps": [
+          "Chọn Hình ảnh → Logo công ty.",
+          "Chọn kích thước phù hợp.",
+          "Ẩn ảnh đại diện nếu logo đã đủ nhận diện."
+        ],
+        "visual": [
+          "Hình ảnh",
+          "Logo công ty",
+          "Chiều rộng logo",
+          "Xem trên mobile"
+        ]
+      },
+      {
+        "title": "Xử lý chữ ký dài quá khung",
+        "detail": "Rút ngắn chức vụ, dùng một CTA và giảm số icon. Tránh thông tin lặp giữa logo và phần chữ. Đặt test một địa chỉ email dài để đánh giá bố cục trước khi dùng cho cả đội.",
+        "steps": []
+      },
+      {
+        "title": "Kiểm tra trước khi gửi",
+        "detail": "Gửi thư thử, mở trên mobile và thử nền tối. Nếu logo bị ẩn, người nhận vẫn phải đọc được tên và biết cách liên hệ trong phần văn bản.",
+        "steps": []
+      }
+    ],
+    "caseText": "Nếu logo ngang làm phần liên hệ bị hẹp, đặt logo trên một hàng riêng bằng cách chọn mẫu tương ứng trong thư viện.",
+    "sources": []
+  },
+  {
+    "slug": "hen-gio-gui-va-hoan-tac-gmail",
+    "app": "Gmail",
+    "cover": "Hẹn giờ gửi Gmail",
+    "tag": "GMAIL · SOẠN THƯ",
+    "intro": "Hẹn giờ gửi giúp chuẩn bị thư sớm và gửi đúng lúc. Hoàn tác gửi phục vụ tình huống vừa nhấn gửi và cần dừng trong khoảng thời gian đã chọn.",
+    "sections": [
+      {
+        "title": "Hẹn giờ gửi thư",
+        "detail": "Cách dưới đây dùng cho Gmail trên máy tính. Kiểm tra múi giờ của thời điểm bạn nhập và cân nhắc giờ làm việc của người nhận trước khi xác nhận.",
+        "steps": [
+          "Soạn thư và kiểm tra tệp đính kèm.",
+          "Mở nút tùy chọn cạnh Gửi, chọn Hẹn giờ gửi.",
+          "Chọn ngày giờ rồi xác nhận trong Thư đã lên lịch."
+        ],
+        "visual": [
+          "Soạn thư",
+          "Tùy chọn cạnh Gửi",
+          "Hẹn giờ gửi",
+          "Thư đã lên lịch"
+        ]
+      },
+      {
+        "title": "Sửa thư đã lên lịch",
+        "detail": "Mở thư đã lên lịch, chọn Hủy gửi để đưa thư về bản nháp. Cập nhật nội dung, người nhận hoặc thời gian rồi hẹn giờ lại. Kiểm tra cách dùng từ như “sáng nay” nếu đổi sang ngày khác.",
+        "steps": [
+          "Mở thư đã lên lịch.",
+          "Chọn Hủy gửi.",
+          "Sửa nội dung rồi hẹn lại."
+        ]
+      },
+      {
+        "title": "Tăng thời gian hoàn tác",
+        "detail": "Trong cài đặt chung trên Gmail máy tính, tìm Hoàn tác gửi và chọn khoảng thời gian hủy theo nhu cầu. Lưu thay đổi. Sau khi gửi thư thử, chỉ có thể bấm Hoàn tác khi thông báo còn hiện.",
+        "steps": [
+          "Cài đặt → Chung → Hoàn tác gửi.",
+          "Chọn khoảng thời gian rồi lưu.",
+          "Thử gửi và bấm Hoàn tác."
+        ],
+        "visual": [
+          "Cài đặt chung",
+          "Hoàn tác gửi",
+          "Lưu thay đổi",
+          "Thử Hoàn tác"
+        ]
+      },
+      {
+        "title": "Duy trì checklist trước khi gửi",
+        "detail": "Xem lại người nhận To và Cc, nội dung, liên kết và tệp đính kèm. Đừng dựa vào Hoàn tác để xử lý lỗi phát hiện sau khi thông báo đã hết hạn.",
+        "steps": []
+      }
+    ],
+    "caseText": "Soạn thư báo cáo cuối ngày nhưng hẹn gửi vào sáng hôm sau. Sau khi đặt giờ, mở Thư đã lên lịch để xác nhận người nhận và ngày gửi.",
+    "sources": [
+      [
+        "Google Help · Hẹn giờ gửi",
+        "https://support.google.com/mail/answer/9214606?hl=en"
+      ],
+      [
+        "Google Help · Gửi và hoàn tác",
+        "https://support.google.com/mail/answer/2819488"
+      ]
+    ]
+  },
+  {
+    "slug": "bo-loc-va-nhan-gmail-cho-cong-viec",
+    "app": "Gmail",
+    "cover": "Lọc và gắn nhãn Gmail",
+    "tag": "GMAIL · HỘP THƯ",
+    "intro": "Bộ lọc tốt đưa thư đến đúng nơi theo tiêu chí bạn có thể kiểm tra lại. Hãy thử quy tắc với các thư thực tế trước khi đưa thư ra khỏi hộp thư đến.",
+    "sections": [
+      {
+        "title": "Tạo nhãn theo công việc",
+        "detail": "Dùng nhãn gợi nhớ hành động hoặc ngữ cảnh, ví dụ Báo cáo định kỳ, Dự án A hoặc Chờ phản hồi. Chọn ít nhãn ở giai đoạn đầu và bổ sung khi thấy có nhu cầu.",
+        "steps": []
+      },
+      {
+        "title": "Thử tiêu chí tìm kiếm",
+        "detail": "Trên Gmail máy tính, mở tùy chọn tìm kiếm nâng cao. Điền người gửi hoặc một đoạn tiêu đề ổn định rồi tìm thử. Xem có thư quan trọng nào bị khớp ngoài dự kiến hay không.",
+        "steps": [
+          "Mở tùy chọn cạnh ô tìm kiếm.",
+          "Nhập địa chỉ tại trường Từ.",
+          "Tìm thử rồi chọn Tạo bộ lọc."
+        ],
+        "visual": [
+          "Tùy chọn tìm kiếm",
+          "Trường Từ",
+          "Xem kết quả",
+          "Tạo bộ lọc"
+        ]
+      },
+      {
+        "title": "Áp dụng nhãn và quan sát",
+        "detail": "Chọn Áp dụng nhãn. Ban đầu nên giữ thư ở Inbox nếu cần theo dõi quy tắc. Sau một thời gian, thêm Bỏ qua Inbox khi đã xác nhận tiêu chí chỉ khớp loại thư mong muốn.",
+        "steps": [
+          "Chọn nhãn dự định áp dụng.",
+          "Tạo bộ lọc và kiểm tra thư mới.",
+          "Vào Bộ lọc và địa chỉ bị chặn để chỉnh."
+        ],
+        "visual": [
+          "Áp dụng nhãn",
+          "Chọn nhãn",
+          "Tạo quy tắc",
+          "Kiểm tra thư mới"
+        ]
+      },
+      {
+        "title": "Lưu ý trước khi tác động hàng loạt",
+        "detail": "Chỉ chọn xử lý thư hiện có khi đã kiểm tra đủ kết quả và hiểu tác động. Đối với thư tài chính hay thư khách, bắt đầu bằng gắn nhãn để có thể rà soát lại.",
+        "steps": []
+      }
+    ],
+    "caseText": "Báo cáo tự động từ một địa chỉ cố định có thể gắn nhãn Báo cáo định kỳ. Giữ thư trong Inbox trong ngày thử đầu tiên để phát hiện trường hợp gửi nhầm vào luồng.",
+    "sources": [
+      [
+        "Google Help · Tạo quy tắc lọc",
+        "https://support.google.com/mail/answer/6579?hl=vi"
+      ]
+    ]
+  },
+  {
+    "slug": "to-chuc-email-outlook-bang-danh-muc",
+    "app": "Outlook",
+    "cover": "Danh mục và thư mục",
+    "tag": "OUTLOOK · TỔ CHỨC",
+    "intro": "Thư mục phù hợp để lưu trữ theo dự án hoặc khách hàng. Danh mục thể hiện trạng thái công việc và có thể áp dụng cho thư nằm ở các thư mục khác nhau.",
+    "sections": [
+      {
+        "title": "Tạo vài thư mục có mục đích",
+        "detail": "Bắt đầu với ít nhóm dễ nhớ như Khách hàng A, Dự án nội bộ hoặc Báo cáo. Chuyển các cuộc trao đổi đã xử lý vào vị trí bạn có thể tìm lại sau này.",
+        "steps": [
+          "Tạo thư mục trong tài khoản cần dùng.",
+          "Chọn thư mẫu và dùng Move to.",
+          "Kiểm tra thư xuất hiện ở đúng thư mục."
+        ],
+        "visual": [
+          "Hộp thư dự án",
+          "Chọn email",
+          "Move to",
+          "Thư mục đích"
+        ]
+      },
+      {
+        "title": "Đặt tên danh mục theo trạng thái",
+        "detail": "Dùng tên có ý nghĩa cả khi người xem khó phân biệt màu, ví dụ Cần phản hồi, Đang chờ và Tham chiếu. Chọn thư, mở Categorize và gán danh mục phù hợp.",
+        "steps": [
+          "Mở Categorize.",
+          "Chọn hoặc tạo danh mục.",
+          "Lọc thư theo danh mục khi rà soát."
+        ],
+        "visual": [
+          "Chọn email",
+          "Categorize",
+          "Đang chờ",
+          "Lọc danh mục"
+        ]
+      },
+      {
+        "title": "Kết hợp với cờ theo dõi",
+        "detail": "Dùng cờ cho thư cần hành động hoặc nhắc lại theo lịch. Dùng danh mục để biết trạng thái chung. Khi xử lý xong, bỏ cờ hoặc cập nhật danh mục để danh sách không phình to.",
+        "steps": []
+      },
+      {
+        "title": "Rà hộp thư định kỳ",
+        "detail": "Mở danh mục Đang chờ vào cuối ngày hoặc trước buổi họp. Nếu cần nhắc, trả lời trong chuỗi cũ để giữ bối cảnh và ghi rõ thời hạn mong đợi.",
+        "steps": []
+      }
+    ],
+    "caseText": "Một thư đề nghị báo giá có thể nằm trong thư mục Khách hàng A, mang danh mục Đang chờ và có cờ cho ngày cần nhắc.",
+    "sources": [
+      [
+        "Microsoft Support · Tổ chức hộp thư Outlook",
+        "https://support.microsoft.com/en-us/outlook/officeweb/organize-your-inbox"
+      ]
+    ]
+  },
+  {
+    "slug": "tim-email-outlook-search-folders",
+    "app": "Outlook",
+    "cover": "Tìm thư bằng Search Folders",
+    "tag": "OUTLOOK · TÌM KIẾM",
+    "intro": "Để tìm đúng email, hãy bắt đầu từ phạm vi hộp thư rồi thu hẹp kết quả theo người gửi, ngày hoặc tệp đính kèm. Search Folders hữu ích khi cùng một truy vấn cần chạy thường xuyên.",
+    "sections": [
+      {
+        "title": "Chọn đúng phạm vi",
+        "detail": "Tìm trong thư mục hiện tại nếu bạn biết thư nằm ở đó. Mở rộng phạm vi sang toàn hộp thư nếu email có thể đã được lưu trữ hoặc chuyển đi. Kiểm tra tài khoản khi có nhiều hộp thư.",
+        "steps": [
+          "Chọn một tài khoản.",
+          "Mở ô Search.",
+          "Kiểm tra vùng tìm kiếm trước khi nhập từ khóa."
+        ],
+        "visual": [
+          "Chọn tài khoản",
+          "Ô Search",
+          "Phạm vi",
+          "Từ khóa"
+        ]
+      },
+      {
+        "title": "Kết hợp các tiêu chí",
+        "detail": "Dùng địa chỉ gửi hoặc một cụm trong chủ đề, rồi thêm khoảng ngày và điều kiện có đính kèm khi phù hợp. Nếu không tìm thấy, bỏ từng điều kiện để xem tiêu chí nào quá chặt.",
+        "steps": [
+          "Bắt đầu với một từ khóa đặc trưng.",
+          "Lọc theo người gửi hoặc ngày.",
+          "Kiểm tra tên tệp và chuỗi trao đổi."
+        ]
+      },
+      {
+        "title": "Dùng Search Folders cho truy vấn lặp lại",
+        "detail": "Search Folders là thư mục ảo và không di chuyển email gốc. Outlook mới hỗ trợ các loại thư mục tìm kiếm dựng sẵn cho tài khoản phù hợp. Outlook cổ điển có thêm tùy chọn tùy chỉnh.",
+        "steps": [
+          "Mở vùng Search Folders của hộp thư.",
+          "Tạo thư mục tìm kiếm mới từ tiêu chí có sẵn.",
+          "Ví dụ chọn thư chưa đọc hoặc thư đã gắn cờ."
+        ],
+        "visual": [
+          "Search Folders",
+          "Tạo thư mục mới",
+          "Tiêu chí có sẵn",
+          "Thư đã gắn cờ"
+        ]
+      },
+      {
+        "title": "Đối chiếu kết quả trước khi tải tệp",
+        "detail": "Trong một chuỗi có nhiều bản đính kèm, kiểm tra ngày và người gửi của từng bản. Ghi rõ phiên bản trong thư trả lời nếu cần gửi tiếp tài liệu.",
+        "steps": []
+      }
+    ],
+    "caseText": "Tìm lại báo giá bằng tên nhà cung cấp và tháng nhận, sau đó bật bộ lọc đính kèm. Nếu ngày không chắc, mở rộng khoảng tìm trước khi thay từ khóa.",
+    "sources": [
+      [
+        "Microsoft Support · Dùng Search Folders",
+        "https://support.microsoft.com/en-us/outlook/mail/use-search-folders-to-find-messages-or-other-outlook-items"
+      ]
+    ]
+  },
+  {
+    "slug": "don-hop-thu-outlook-rules-sweep",
+    "app": "Outlook",
+    "cover": "Dọn hộp thư với Rules và Sweep",
+    "tag": "OUTLOOK · TỰ ĐỘNG HÓA",
+    "intro": "Rules giúp xử lý thư theo tiêu chí, còn Sweep thuận tiện khi quản lý số lượng lớn thư từ một nguồn gửi cụ thể. Bắt đầu với một quy tắc hẹp để đo kết quả trước.",
+    "sections": [
+      {
+        "title": "Tạo Rules cho thư đến lặp lại",
+        "detail": "Với Outlook mới hoặc trên web, chọn thư mẫu và mở Rules. Dùng địa chỉ gửi cụ thể để chuyển báo cáo định kỳ vào thư mục rõ ràng. Tránh dùng một từ khóa quá phổ biến ngay từ đầu.",
+        "steps": [
+          "Chọn email mẫu.",
+          "Rules → Create rule.",
+          "Chọn thư mục đích rồi xác nhận."
+        ],
+        "visual": [
+          "Chọn thư mẫu",
+          "Rules",
+          "Create rule",
+          "Chuyển vào Báo cáo"
+        ]
+      },
+      {
+        "title": "Xem lại thứ tự và các điều kiện",
+        "detail": "Hai quy tắc có thể khớp một email. Rà lại thứ tự xử lý và tùy chọn dừng các quy tắc tiếp theo nếu có. Kiểm tra thư có đồng thời hai dấu hiệu trước khi áp dụng rộng.",
+        "steps": []
+      },
+      {
+        "title": "Dọn thư lặp lại với Sweep",
+        "detail": "Trong Outlook trên web, chọn một thư rồi mở Sweep từ thanh lệnh. Chọn cách giữ hoặc chuyển thư từ người gửi và đọc kỹ tác động trước khi xác nhận.",
+        "steps": [
+          "Chọn một thư từ nguồn gửi.",
+          "Mở Sweep.",
+          "Xem tùy chọn giữ thư gần nhất hoặc chuyển thư.",
+          "Kiểm tra thư đã được xử lý ở đúng nơi."
+        ],
+        "visual": [
+          "Chọn nguồn gửi",
+          "Sweep",
+          "Giữ thư gần nhất",
+          "Xác nhận"
+        ]
+      },
+      {
+        "title": "Tách thư đang chờ xử lý",
+        "detail": "Dùng cờ để theo dõi việc cần phản hồi, riêng danh mục Đang chờ cho thư đã trả lời. Cuối tuần, xem lại mục tự động để phát hiện thư đã bị chuyển nhầm.",
+        "steps": []
+      }
+    ],
+    "caseText": "Thử chuyển báo cáo hệ thống vào một thư mục trong một tuần. Sau vài ngày, mở thư mục đích và kiểm tra các thư có từ khóa khẩn cấp.",
+    "sources": [
+      [
+        "Microsoft Support · Quản lý Rules",
+        "https://support.microsoft.com/en-us/outlook/mail/manage-email-messages-by-using-rules-in-outlook"
+      ],
+      [
+        "Microsoft Support · Quản lý hộp thư và Sweep",
+        "https://support.microsoft.com/en-us/outlook/officeweb/organize-your-inbox"
+      ]
+    ]
+  }
+]

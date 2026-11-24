@@ -20,6 +20,11 @@ $canonical = post_url($post['slug']);
 $cover = blog_cover($post);
 $date = published_date($post['published_at']);
 [$dom, $body] = document_fragment($post['content']);
+foreach ($body->getElementsByTagName('img') as $image) {
+    $src = $image->getAttribute('src');
+    if (editorial_image($src)) $image->setAttribute('src', linkto($src));
+    $image->setAttribute('loading', 'lazy');
+}
 $blocks = array_values(array_filter(iterator_to_array($body->childNodes), static fn(DOMNode $node): bool => $node instanceof DOMElement || trim($node->textContent) !== ''));
 $toc = [];
 $insertAd = max(1, (int) ceil(count($blocks) / 2));
@@ -31,13 +36,18 @@ foreach ($blocks as $index => $block) {
     $block->setAttribute('id', $id);
     $toc[$id] = $label;
 }
-while (isset($blocks[$insertAd - 1]) && $blocks[$insertAd - 1] instanceof DOMElement && in_array($blocks[$insertAd - 1]->tagName, ['h2','h3','h4'], true)) {
-    $insertAd++;
+$midpoint = $insertAd;
+$insertAd = count($blocks);
+for ($index = $midpoint; $index < count($blocks); $index++) {
+    if ($blocks[$index] instanceof DOMElement && $blocks[$index]->tagName === 'h2') {
+        $insertAd = $index;
+        break;
+    }
 }
 
 page_header($post['meta_title'] ?: $post['title'] . ' · SignEmail',
     $post['meta_description'] ?: ($post['excerpt'] ?: mb_substr(trim(strip_tags($post['content'])), 0, 160)),
-    'blog', $canonical, $cover);
+    'blog', $canonical, $cover, 'post:' . $post['slug']);
 ?>
 <main class="shell blog-page article-page">
     <a class="text-link breadcrumbs" href="<?= h(linkto('blog.php')) ?>">Cẩm nang email</a>
@@ -48,7 +58,10 @@ page_header($post['meta_title'] ?: $post['title'] . ' · SignEmail',
             <?php if ($post['excerpt']): ?><p class="article-intro"><?= h($post['excerpt']) ?></p><?php endif; ?>
             <div class="article-byline"><span>SignEmail</span><time datetime="<?= h($date->format(DATE_ATOM)) ?>"><?= h($date->format('d/m/Y')) ?></time><span><?= reading_minutes($post['content']) ?> phút đọc</span></div>
         </div>
-        <img class="article-cover" src="<?= h($cover) ?>" alt="<?= $post['cover'] ? h($post['title']) : '' ?>" fetchpriority="high">
+        <figure class="article-reference-cover">
+            <img class="article-cover" src="<?= h($cover) ?>" alt="<?= $post['cover'] ? h($post['title']) : '' ?>" fetchpriority="high">
+            <?php if ($credit = guide_cover_credit($post)): ?><figcaption class="reference-credit"><?= h($credit) ?></figcaption><?php endif; ?>
+        </figure>
     </header>
     <div class="article-layout">
         <aside class="article-rail">

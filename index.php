@@ -5,7 +5,7 @@ require __DIR__ . '/layout.php';
 $templates = array_map('template_record', db()->query('SELECT id,name,style,role,html,animated,accent,motion FROM templates WHERE visible=1 ORDER BY id')->fetchAll());
 $posts = published_posts(3);
 $popular = array_map('intval', array_column(popular_templates(30, 6), 'id'));
-page_header('SignEmail Studio · Tạo chữ ký email chuyên nghiệp', 'Thiết kế chữ ký email có logo công ty, liên kết và GIF cho Gmail, Outlook.', 'tool', linkto());
+page_header('SignEmail Studio · Tạo chữ ký email chuyên nghiệp', 'Thiết kế chữ ký email có logo công ty, liên kết và GIF cho Gmail, Outlook.', 'tool', linkto(), '', 'editor');
 
 function editor_field(string $key, string $label, string $type = 'text', string $placeholder = '', string $value = '', string $class = ''): void
 {
@@ -26,7 +26,7 @@ function brand_field(string $key, string $label, string $hint): void
             <h4><?= h($label) ?></h4>
             <p><?= h($hint) ?></p>
             <label class="sr-only" for="<?= h($key) ?>-file">Tải <?= h(mb_strtolower($label)) ?></label>
-            <input id="<?= h($key) ?>-file" type="file" data-upload="<?= h($key) ?>" accept="image/png,image/jpeg,image/gif,image/webp">
+            <input id="<?= h($key) ?>-file" type="file" data-upload="<?= h($key) ?>" accept="image/*,.bmp,.avif,.heic,.heif">
         </div>
         <div class="asset-source">
             <?php editor_field($key, 'Hoặc dùng URL ảnh', 'url', 'https://…'); ?>
@@ -37,6 +37,14 @@ function brand_field(string $key, string $label, string $hint): void
     <?php
 }
 
+$railAds = [];
+foreach (['left','right'] as $side) {
+    ob_start();
+    ad($side);
+    $railAds[$side] = ob_get_clean();
+}
+$railClass = ($railAds['left'] ? ' has-left' : '') . ($railAds['right'] ? ' has-right' : '');
+$uploadLimit = brand_upload_limit();
 $steps = ['templates'=>['▤','Mẫu chữ ký'], 'personal'=>['◉','Hồ sơ'], 'images'=>['◇','Hình ảnh'], 'social'=>['↗','Liên kết'], 'design'=>['✦','Thiết kế']];
 ?>
 <main>
@@ -60,9 +68,11 @@ $steps = ['templates'=>['▤','Mẫu chữ ký'], 'personal'=>['◉','Hồ sơ']
             <div class="hero-stamp">✦</div>
         </div>
     </section>
-    <section class="shell studio-work" id="editor" aria-label="Trình tạo chữ ký">
-        <header class="studio-heading"><div><h2>Thiết kế chữ ký</h2><p>Chọn mẫu, thêm thông tin và kiểm tra chữ ký trước khi sao chép.</p></div>
-            <span class="studio-total"><?= count($templates) ?> mẫu để bắt đầu</span>
+    <div class="studio-layout<?= h($railClass) ?><?= !$railClass ? ' shell' : '' ?>">
+    <section class="studio-work" id="editor" aria-label="Trình tạo chữ ký">
+        <header class="studio-heading">
+            <h2>Thiết kế chữ ký</h2>
+            <p>Chọn mẫu, thêm thông tin và kiểm tra chữ ký trước khi sao chép.</p>
         </header>
         <div class="workspace">
             <div class="editor panel">
@@ -91,29 +101,31 @@ $steps = ['templates'=>['▤','Mẫu chữ ký'], 'personal'=>['◉','Hồ sơ']
                         </div>
                         <span id="template-count" aria-live="polite"></span>
                     </div>
+                    <?php if ($popular): ?><p class="gallery-signal">Ưu tiên các mẫu được chọn nhiều trong 30 ngày qua.</p><?php endif; ?>
                     <div class="template-grid" id="template-grid"></div>
                     <noscript><p class="empty">Bật JavaScript để sử dụng trình tạo chữ ký.</p></noscript>
                 </div>
                 <div id="personal" class="tab-pane field-grid" role="tabpanel" aria-labelledby="tab-personal" hidden>
-                    <?php editor_field('full_name','Họ và tên','text','Nguyễn Minh Anh','Nguyễn Minh Anh','wide'); ?>
-                    <?php editor_field('job_title','Chức vụ','text','Quản lý thương hiệu','Quản lý thương hiệu'); ?>
-                    <?php editor_field('company','Công ty','text','Studio North','Studio North'); ?>
-                    <?php editor_field('phone','Số điện thoại','tel','+84 901 234 567','+84 901 234 567'); ?>
-                    <?php editor_field('email','Email','email','minhanh@example.com','minhanh@example.com'); ?>
+                    <?php editor_field('full_name','Họ và tên','text','Nguyễn Minh Anh','','wide'); ?>
+                    <?php editor_field('job_title','Chức vụ','text','Quản lý thương hiệu'); ?>
+                    <?php editor_field('company','Công ty','text','Studio North'); ?>
+                    <?php editor_field('phone','Số điện thoại','tel','+84 901 234 567'); ?>
+                    <?php editor_field('email','Email','email','minhanh@example.com'); ?>
                     <?php editor_field('website','Website','url','https://example.com'); ?>
                     <?php editor_field('address','Địa chỉ','text','Hà Nội, Việt Nam'); ?>
                 </div>
                 <div id="images" class="tab-pane field-grid" role="tabpanel" aria-labelledby="tab-images" hidden>
-                    <?php brand_field('logo_url','Logo công ty','PNG, JPG, WebP hoặc GIF tối đa 2 MB. Ảnh tải lên được lưu dưới dạng PNG.'); ?>
+                    <?php brand_field('logo_url','Logo công ty','Tải logo hoặc kéo ảnh vào đây. PNG giữ nền trong suốt.'); ?>
                     <?php brand_field('avatar_url','Ảnh đại diện','Tải ảnh hoặc nhập URL. Bạn có thể điều chỉnh góc ảnh ở bước Thiết kế.'); ?>
                     <label class="field"><span>Chiều rộng logo</span><select data-field="logo_width"><option value="64">64 px</option><option value="88" selected>88 px</option><option value="112">112 px</option><option value="136">136 px</option></select></label>
-                    <p class="editor-hint wide">Ảnh dùng trong thư cần URL mà người nhận có thể mở.</p>
+                    <p class="editor-hint wide">Tệp tối đa <?= h((string) (floor($uploadLimit / 1048576 * 10) / 10)) ?> MB theo cấu hình máy chủ. GIF tối đa 3 MB.</p>
                 </div>
                 <div id="social" class="tab-pane field-grid" role="tabpanel" aria-labelledby="tab-social" hidden>
                     <?php foreach (['linkedin'=>'LinkedIn','facebook'=>'Facebook','zalo'=>'Zalo','site'=>'Website','tiktok'=>'TikTok','instagram'=>'Instagram','youtube'=>'YouTube'] as $key => $label) {
                         editor_field('social_' . $key, $label, 'url', 'https://…');
                     } ?>
                     <label class="field"><span>Icon mạng xã hội</span><select data-field="social_motion"><option value="static">Tĩnh</option><option value="animated">GIF động</option></select></label>
+                    <label class="field"><span>Màu icon</span><select data-field="icon_tone"><option value="accent">Theo màu chủ đạo</option><option value="network">Màu từng mạng</option></select></label>
                     <div class="field-divider wide"><h3>Nút liên hệ</h3></div>
                     <?php editor_field('cta_label','Nhãn nút CTA','text','Đặt lịch hẹn','Đặt lịch hẹn'); ?>
                     <?php editor_field('cta_url','URL nút CTA','url','https://example.com/booking'); ?>
@@ -133,8 +145,29 @@ $steps = ['templates'=>['▤','Mẫu chữ ký'], 'personal'=>['◉','Hồ sơ']
                         <option value="auto">Theo mẫu</option><option value="off">Tắt</option>
                         <?php foreach (motion_assets() as $key => $label): ?><option value="<?= h($key) ?>"><?= h($label) ?></option><?php endforeach; ?>
                     </select></label>
+                    <div class="motion-picker wide" aria-label="GIF chuyển động">
+                        <?php foreach (wide_motion_assets() as $key => $label): ?>
+                        <button type="button" data-motion-choice="<?= h($key) ?>" aria-pressed="false">
+                            <picture>
+                                <source media="(prefers-reduced-motion: reduce)" srcset="<?= h(linkto('assets/motion/' . $key . '.png')) ?>">
+                                <img loading="lazy" src="<?= h(linkto('assets/motion/' . $key . '.gif')) ?>" width="108" height="28" alt="">
+                            </picture>
+                            <span><?= h($label) ?></span>
+                        </button>
+                        <?php endforeach; ?>
+                    </div>
+                    <fieldset class="component-settings wide">
+                        <legend>Thành phần hiển thị</legend>
+                        <div class="component-options">
+                            <?php foreach (['name'=>'Họ tên','role'=>'Chức vụ','company'=>'Công ty','phone'=>'Điện thoại','email'=>'Email','website'=>'Website','address'=>'Địa chỉ','logo'=>'Logo','avatar'=>'Ảnh đại diện','social'=>'Mạng xã hội','cta'=>'Nút CTA','banner'=>'Banner','motion'=>'GIF trang trí'] as $component => $label): ?>
+                            <label><input type="checkbox" data-component="<?= h($component) ?>" checked> <?= h($label) ?></label>
+                            <?php endforeach; ?>
+                        </div>
+                    </fieldset>
+                    <label class="greeting-switch wide"><input type="checkbox" data-component="greeting"> Thêm lời chào cuối thư</label>
+                    <?php editor_field('greeting','Nội dung lời chào','text','Nhập lời chào','Thanks you and Best Regard','wide'); ?>
                     <div class="field-divider wide"><h3>Banner trong chữ ký</h3></div>
-                    <?php editor_field('banner_url','URL ảnh banner (hỗ trợ GIF)','url','https://example.com/banner.gif','', 'wide'); ?>
+                    <?php brand_field('banner_url','Ảnh banner','Tải ảnh hoặc GIF để hiển thị bên dưới chữ ký.'); ?>
                     <?php editor_field('banner_link','URL khi bấm vào banner','url','https://example.com/uu-dai','', 'wide'); ?>
                 </div>
                 <div class="wizard-actions">
@@ -153,6 +186,11 @@ $steps = ['templates'=>['▤','Mẫu chữ ký'], 'personal'=>['◉','Hồ sơ']
                         </div>
                     </div>
                     <div class="preview-body">
+                        <div class="example-control">
+                            <span id="preview-mode">Bản minh họa đầy đủ</span>
+                            <button class="text-link" type="button" id="example-toggle">Dùng mẫu này</button>
+                            <label class="example-fill" id="example-fill-label" hidden><input type="checkbox" id="example-fill" checked> Hiện dữ liệu mẫu ở mục chưa điền</label>
+                        </div>
                         <div id="mail-preview" class="mail">
                             <div class="mail-title"><span class="mail-icon" aria-hidden="true">✉</span><strong id="mail-label">Thư mới</strong><div class="spacer"></div>
                                 <label class="mail-client"><span class="sr-only">Ứng dụng email</span><select id="mail-client"><option>Gmail</option><option>Outlook</option></select></label>
@@ -160,7 +198,7 @@ $steps = ['templates'=>['▤','Mẫu chữ ký'], 'personal'=>['◉','Hồ sơ']
                             <div class="mail-meta"><span>Đến</span><span>nguoinhan@example.com</span></div>
                             <div class="mail-meta"><span>Chủ đề</span><span>Lời chào</span></div>
                             <div class="mail-content">
-                                <p>Xin chào,</p><p>Trân trọng,</p>
+                                <p>Xin chào,</p><p id="mail-signoff">Trân trọng,</p>
                                 <div class="signature-scroll"><div id="signature" aria-label="Chữ ký mẫu"></div></div>
                             </div>
                         </div>
@@ -175,6 +213,10 @@ $steps = ['templates'=>['▤','Mẫu chữ ký'], 'personal'=>['◉','Hồ sơ']
             </div>
         </div>
     </section>
+    <?php foreach ($railAds as $side => $content): if ($content): ?>
+    <div class="studio-rail rail-<?= h($side) ?>"><?= $content ?></div>
+    <?php endif; endforeach; ?>
+    </div>
     <section class="shell featured">
         <div class="section-heading"><div><p class="eyebrow">Cẩm nang SignEmail</p><h2>Làm việc hiệu quả hơn với email</h2></div><a class="button button-secondary" href="<?= h(linkto('blog.php')) ?>">Xem cẩm nang</a></div>
         <?php post_cards($posts); ?>
@@ -184,19 +226,31 @@ $steps = ['templates'=>['▤','Mẫu chữ ký'], 'personal'=>['◉','Hồ sơ']
     <form method="dialog">
         <button class="dialog-close" value="close" aria-label="Đóng">×</button>
         <h2 id="copy-title">Cài chữ ký email</h2>
+        <figure class="install-video">
+            <video id="install-video" controls playsinline preload="none" poster="<?= h(asset_url('assets/guides/outlook-live-poster.webp')) ?>" aria-label="Video hướng dẫn tạo và cài chữ ký trong Outlook mới hoặc trên web">
+                <source src="<?= h(asset_url('assets/guides/install-outlook.mp4')) ?>" type="video/mp4">
+                <track kind="captions" src="<?= h(asset_url('assets/guides/install-outlook.vi.vtt')) ?>" srclang="vi" label="Tiếng Việt">
+            </video>
+            <figcaption>Thao tác được ghi trên SignEmail, có thuyết minh và phụ đề tiếng Việt. Phần Outlook dùng ảnh từ <a href="https://support.microsoft.com/en-us/outlook/training/sign-in-and-create-a-signature-for-outlook-on-the-web">Microsoft Support</a>. <span lang="en">Used with permission from Microsoft.</span></figcaption>
+        </figure>
         <p><strong>Gmail</strong><br>Mở Cài đặt → Xem tất cả chế độ cài đặt → Chung → Chữ ký. Tạo chữ ký, dán rồi lưu thay đổi.</p>
-        <p><strong>Outlook</strong><br>Mở Cài đặt → Tài khoản → Chữ ký. Với Outlook cổ điển, mở Tệp → Tùy chọn → Thư → Chữ ký. Dán rồi lưu.</p>
+        <p><strong>Outlook</strong><br>Mở Cài đặt → Tài khoản → Chữ ký. Với Outlook cổ điển, mở Tệp → Tùy chọn → Thư → Chữ ký. Dán rồi lưu. <a class="text-link" href="<?= h(post_url('cai-chu-ky-trong-outlook')) ?>">Đọc hướng dẫn chi tiết</a></p>
         <button class="button" value="close">Đóng</button>
     </form>
 </dialog>
 <script type="application/json" id="template-data"><?= json_encode($templates, JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_THROW_ON_ERROR) ?></script>
 <script type="application/json" id="editor-config"><?= json_encode([
-    'icons' => canonical_url(linkto('assets/icons/')),
+    'iconRenderer' => canonical_url(asset_url('social-icon.php')),
     'motion' => canonical_url(linkto('assets/motion.gif')),
     'motionDirectory' => canonical_url(linkto('assets/motion/')),
     'motionKeys' => array_keys(motion_assets()),
+    'wideMotions' => array_keys(wide_motion_assets()),
     'demoLogo' => canonical_url(linkto('assets/sign-mark.png')),
+    'demoAvatar' => canonical_url(linkto('assets/demo-portrait.jpg')),
+    'demoBanner' => canonical_url(linkto('assets/demo-studio-banner.jpg')),
+    'popular' => $popular,
+    'uploadLimit' => $uploadLimit,
     'upload' => linkto('brand-upload.php'),
 ], JSON_HEX_TAG | JSON_HEX_AMP | JSON_THROW_ON_ERROR) ?></script>
-<script defer src="<?= h(linkto('app.js')) ?>"></script>
+<script defer src="<?= h(asset_url('app.js')) ?>"></script>
 <?php page_footer(); ?>

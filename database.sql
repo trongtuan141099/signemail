@@ -61,6 +61,23 @@ CREATE TABLE IF NOT EXISTS ads (
 
 INSERT OR IGNORE INTO ads (placement) VALUES ('header'), ('preview'), ('article'), ('footer'), ('left'), ('right');
 
+CREATE TABLE IF NOT EXISTS contact_messages (
+    id INTEGER PRIMARY KEY,
+    reference TEXT NOT NULL UNIQUE,
+    name TEXT NOT NULL,
+    email TEXT NOT NULL,
+    subject TEXT NOT NULL,
+    message TEXT NOT NULL,
+    created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    read_at TEXT
+);
+
+CREATE TABLE IF NOT EXISTS contact_limits (
+    bucket TEXT PRIMARY KEY,
+    attempts INTEGER NOT NULL,
+    expires INTEGER NOT NULL
+);
+
 CREATE TABLE IF NOT EXISTS activity_counts (
     day TEXT NOT NULL,
     event TEXT NOT NULL,

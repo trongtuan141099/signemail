@@ -14,10 +14,10 @@ function db(): PDO
         PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
     ]);
     $connection->exec('PRAGMA busy_timeout = 5000; PRAGMA foreign_keys = ON');
-    if ((int) $connection->query('PRAGMA user_version')->fetchColumn() < 3) {
+    if ((int) $connection->query('PRAGMA user_version')->fetchColumn() < 7) {
         immediate_write($connection, static function () use ($connection): void {
             $version = (int) $connection->query('PRAGMA user_version')->fetchColumn();
-            if ($version >= 3) return;
+            if ($version >= 7) return;
             $connection->exec(file_get_contents(__DIR__ . '/database.sql'));
             add_release_columns($connection);
 
@@ -33,7 +33,15 @@ function db(): PDO
                 $topic->execute(['Outlook', 'cai-chu-ky-trong-outlook']);
                 $topic->execute(['Chữ ký email', 'kiem-tra-anh-va-gif-trong-chu-ky-email']);
             }
-            $connection->exec('PRAGMA user_version = 3');
+            if ($version < 4) refresh_guides($connection);
+            if ($version < 6) upgrade_guide_references($connection);
+            if ($version === 6) {
+                $source = $connection->prepare('UPDATE posts SET content = replace(content, ?, ?) WHERE slug = ? AND instr(content, ?) > 0');
+                $previous = 'https://blog.google/products-and-platforms/products/workspace/gmail-tips-that-help-you-save-time-and-get-more-done/';
+                $current = guide_references()['hen-gio-gui-va-hoan-tac-gmail']['figures'][0]['source'];
+                $source->execute([$previous, $current, 'hen-gio-gui-va-hoan-tac-gmail', $previous]);
+            }
+            $connection->exec('PRAGMA user_version = 7');
         });
     }
     return $db = $connection;
@@ -77,6 +85,91 @@ function install_posts(PDO $db, string $file): void
     }
 }
 
+function refresh_guides(PDO $db): void
+{
+    $read = static fn(string $filename): array => json_decode(file_get_contents(__DIR__ . '/data/' . $filename), true, 64, JSON_THROW_ON_ERROR);
+    $original = array_column(array_merge($read('posts.json'), $read('posts-release-02.json')), 'content', 'slug');
+    $update = $db->prepare('UPDATE posts SET content=:content,updated_at=CURRENT_TIMESTAMP WHERE slug=:slug AND content=:original');
+    foreach ($read('guide-editions.json') as $guide) {
+        $update->execute(['content'=>clean_fragment(guide_html($guide), false), 'slug'=>$guide['slug'],
+            'original'=>clean_fragment($original[$guide['slug']], false)]);
+    }
+}
+
+function guide_references(): array
+{
+    static $references;
+    return $references ??= json_decode(file_get_contents(__DIR__ . '/data/guide-reference.json'), true, 64, JSON_THROW_ON_ERROR);
+}
+
+function upgrade_guide_references(PDO $db): void
+{
+    $guides = json_decode(file_get_contents(__DIR__ . '/data/guide-editions.json'), true, 64, JSON_THROW_ON_ERROR);
+    $update = $db->prepare('UPDATE posts SET content=:content,updated_at=CURRENT_TIMESTAMP WHERE slug=:slug AND content=:original');
+    $references = guide_references();
+    foreach ($guides as $guide) {
+        $update->execute(['content'=>clean_fragment(guide_html($guide, $references[$guide['slug']]), false), 'slug'=>$guide['slug'],
+            'original'=>clean_fragment(guide_html($guide), false)]);
+    }
+}
+
+function guide_html(array $guide, ?array $reference = null): string
+{
+    $html = '<p>' . h($guide['intro']) . '</p>';
+    $figure = 0;
+    foreach ($guide['sections'] as $section) {
+        $html .= '<h2>' . h($section['title']) . '</h2><p>' . h($section['detail']) . '</p>';
+        if ($section['steps']) {
+            $html .= '<ol>';
+            foreach ($section['steps'] as $step) $html .= '<li>' . h($step) . '</li>';
+            $html .= '</ol>';
+        }
+        if (empty($section['visual'])) continue;
+        $figure++;
+        if ($reference === null) {
+            $src = 'assets/guides/' . $guide['slug'] . '-' . $figure . '.webp';
+            $alt = implode(' → ', $section['visual']);
+            $desc = 'Minh họa thao tác trên ' . $guide['app'] . ' · ' . $section['title'];
+            $html .= '<figure><img src="' . h($src) . '" alt="' . h($alt) . '"><figcaption>' . h($desc) . '</figcaption></figure>';
+        } elseif ($illustration = ($reference['figures'][$figure - 1] ?? null)) {
+            $caption = h($illustration['caption']);
+            $html .= '<figure><img src="' . h($illustration['file']) . '" alt="' . $caption . '"><figcaption>' . $caption . '</figcaption></figure>';
+            if ($illustration['source']) {
+                $credit = $illustration['by'] === 'Microsoft' ? 'Microsoft Support · Used with permission from Microsoft.' : 'Nguồn ảnh: Google.';
+                $html .= '<p><small>' . h($credit) . ' <a href="' . h($illustration['source']) . '">Xem bài nguồn</a></small></p>';
+            }
+        }
+    }
+    $html .= '<h2>Ví dụ áp dụng</h2><p>' . h($guide['caseText']) . '</p>';
+    foreach ($reference['notes'] ?? [] as $note) {
+        $html .= '<h2>' . h($note['title']) . '</h2><p>' . h($note['detail']) . '</p>';
+        if ($note['list']) {
+            $html .= '<ul>';
+            foreach ($note['list'] as $item) $html .= '<li>' . h($item) . '</li>';
+            $html .= '</ul>';
+        }
+    }
+    if ($guide['sources']) {
+        $html .= '<h2>Tài liệu chính thức</h2><ul>';
+        foreach ($guide['sources'] as [$label,$url]) $html .= '<li><a href="' . h($url) . '">' . h($label) . '</a></li>';
+        $html .= '</ul>';
+    }
+    return $html;
+}
+
+function guide_cover_credit(array $post): ?string
+{
+    if ($post['cover']) return null;
+    $photo = guide_references()[$post['slug']]['figures'][0] ?? null;
+    if (!$photo || !$photo['source']) return null;
+    return $photo['by'] === 'Microsoft' ? 'Microsoft Support · Used with permission from Microsoft.' : 'Ảnh giao diện: Google.';
+}
+
+function editorial_image(string $src): bool
+{
+    return (bool) preg_match('~^assets/guides/[a-z0-9-]+-[1-9][0-9]*\.webp$~D', $src);
+}
+
 function h(?string $text): string
 {
     return htmlspecialchars($text ?? '', ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');
@@ -113,6 +206,11 @@ function linkto(string $path = ''): string
         }
     }
     return rtrim($base, '/') . '/' . ltrim($path, '/');
+}
+
+function asset_url(string $path): string
+{
+    return linkto($path) . '?v=' . filemtime(__DIR__ . '/' . $path);
 }
 
 function post_url(string $slug): string
@@ -242,7 +340,7 @@ function clean_fragment(string $html, bool $signature): string
     [$dom, $body] = document_fragment($html);
     $tags = explode(' ', $signature
         ? 'table tbody thead tfoot tr td th img a span strong b em i br p div'
-        : 'p div br h2 h3 h4 strong b em i u s ul ol li blockquote pre code a img hr');
+        : 'p div br h2 h3 h4 strong b em i u s ul ol li blockquote pre code a img hr small figure figcaption');
     $discard = ['script', 'style', 'iframe', 'object', 'embed', 'svg', 'math', 'template', 'form', 'textarea'];
     $walk = function (DOMNode $parent) use (&$walk, $tags, $discard, $signature): void {
         foreach (iterator_to_array($parent->childNodes) as $node) {
@@ -272,7 +370,7 @@ function clean_fragment(string $html, bool $signature): string
                     'href' => $tag === 'a' && (web_url($value)
                         || preg_match('~^(?:mailto:[a-z0-9._%+\-]+@[a-z0-9.\-]+|tel:\+?[0-9(). \-]+)$~iD', $value)
                         || ($signature && preg_match('~^(?:(?:mailto:|tel:)?\{\{(?:email|phone|phone_href|website|cta_url|banner_link)\}\})$~D', $value))),
-                    'src' => $tag === 'img' && (web_url($value)
+                    'src' => $tag === 'img' && (web_url($value) || (!$signature && editorial_image($value))
                         || ($signature && preg_match('~^\{\{(?:avatar|avatar_url|logo_url|banner_url|motion_url)\}\}$~D', $value))),
                     'alt' => $tag === 'img',
                     'style' => $signature,
@@ -317,9 +415,15 @@ function clean_fragment(string $html, bool $signature): string
     return trim($output);
 }
 
+function wide_motion_assets(): array
+{
+    return ['plane'=>'Máy bay', 'ship'=>'Tàu thủy', 'cat'=>'Mèo mini', 'dog'=>'Cún mini',
+        'rocket'=>'Tên lửa', 'train'=>'Tàu hỏa', 'fish'=>'Cá nhỏ', 'scooter'=>'Xe tay ga'];
+}
+
 function motion_assets(): array
 {
-    return ['dots'=>'Ba nhịp', 'spark'=>'Tia sáng', 'orbit'=>'Quỹ đạo', 'mail'=>'Phong bì', 'arrow'=>'Mũi tên', 'wave'=>'Dải sóng', 'plane'=>'Máy bay', 'ship'=>'Tàu thủy', 'cat'=>'Mèo mini', 'dog'=>'Cún mini', 'rocket'=>'Tên lửa', 'train'=>'Tàu hỏa', 'fish'=>'Cá nhỏ', 'scooter'=>'Xe tay ga'];
+    return ['dots'=>'Ba nhịp', 'spark'=>'Tia sáng', 'orbit'=>'Quỹ đạo', 'mail'=>'Phong bì', 'arrow'=>'Mũi tên', 'wave'=>'Dải sóng'] + wide_motion_assets();
 }
 
 function template_data(array $input): array
@@ -380,6 +484,10 @@ function blog_categories(): array
 function blog_cover(array $post): string
 {
     if ($post['cover']) return linkto('uploads/' . $post['cover']);
+    $reference = guide_references()[$post['slug']]['figures'][0]['file'] ?? '';
+    if ($reference && is_file(__DIR__ . '/' . $reference)) return linkto($reference);
+    $edition = 'assets/guides/' . $post['slug'] . '-cover.webp';
+    if (preg_match('/^[a-z0-9-]+$/D', $post['slug']) && is_file(__DIR__ . '/' . $edition)) return linkto($edition);
     $art = $post['art'] ?: ($post['category'] === 'Outlook' ? 'outlook' : 'stationery');
     return linkto('assets/editorial/' . ($art === 'outlook' ? 'outlook' : 'stationery') . '.webp');
 }

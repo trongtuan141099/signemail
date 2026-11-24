@@ -35,6 +35,7 @@ page_header('Cẩm nang email · SignEmail', 'Hướng dẫn Microsoft Outlook, 
                 <p class="eyebrow">Bài nổi bật · <?= h($featured['category'] ?: 'Hướng dẫn') ?></p>
                 <h2><a href="<?= h(post_url($featured['slug'])) ?>"><?= h($featured['title']) ?></a></h2>
                 <p><?= h($featured['excerpt']) ?></p>
+                <?php if ($credit = guide_cover_credit($featured)): ?><small class="reference-credit"><?= h($credit) ?></small><?php endif; ?>
                 <div class="blog-lead-actions"><a class="button" href="<?= h(post_url($featured['slug'])) ?>">Đọc hướng dẫn</a><span><?= reading_minutes($featured['content']) ?> phút đọc</span></div>
             </div>
         </article>
@@ -60,4 +61,4 @@ page_header('Cẩm nang email · SignEmail', 'Hướng dẫn Microsoft Outlook, 
         <?php endif; ?>
     </section>
 </main>
-<?php page_f
+<?php page_footer(); ?>

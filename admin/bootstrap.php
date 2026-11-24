@@ -139,20 +139,21 @@ function admin_header(string $title, string $active = '', ?array $user = null, b
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title><?= h($title) ?> · Quản trị SignEmail</title>
-<link rel="stylesheet" href="<?= h(linkto('assets/site.css')) ?>">
-<link rel="stylesheet" href="<?= h(linkto('assets/studio.css')) ?>">
-<link rel="stylesheet" href="<?= h(linkto('admin/admin.css')) ?>">
+<link rel="stylesheet" href="<?= h(asset_url('assets/site.css')) ?>">
+<link rel="stylesheet" href="<?= h(asset_url('assets/studio.css')) ?>">
+<link rel="stylesheet" href="<?= h(asset_url('admin/admin.css')) ?>">
 <?php if ($quill): ?>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.snow.css">
 <script defer src="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.js"></script>
 <?php endif; ?>
-<script defer src="<?= h(linkto('admin/admin.js')) ?>"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+<script defer src="<?= h(asset_url('admin/admin.js')) ?>"></script>
 </head><body>
 <header class="admin-header"><div class="admin-shell admin-nav">
     <a class="brand" href="<?= h(linkto('admin/')) ?>"><img class="brand-icon" src="<?= h(linkto('assets/sign-mark.png')) ?>" width="36" height="36" alt="">Sign<span>Email</span></a>
     <?php if ($user): ?>
     <nav aria-label="Quản trị">
-        <?php foreach (['index.php'=>'Tổng quan','templates.php'=>'Mẫu chữ ký','posts.php'=>'Bài viết','ads.php'=>'Quảng cáo','account.php'=>'Tài khoản'] as $file => $label): ?>
+        <?php foreach (['index.php'=>'Tổng quan','templates.php'=>'Mẫu chữ ký','posts.php'=>'Bài viết','ads.php'=>'Quảng cáo','contact.php'=>'Tin nhắn','account.php'=>'Tài khoản'] as $file => $label): ?>
         <a <?= $active === $file ? 'aria-current="page"' : '' ?> href="<?= h(linkto('admin/' . $file)) ?>"><?= h($label) ?></a>
         <?php endforeach; ?>
     </nav>
@@ -165,7 +166,9 @@ function admin_header(string $title, string $active = '', ?array $user = null, b
 
 function admin_footer(): void
 {
-    echo '</main></body></html>';
+    echo '</main>';
+    require dirname(__DIR__) . '/footer.php';
+    echo '</body></html>';
 }
 
 function admin_input(string $key, string $label, array $data, int $max, string $type = 'text', bool $required = false): void

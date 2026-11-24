@@ -21,10 +21,10 @@ function page_header(string $title, string $description, string $active = '', st
     <meta property="og:title" content="<?= h($title) ?>">
     <meta property="og:description" content="<?= h($description) ?>">
     <?php if ($image): ?><meta property="og:image" content="<?= h(canonical_url($image)) ?>"><?php endif; ?>
-    <link rel="stylesheet" href="<?= h(linkto('assets/site.css')) ?>">
-    <link rel="stylesheet" href="<?= h(linkto('assets/studio.css')) ?>">
+    <link rel="stylesheet" href="<?= h(asset_url('assets/site.css')) ?>">
+    <link rel="stylesheet" href="<?= h(asset_url('assets/studio.css')) ?>">
     <script defer src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <script defer src="<?= h(linkto('assets/site.js')) ?>"></script>
+    <script defer src="<?= h(asset_url('assets/site.js')) ?>"></script>
 </head>
 <body data-activity-url="<?= h(linkto('activity.php')) ?>" data-activity-page="<?= h($activity) ?>">
 <header class="site-header">
@@ -42,16 +42,9 @@ function page_header(string $title, string $description, string $active = '', st
 
 function page_footer(): void
 {
-    ad('footer'); ?>
-<footer class="site-footer">
-    <div class="shell footer-inner">
-        <a class="brand" href="<?= h(linkto()) ?>"><img class="brand-icon" src="<?= h(linkto('assets/sign-mark.png')) ?>" width="36" height="36" alt="">Sign<span>Email</span></a>
-        <span>Trình tạo chữ ký email cho Gmail và Outlook.</span>
-        <a href="<?= h(linkto('admin/')) ?>">Quản trị</a>
-    </div>
-</footer>
-</body></html>
-    <?php
+    ad('footer');
+    require __DIR__ . '/footer.php';
+    echo '</body></html>';
 }
 
 function editorial_banner(string $kind): void
@@ -82,6 +75,7 @@ function post_cards(array $posts): void
         <article class="post-card" data-category="<?= h($post['category']) ?>">
             <a class="post-photo" tabindex="-1" aria-hidden="true" href="<?= h(post_url($post['slug'])) ?>"><img loading="lazy" src="<?= h(blog_cover($post)) ?>" alt=""></a>
             <div class="post-card-body">
+                <?php if ($credit = guide_cover_credit($post)): ?><small class="reference-credit"><?= h($credit) ?></small><?php endif; ?>
                 <div class="post-card-meta"><span><?= h($post['category'] ?: 'Hướng dẫn') ?></span><span><?= reading_minutes($post['content']) ?> phút đọc</span></div>
                 <h3><a href="<?= h(post_url($post['slug'])) ?>"><?= h($post['title']) ?></a></h3>
                 <?php if ($post['excerpt']): ?><p><?= h($post['excerpt']) ?></p><?php endif; ?>
