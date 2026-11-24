@@ -1,0 +1,26 @@
+[
+  {
+    "title": "Cách thêm chữ ký email vào Gmail",
+    "slug": "them-chu-ky-email-vao-gmail",
+    "excerpt": "Tạo chữ ký trên Gmail web và chọn chữ ký mặc định cho thư mới, thư trả lời.",
+    "meta_title": "Cách thêm chữ ký Gmail trên máy tính | SignEmail",
+    "meta_description": "Hướng dẫn sao chép chữ ký HTML vào Gmail trên máy tính và chọn chữ ký mặc định cho thư mới hoặc thư trả lời.",
+    "content": "<p>Tạo chữ ký trong SignEmail rồi nhấn <strong>Sao chép chữ ký</strong>. Bạn có thể đặt chữ ký này làm mặc định trên Gmail web.</p><h2>Thêm và lưu chữ ký</h2><ol><li>Trong Gmail trên máy tính, mở <strong>Cài đặt</strong> và chọn <strong>Xem tất cả chế độ cài đặt</strong>.</li><li>Trong thẻ <strong>Chung</strong>, tìm mục <strong>Chữ ký</strong> và chọn tạo chữ ký mới.</li><li>Đặt tên, dán chữ ký, rồi chọn mặc định cho thư mới hoặc thư trả lời nếu cần.</li><li>Cuộn xuống cuối trang và lưu thay đổi.</li></ol><h2>Kiểm tra sau khi dán</h2><p>Soạn một email thử, bấm vào các liên kết và gửi cho một địa chỉ khác để kiểm tra cách hiển thị của ảnh.</p><p><a href=\"https://support.google.com/mail/answer/8395?hl=vi\">Hướng dẫn chữ ký của Gmail</a></p>"
+  },
+  {
+    "title": "Cách cài chữ ký trong Outlook",
+    "slug": "cai-chu-ky-trong-outlook",
+    "excerpt": "Tìm đúng mục chữ ký trong Outlook web, Outlook mới và Outlook cổ điển trên Windows.",
+    "meta_title": "Cách cài chữ ký email trong Outlook | SignEmail",
+    "meta_description": "Cài chữ ký email trong Outlook web, Outlook mới và Outlook cổ điển trên Windows, rồi chọn chữ ký mặc định.",
+    "content": "<p>Sao chép chữ ký từ SignEmail trước khi mở Outlook. Cách tìm mục cài đặt phụ thuộc vào phiên bản bạn đang sử dụng.</p><h2>Outlook mới và Outlook trên web</h2><p>Mở <strong>Cài đặt</strong>, chọn <strong>Tài khoản</strong> rồi vào <strong>Chữ ký</strong>. Thêm chữ ký, dán nội dung và lưu. Nếu có nhiều tài khoản, chọn tài khoản tương ứng.</p><h2>Outlook cổ điển trên Windows</h2><p>Mở <strong>Tệp</strong>, chọn <strong>Tùy chọn</strong> rồi vào <strong>Thư</strong> và <strong>Chữ ký</strong>. Sau khi dán, bạn có thể chọn chữ ký mặc định cho thư mới hoặc cho thư trả lời và chuyển tiếp.</p><p><a href=\"https://support.microsoft.com/en-us/outlook/mail/how-to-add-and-change-an-email-signature-in-outlook\">Hướng dẫn chữ ký của Microsoft Outlook</a></p>"
+  },
+  {
+    "title": "Kiểm tra ảnh và GIF trong chữ ký email",
+    "slug": "kiem-tra-anh-va-gif-trong-chu-ky-email",
+    "excerpt": "Chuẩn bị ảnh đại diện và banner để chữ ký vẫn dễ đọc khi ứng dụng email chỉ hiển thị ảnh tĩnh.",
+    "meta_title": "Cách kiểm tra ảnh và GIF trong chữ ký email | SignEmail",
+    "meta_description": "Kiểm tra ảnh đại diện, banner và GIF sau khi dán chữ ký trong Gmail hoặc Outlook.",
+    "content": "<p>Dùng URL HTTPS truy cập công khai cho ảnh đại diện, logo và banner. Hãy mở URL trong cửa sổ riêng tư để kiểm tra người nhận có thể tải ảnh.</p><h2>Chọn khung hình đầu cho GIF</h2><p>Đặt nội dung quan trọng ở khung hình đầu tiên. Outlook có thể chỉ hiển thị khung hình này khi tính năng phát ảnh động bị tắt.</p><h2>Gửi thư thử</h2><p>Gửi thư tới Gmail và Outlook rồi mở trên máy tính và điện thoại. Kiểm tra độ tương phản của chữ ở chế độ tối, liên kết CTA và hình ảnh sau khi gửi.</p><p><a href=\"https://support.microsoft.com/en-au/outlook/the-animated-graphic-in-my-e-mail-message-doesn-t-work\">Hướng dẫn ảnh động trong Microsoft Outlook</a></p>"
+  }
+]

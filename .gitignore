@@ -1,0 +1,7 @@
+storage/*
+!storage/.htaccess
+uploads/*
+!uploads/.htaccess
+!uploads/brand/
+uploads/brand/*
+!uploads/brand/.htaccess

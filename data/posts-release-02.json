@@ -1,0 +1,82 @@
+[
+  {
+    "title": "Dọn hộp thư Outlook với Rules, Sweep và cờ theo dõi",
+    "slug": "don-hop-thu-outlook-rules-sweep",
+    "category": "Outlook",
+    "art": "outlook",
+    "excerpt": "Một quy trình thực hành để lọc thư định kỳ, giữ việc đang chờ trong tầm mắt và giảm thời gian tìm lại email.",
+    "content": "<p>Khi thư thông báo, trao đổi dự án và việc cần trả lời cùng nằm trong Inbox, một bộ quy tắc nhỏ thường hiệu quả hơn việc tạo hàng chục thư mục. Hãy bắt đầu với một nguồn thư lặp lại mà bạn nhận mỗi ngày, thử trên vài email, rồi mới mở rộng.</p><h2>Dùng Rules cho thư đến theo tiêu chí</h2><p>Với Outlook mới hoặc Outlook trên web, hãy chọn một email mẫu, mở menu <strong>Rules</strong> và tạo quy tắc. Ví dụ, thư từ địa chỉ gửi báo cáo tự động có thể chuyển vào thư mục <strong>Báo cáo định kỳ</strong>. Đặt điều kiện theo đúng địa chỉ gửi trước khi thử điều kiện rộng hơn như từ khóa tiêu đề.</p><h3>Khi nhiều quy tắc trùng nhau</h3><p>Một thông báo gửi từ kênh báo cáo vẫn có thể chứa từ khóa khẩn cấp. Đọc từ trên xuống danh sách Rules và chạy thử với email có cả hai điều kiện. Nếu tính năng cho phép, kéo quy tắc ưu tiên lên trước và kiểm tra thiết lập dừng xử lý các quy tắc tiếp theo.</p><h2>Dùng Sweep cho nguồn gửi có nhiều thư cũ</h2><p>Trong Outlook trên web, chọn email của nguồn gửi, mở <strong>Sweep</strong> và xem kỹ các tùy chọn. Với newsletter, giữ bản gần nhất có thể đủ. Với nhà cung cấp hoặc khách hàng, hãy chuyển vào thư mục lưu trữ trước khi cân nhắc xóa hàng loạt.</p><h2>Chia việc đang xử lý và việc đang chờ</h2><p>Dùng cờ theo dõi cho email cần phản hồi. Gắn danh mục riêng cho thư đang chờ người khác để bạn có thể lọc lại vào cuối ngày. Mỗi sáng, mở thư được gắn cờ trước rồi mới xử lý thông báo mới.</p><blockquote>Thử trong một tuần với một quy tắc tự động, một thư mục và một danh mục theo dõi. Cuối tuần, rà lại thư mục tự động để phát hiện thư quan trọng bị chuyển nhầm.</blockquote><p><a href=\"https://support.microsoft.com/en-us/outlook/officeweb/organize-your-inbox\">Microsoft Support · Tổ chức hộp thư Outlook</a></p>",
+    "meta_title": "Dọn hộp thư Outlook với Rules, Sweep và cờ theo dõi | SignEmail",
+    "meta_description": "Một quy trình thực hành để lọc thư định kỳ, giữ việc đang chờ trong tầm mắt và giảm thời gian tìm lại email."
+  },
+  {
+    "title": "Tìm lại email Outlook bằng bộ lọc và Search Folders",
+    "slug": "tim-email-outlook-search-folders",
+    "category": "Outlook",
+    "art": "outlook",
+    "excerpt": "Khoanh vùng đúng hộp thư, kết hợp điều kiện tìm kiếm và lưu các truy vấn bạn dùng hằng tuần.",
+    "content": "<p>Trước khi tìm một tệp đính kèm từ tháng trước, hãy ghi ra ba điều bạn nhớ: người gửi, khoảng thời gian và một từ xuất hiện trong chủ đề. Chúng hữu ích hơn việc đoán nguyên câu trong nội dung email.</p><h2>Chọn đúng phạm vi tìm kiếm</h2><p>Kiểm tra bạn đang tìm trong thư mục hiện tại hay toàn bộ hộp thư. Nếu email đã được lưu trữ gần đây, hãy mở rộng phạm vi. Khi làm việc với nhiều tài khoản, kiểm tra tên hộp thư trước vì mỗi tài khoản có thể chứa một cuộc trao đổi cùng chủ đề.</p><h2>Kết hợp người gửi, thời gian và đính kèm</h2><ol><li>Nhập tên người gửi hoặc một từ đặc trưng trong tiêu đề.</li><li>Dùng bộ lọc người gửi hoặc khoảng ngày để giảm số kết quả.</li><li>Bật điều kiện có tệp đính kèm nếu bạn tìm hóa đơn hoặc bản thảo.</li><li>Mở chuỗi trao đổi và kiểm tra phiên bản tài liệu trước khi tải xuống.</li></ol><h2>Lưu một chế độ xem dùng lại</h2><p>Search Folders gom thư theo điều kiện dưới dạng thư mục ảo. Chúng phù hợp với việc tìm thư chưa đọc, thư đã gắn cờ hoặc nhóm tiêu chí mà phiên bản Outlook hỗ trợ. Trên Outlook mới, hãy bắt đầu từ tiêu chí có sẵn. Trên Outlook cổ điển, xem thêm tùy chọn tạo thư mục tìm kiếm tùy chỉnh.</p><h3>Ví dụ cho nhóm dự án</h3><p>Tạo một chế độ xem thư gắn cờ và dùng danh mục cho từng dự án. Khi cần đối chiếu vào cuối tuần, bạn có thể tìm trong thư đã gắn cờ trước khi mở toàn bộ lịch sử.</p><p><a href=\"https://support.microsoft.com/en-us/outlook/mail/use-search-folders-to-find-messages-or-other-outlook-items\">Microsoft Support · Search Folders</a></p>",
+    "meta_title": "Tìm lại email Outlook bằng bộ lọc và Search Folders | SignEmail",
+    "meta_description": "Khoanh vùng đúng hộp thư, kết hợp điều kiện tìm kiếm và lưu các truy vấn bạn dùng hằng tuần."
+  },
+  {
+    "title": "Tổ chức nhóm email Outlook bằng danh mục và thư mục",
+    "slug": "to-chuc-email-outlook-bang-danh-muc",
+    "category": "Outlook",
+    "art": "outlook",
+    "excerpt": "Chọn một cấu trúc dễ duy trì cho hộp thư dự án, từ phân loại màu đến lưu trữ cuộc trao đổi đã xong.",
+    "content": "<p>Một thư có thể vừa thuộc một dự án vừa cần người khác trả lời. Hãy khai thác thư mục như nơi lưu trữ và danh mục như nhãn nhận biết nhanh để quản lý hai chiều thông tin đó.</p><h2>Tạo thư mục theo cách bạn tìm lại thông tin</h2><p>Tạo thư mục theo khách hàng, dự án hoặc loại tài liệu dễ nhớ. Tránh tạo cấu trúc nhiều cấp ngay từ đầu. Nếu bạn thường gõ tên dự án để tìm, một thư mục dự án cùng quy ước tiêu đề là đủ để làm việc.</p><h2>Thiết lập một bộ danh mục nhỏ</h2><ul><li><strong>Cần phản hồi:</strong> thư cần bạn hành động.</li><li><strong>Đang chờ:</strong> đã trả lời và cần theo dõi phản hồi từ bên kia.</li><li><strong>Tham chiếu:</strong> thông tin quan trọng có thể phải mở lại.</li></ul><p>Trong Outlook mới hoặc Outlook trên web, chọn thư rồi mở <strong>Categorize</strong> để áp dụng danh mục. Chọn tên có ý nghĩa cả khi bạn không nhận ra màu.</p><h2>Rà soát thư đang chờ theo lịch</h2><p>Dành vài phút vào cuối ngày để rà thư đang chờ. Nếu thư đã giải quyết, gỡ nhãn hành động và lưu trữ. Nếu cần nhắc, trả lời trong chuỗi cũ để giữ bối cảnh, ghi một mốc thời gian rõ ràng và nêu đúng người cần phản hồi.</p><p><a href=\"https://support.microsoft.com/en-us/outlook/working-with-message-folders-in-outlook-on-the-web\">Microsoft Support · Làm việc với thư mục trong Outlook</a></p>",
+    "meta_title": "Tổ chức nhóm email Outlook bằng danh mục và thư mục | SignEmail",
+    "meta_description": "Chọn một cấu trúc dễ duy trì cho hộp thư dự án, từ phân loại màu đến lưu trữ cuộc trao đổi đã xong."
+  },
+  {
+    "title": "Tạo bộ lọc Gmail để Inbox dành cho việc cần xử lý",
+    "slug": "bo-loc-va-nhan-gmail-cho-cong-viec",
+    "category": "Gmail",
+    "art": "stationery",
+    "excerpt": "Gắn nhãn theo dự án, kiểm tra tiêu chí trước khi lưu và thử quy tắc với thư có thật.",
+    "content": "<p>Một bộ lọc Gmail hữu ích bắt đầu bằng câu hỏi: sau khi thư đến, bạn muốn thấy nó ở đâu và cần làm gì với nó? Một bản tin có thể chỉ cần nhãn riêng. Thư thông báo lỗi từ hệ thống có thể cần giữ ở Inbox để được chú ý.</p><h2>Tạo nhãn theo mục đích</h2><p>Tạo các nhãn như <strong>Khách hàng/Tiếp nhận</strong> hoặc <strong>Hệ thống/Báo cáo</strong>. Dùng tên gợi hành động để đồng nghiệp dễ hiểu khi bạn chia sẻ quy trình. Nếu nhãn chỉ phục vụ việc tìm lại, bạn có thể giữ nó đơn giản theo tên dự án.</p><h2>Kiểm tra truy vấn trước khi tạo bộ lọc</h2><ol><li>Trong Gmail trên máy tính, mở tùy chọn tìm kiếm nâng cao.</li><li>Điền địa chỉ gửi hoặc một cụm tiêu đề ổn định và chạy tìm kiếm thử.</li><li>Kiểm tra kết quả cho cả thư cần lọc và thư dễ bị lọc nhầm.</li><li>Chọn <strong>Tạo bộ lọc</strong> và gán hành động phù hợp, chẳng hạn áp dụng nhãn.</li></ol><h2>Thử một ngày trước khi bỏ qua Inbox</h2><p>Ban đầu hãy gắn nhãn mà vẫn giữ thư trong Inbox. Ngày hôm sau, so kết quả thực tế với dự kiến. Khi chắc chắn bộ lọc đủ chính xác, có thể thêm hành động bỏ qua Inbox cho nhóm thư ít khẩn cấp.</p><p><a href=\"https://support.google.com/mail/answer/6579\">Google Help · Tạo quy tắc lọc thư Gmail</a></p>",
+    "meta_title": "Tạo bộ lọc Gmail để Inbox dành cho việc cần xử lý | SignEmail",
+    "meta_description": "Gắn nhãn theo dự án, kiểm tra tiêu chí trước khi lưu và thử quy tắc với thư có thật."
+  },
+  {
+    "title": "Hẹn giờ gửi và hoàn tác email Gmail đúng lúc",
+    "slug": "hen-gio-gui-va-hoan-tac-gmail",
+    "category": "Gmail",
+    "art": "stationery",
+    "excerpt": "Chuẩn bị thư ngoài giờ, kiểm tra múi giờ và tăng thời gian hoàn tác để sửa các lỗi nhỏ trước khi gửi.",
+    "content": "<p>Soạn thư vào cuối ngày và hẹn gửi vào buổi sáng giúp bạn chủ động thời điểm liên hệ. Với cùng một email, hãy chọn giờ người nhận dễ đọc và kiểm tra lại trạng thái trong thư mục thư đã lên lịch.</p><h2>Hẹn giờ từ cửa sổ soạn thư</h2><ol><li>Hoàn tất người nhận, tiêu đề, nội dung và tệp đính kèm.</li><li>Mở menu bên cạnh nút <strong>Gửi</strong> rồi chọn <strong>Hẹn giờ gửi</strong>.</li><li>Chọn lịch có sẵn hoặc ngày giờ cụ thể. Kiểm tra múi giờ nếu hai bên làm việc ở các quốc gia khác nhau.</li><li>Mở mục thư đã lên lịch để xác nhận email nằm trong danh sách.</li></ol><h2>Điều chỉnh email đã hẹn gửi</h2><p>Mở thư trong mục đã lên lịch và chọn hủy lần gửi đã đặt. Gmail đưa thư về bản nháp để bạn sửa rồi chọn một lịch mới. Khi cập nhật thời gian, hãy kiểm tra lại câu chữ như “sáng nay” hoặc “báo cáo tuần này”.</p><h2>Tăng thời gian hoàn tác</h2><p>Trong phần cài đặt chung của Gmail, chọn khoảng thời gian hoàn tác phù hợp và lưu. Sau khi gửi, bấm <strong>Hoàn tác</strong> khi thông báo vẫn còn trên màn hình. Thói quen kiểm tra người nhận và đính kèm vẫn rất hữu ích với các email nhạy cảm hoặc có nhiều người nhận.</p><p><a href=\"https://support.google.com/mail/answer/9214606\">Google Help · Hẹn giờ gửi</a></p><p><a href=\"https://support.google.com/mail/answer/2819488\">Google Help · Gửi và hoàn tác</a></p>",
+    "meta_title": "Hẹn giờ gửi và hoàn tác email Gmail đúng lúc | SignEmail",
+    "meta_description": "Chuẩn bị thư ngoài giờ, kiểm tra múi giờ và tăng thời gian hoàn tác để sửa các lỗi nhỏ trước khi gửi."
+  },
+  {
+    "title": "Thiết kế chữ ký có logo công ty dễ đọc trên mobile",
+    "slug": "thiet-ke-chu-ky-logo-cong-ty",
+    "category": "Chữ ký email",
+    "art": "stationery",
+    "excerpt": "Chuẩn bị logo, chọn vị trí ảnh và kiểm tra đủ thông tin ngay cả khi ứng dụng email ẩn hình.",
+    "content": "<p>Chữ ký thường được đọc cùng lúc với nội dung thư trên màn hình hẹp. Logo cần nhận ra được ở kích thước nhỏ, trong khi họ tên, vai trò và cách liên hệ vẫn nên dễ đọc khi ảnh chưa tải.</p><h2>Chuẩn bị hai phiên bản logo</h2><p>Dùng ảnh PNG nền trong suốt khi logo có nhiều khoảng trống hoặc cần đặt trên các nền khác nhau. Chuẩn bị thêm một bản có nền màu thương hiệu cho trường hợp nét mảnh hoặc màu logo chìm trong chế độ tối. Kiểm tra file thật ở kích thước hiển thị trong chữ ký.</p><h2>Dùng bảng để sắp xếp logo và thông tin</h2><p>Với logo ngang, đặt logo phía trên hoặc dưới khối liên hệ. Với biểu tượng vuông, đặt cạnh khối họ tên để tiết kiệm chiều cao. Chọn một phông cơ bản và hạn chế số màu để chữ vẫn dễ đọc trên Gmail và Outlook.</p><h2>Rà soát trước khi triển khai cho cả nhóm</h2><ol><li>Tải logo trong SignEmail và kiểm tra lại URL ảnh từ ngoài mạng nội bộ.</li><li>Giữ tên và thông tin liên hệ dưới dạng văn bản.</li><li>Sao chép và gửi thư thử đến Gmail và Outlook, mở trên cả máy tính lẫn điện thoại.</li><li>Kiểm tra số điện thoại, email, website và nút CTA đều dẫn đúng đích.</li></ol><blockquote>Thử một email khi tắt tải ảnh. Người nhận vẫn nên nhận ra ai gửi và biết cách trả lời.</blockquote>",
+    "meta_title": "Thiết kế chữ ký có logo công ty dễ đọc trên mobile | SignEmail",
+    "meta_description": "Chuẩn bị logo, chọn vị trí ảnh và kiểm tra đủ thông tin ngay cả khi ứng dụng email ẩn hình."
+  },
+  {
+    "title": "Dùng GIF trong chữ ký email mà vẫn giữ bố cục gọn",
+    "slug": "gif-trong-chu-ky-email",
+    "category": "Chữ ký email",
+    "art": "outlook",
+    "excerpt": "Chọn chuyển động nhẹ, đặt thông tin cần thiết trong khung hình đầu và giữ liên kết CTA dễ tìm.",
+    "content": "<p>Một điểm nhấn động có thể thu hút ánh nhìn về logo hoặc nút liên hệ. Trong thư công việc, hiệu ứng nhỏ đặt cạnh nội dung tĩnh thường dễ sử dụng hơn một dải chuyển động lớn.</p><h2>Thiết kế từ khung hình đầu tiên</h2><p>Chọn khung đầu có bố cục hoàn chỉnh. Một số cấu hình Outlook chỉ hiển thị ảnh tĩnh. Tên, vai trò, cách liên hệ và lời kêu gọi hành động cần xuất hiện độc lập với phần chuyển động.</p><h2>Giới hạn số vùng chuyển động</h2><p>Bắt đầu với một biểu tượng hoặc đường nhấn ngắn. Nếu dùng banner GIF, giữ phần còn lại tĩnh. Khi dùng icon mạng xã hội có hiệu ứng, chỉ bật những kênh bạn thường xuyên cập nhật để chữ ký gọn hơn.</p><h2>Kiểm tra khi ứng dụng chặn ảnh ngoài</h2><p>Đặt tên thay thế cho ảnh có ý nghĩa và giữ ảnh trang trí với văn bản thay thế trống. Gửi bản thử cho đồng nghiệp và yêu cầu họ mở ở chế độ sáng lẫn tối. Thử cả khi hình ảnh tải và khi ẩn.</p><p><a href=\"https://support.microsoft.com/en-au/outlook/the-animated-graphic-in-my-e-mail-message-doesn-t-work\">Microsoft Support · Hiển thị ảnh động trong Outlook</a></p>",
+    "meta_title": "Dùng GIF trong chữ ký email mà vẫn giữ bố cục gọn | SignEmail",
+    "meta_description": "Chọn chuyển động nhẹ, đặt thông tin cần thiết trong khung hình đầu và giữ liên kết CTA dễ tìm."
+  },
+  {
+    "title": "Checklist chữ ký email cho đội bán hàng và dịch vụ",
+    "slug": "checklist-chu-ky-email-doi-ban-hang",
+    "category": "Chữ ký email",
+    "art": "stationery",
+    "excerpt": "Chuẩn hóa hồ sơ, logo, thông tin liên hệ và một lời kêu gọi hành động cho từng đội.",
+    "content": "<p>Chữ ký dùng chung giúp người nhận nhận biết công ty và tìm được đúng kênh liên hệ. Hãy thống nhất phần dùng chung trước, sau đó cho phép từng thành viên tùy chỉnh những trường phù hợp với vai trò.</p><h2>Chuẩn hóa phần dùng chung</h2><p>Giữ logo, tên công ty, phông và màu chính giống nhau. Chọn cách viết thống nhất cho số điện thoại và tên đơn vị. Văn phòng hoặc đường dẫn hỗ trợ nên lấy từ một nguồn chính thức của công ty.</p><h2>Chọn một CTA theo nhu cầu người nhận</h2><p>Đội tư vấn có thể dùng <strong>Đặt lịch trao đổi</strong>, còn đội dịch vụ có thể dùng <strong>Mở trung tâm hỗ trợ</strong>. Kiểm tra rằng CTA vẫn rõ nghĩa nếu thư được chuyển tiếp hoặc đọc trên màn hình nhỏ.</p><h2>Gửi thử và cập nhật theo đợt</h2><ol><li>Chọn một mẫu và thử trên hai tài khoản đại diện.</li><li>Soát tên, chức vụ, số máy lẻ, URL avatar và logo.</li><li>Cài chữ ký vào email mới và cân nhắc phiên bản ngắn cho thư phản hồi.</li><li>Đặt người phụ trách cập nhật liên kết khi có thay đổi chiến dịch.</li></ol><blockquote>Chữ ký là một phần của cuộc trao đổi. Hãy để nội dung thư và thông tin liên hệ luôn dễ đọc trước khi thêm banner chiến dịch.</blockquote>",
+    "meta_title": "Checklist chữ ký email cho đội bán hàng và dịch vụ | SignEmail",
+    "meta_description": "Chuẩn hóa hồ sơ, logo, thông tin liên hệ và một lời kêu gọi hành động cho từng đội."
+  }
+]

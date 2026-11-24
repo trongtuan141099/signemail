@@ -1,0 +1,3 @@
+<FilesMatch "^(?![a-f0-9]{32}\.(png|jpg|gif|webp)$).+">
+    Require all denied
+</FilesMatch>

@@ -1,0 +1,8 @@
+DirectoryIndex index.php
+<FilesMatch "^(database\.sql|app-server\.php|router\.php|README\.md|\.gitignore)$">
+    Require all denied
+</FilesMatch>
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteRule ^blog/([a-z0-9]+(?:-[a-z0-9]+)*)/?$ post.php?slug=$1 [L]
+</IfModule>
