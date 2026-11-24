@@ -2,7 +2,6 @@
     'use strict';
 
     const endpoint = document.body.dataset.activityUrl;
-    const page = document.body.dataset.activityPage;
     const picked = new Set();
     function record(event, entity) {
         if (!endpoint || !entity) return;
@@ -13,7 +12,6 @@
             keepalive: true
         }).catch(() => {});
     }
-    record('view', page);
     document.addEventListener('signemail:template', (event) => {
         const id = String(event.detail);
         if (picked.has(id)) return;

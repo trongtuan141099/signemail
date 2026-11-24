@@ -97,3 +97,17 @@ CREATE TABLE IF NOT EXISTS brand_uploads (
     filename TEXT NOT NULL UNIQUE,
     bytes INTEGER NOT NULL
 );
+CREATE TABLE IF NOT EXISTS traffic_days (
+    day TEXT PRIMARY KEY,
+    visitors INTEGER NOT NULL DEFAULT 0,
+    salt TEXT
+);
+CREATE TABLE IF NOT EXISTS traffic_seen (
+    day TEXT NOT NULL,
+    fingerprint TEXT NOT NULL,
+    PRIMARY KEY(day, fingerprint)
+) WITHOUT ROWID;
+CREATE TABLE IF NOT EXISTS traffic_paths (
+    entity TEXT PRIMARY KEY,
+    path TEXT NOT NULL
+);

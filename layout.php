@@ -1,9 +1,11 @@
 <?php
 declare(strict_types=1);
 require_once __DIR__ . '/app-server.php';
+require_once __DIR__ . '/tracker.php';
 
 function page_header(string $title, string $description, string $active = '', string $canonical = '', string $image = '', string $activity = '', ?array $structuredData = null): void
 {
+    if ($activity !== '') track_page($activity, $activity === 'blog' ? linkto('blog.php') : $canonical);
     header('Content-Type: text/html; charset=UTF-8');
     header('X-Content-Type-Options: nosniff');
     header('Referrer-Policy: strict-origin-when-cross-origin');

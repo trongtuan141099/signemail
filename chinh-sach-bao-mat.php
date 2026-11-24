@@ -12,6 +12,7 @@ page_header('Chính sách bảo mật · TT-Hub.vn', 'Cách TT-Hub.vn xử lý d
         <h2>Ảnh tải lên và URL ảnh</h2>
         <p>Khi chủ động tải ảnh lên, bạn gửi tệp cho TT-Hub.vn để xử lý và lưu trữ. Ảnh được cấp URL để hiển thị trong chữ ký, nên người có URL có thể mở ảnh. Hãy tải ảnh bạn có quyền sử dụng và tránh đưa thông tin riêng tư vào ảnh. Nếu dùng URL từ bên ngoài, trình duyệt hoặc trình đọc email có thể truy cập máy chủ cung cấp ảnh theo chính sách của bên đó.</p>
         <h2>Thông tin hỗ trợ và nhật ký kỹ thuật</h2>
+        <p>Để ước tính số khách duy nhất mỗi ngày trên công cụ và blog, bộ đếm tạo mã băm từ địa chỉ IP và thông tin trình duyệt với khóa riêng cho từng ngày. Khi có lượt xem đầu tiên của ngày mới, hệ thống xóa mã nhận diện và khóa của các ngày trước, chỉ giữ số liệu tổng hợp. Bộ đếm không đặt cookie và không lưu IP gốc trong bảng thống kê.</p>
         <p>Khi gửi biểu mẫu liên hệ, chúng tôi lưu tên, email, chủ đề và tin nhắn để xử lý và phản hồi. Chúng tôi dùng bộ đếm tổng hợp theo ngày cho lượt xem, lượt chọn mẫu và lượt nhấp affiliate. Máy chủ hoặc nhà cung cấp hạ tầng có thể ghi thông tin kỹ thuật như địa chỉ IP, thời gian truy cập và URL được yêu cầu để vận hành và bảo vệ dịch vụ.</p>
         <h2>Cookies cần thiết và cookie quảng cáo</h2>
         <p>Trang quản trị và biểu mẫu liên hệ có thể đặt cookie phiên để duy trì đăng nhập hoặc bảo vệ việc gửi biểu mẫu. Bạn có thể xóa hoặc chặn cookie trong trình duyệt. Nếu chặn cookie phiên, một số chức năng liên hệ hoặc quản trị có thể không hoạt động.</p>

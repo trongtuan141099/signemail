@@ -51,3 +51,5 @@
     .admin-fields, .ads-grid, .admin-cards { grid-template-columns: 1fr; }
     .admin-card { padding: 13px; }
 }
+.traffic-cards { display: grid; grid-template-columns: repeat(auto-fit,minmax(145px,1fr)); gap: 12px; }
+.traffic-chart { position: relative; height: 290px; min-width: 0; }

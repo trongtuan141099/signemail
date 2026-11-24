@@ -26,12 +26,9 @@ if ($event === 'select' && preg_match('/^[1-9][0-9]{0,15}$/D', $entity)) {
     $check = $connection->prepare('SELECT 1 FROM templates WHERE id=? AND visible=1');
     $check->execute([$entity]);
     $valid = $check->fetchColumn();
-} elseif ($event === 'view' && in_array($entity, ['editor','blog'], true)) {
-    $valid = true;
-} elseif ($event === 'view' && preg_match('/^post:([a-z0-9]+(?:-[a-z0-9]+)*)$/D', $entity, $match)) {
-    $check = $connection->prepare("SELECT 1 FROM posts WHERE slug=? AND status='published'");
-    $check->execute([$match[1]]);
-    $valid = $check->fetchColumn();
+} elseif ($event === 'view') {
+    http_response_code(204);
+    exit;
 } else {
     $valid = false;
 }
