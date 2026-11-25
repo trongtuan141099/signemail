@@ -373,6 +373,15 @@
         });
     }
     const motionFilters = Array.from(document.querySelectorAll('[data-template-motion]'));
+    byId('hero-search').addEventListener('submit', (event) => {
+        event.preventDefault();
+        search.value = byId('hero-query').value.trim();
+        styleFilter.value = '';
+        roleFilter.value = '';
+        motionFilters[0].click();
+        selectTab(byId('tab-templates'), true);
+        search.focus({ preventScroll: true });
+    });
     for (const button of motionFilters) {
         button.addEventListener('click', () => {
             motionFilter = button.dataset.templateMotion;

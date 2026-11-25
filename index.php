@@ -56,25 +56,28 @@ $uploadLimit = brand_upload_limit();
 $steps = ['templates'=>['▤','Mẫu chữ ký'], 'personal'=>['◉','Hồ sơ'], 'images'=>['◇','Hình ảnh'], 'social'=>['↗','Liên kết'], 'design'=>['✦','Thiết kế']];
 ?>
 <main>
-    <section class="studio-hero shell">
-        <div class="studio-intro">
-            <p class="eyebrow"><span aria-hidden="true"></span> SignEmail Studio</p>
-            <h1>Tạo chữ ký email miễn phí <em>cho Gmail và Outlook</em></h1>
-            <p>Chọn mẫu chữ ký, thêm logo công ty, thông tin liên hệ và biểu tượng mạng xã hội. Xem trước rồi sao chép chữ ký vào email của bạn.</p>
-            <a class="button studio-start" href="#editor">Bắt đầu thiết kế</a>
+    <section class="signature-hero">
+      <div class="shell signature-hero-inner">
+        <div class="signature-hero-copy">
+            <h1>Tạo chữ ký email miễn phí <span>cho Gmail và Outlook</span></h1>
+            <p>Chọn mẫu theo nghề nghiệp, thêm logo và thông tin liên hệ, rồi sao chép chữ ký vào email của bạn.</p>
+            <form class="hero-search" id="hero-search" action="#editor" role="search" aria-label="Tìm mẫu chữ ký">
+                <span aria-hidden="true" class="search-glass"></span>
+                <input type="search" id="hero-query" aria-label="Tên mẫu hoặc nghề nghiệp" placeholder="Tên mẫu hoặc nghề nghiệp" maxlength="120">
+                <button class="button" type="submit">Tìm mẫu</button>
+            </form>
         </div>
-        <div class="studio-illustration" aria-hidden="true" data-nosnippet>
-            <div class="hero-orbit orbit-outer"></div><div class="hero-orbit orbit-inner"></div>
-            <div class="hero-note hero-note-behind"><span></span><span></span><span></span></div>
-            <div class="hero-note hero-note-main">
-                <div class="hero-note-head"><div class="hero-monogram">MA</div><div><strong>Minh Anh Nguyễn</strong><span>Brand Lead · Studio North</span></div></div>
-                <div class="hero-note-rule"></div>
-                <div class="hero-note-contact">minhanh@example.com</div>
-                <div class="hero-note-contact">+84 901 234 567</div>
-                <div class="hero-note-icons"><span>in</span><span>◎</span><span>f</span></div>
+        <div class="signature-showcase" aria-hidden="true" data-nosnippet>
+            <div class="showcase-card">
+                <div class="showcase-company">Studio North</div>
+                <div class="showcase-person">
+                    <img src="<?= h(linkto('assets/demo-portrait.jpg')) ?>" width="76" height="76" alt="">
+                    <div><strong>Nguyễn Minh Anh</strong><span>Quản lý thương hiệu</span></div>
+                </div>
+                <div class="showcase-contact">minhanh@example.com <span>+84 901 234 567</span></div>
             </div>
-            <div class="hero-stamp">✦</div>
         </div>
+      </div>
     </section>
     <div class="studio-layout<?= h($railClass) ?><?= !$railClass ? ' shell' : '' ?>" data-nosnippet>
     <section class="studio-work" id="editor" aria-label="Trình tạo chữ ký">
