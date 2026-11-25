@@ -1,6 +1,6 @@
 <?php if (!function_exists('linkto')) { http_response_code(404); return; } ?>
 <footer class="site-footer tthub-footer">
-    <div class="shell grid gap-8 py-9 md:grid-cols-3 tthub-footer-grid">
+    <div class="shell grid gap-8 py-9 md:grid-cols-3 tthub-footer-grid" data-nosnippet>
         <div>
             <a class="brand tthub-footer-brand" href="<?= h(linkto()) ?>">TT-Hub.vn</a>
             <p class="mt-2 max-w-sm">Tạo chữ ký email miễn phí và tìm hướng dẫn thực hành cho Outlook, Gmail.</p>
@@ -24,7 +24,7 @@
             </ul>
         </nav>
     </div>
-    <div class="shell border-t py-4 tthub-footer-bottom">
+    <div class="shell border-t py-4 tthub-footer-bottom" data-nosnippet>
         <small>© 2026 TT-Hub.vn</small>
         <a href="<?= h(linkto('admin/')) ?>">Quản trị</a>
     </div>

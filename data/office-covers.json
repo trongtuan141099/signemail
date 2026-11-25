@@ -1,0 +1,52 @@
+{
+  "15-mau-chu-ky-email-giam-doc-quan-ly": {
+    "file": "assets/guides/outlook-20-2.webp",
+    "source": "https://support.microsoft.com/en-us/outlook/training/sign-in-and-create-a-signature-for-outlook-on-the-web",
+    "by": "Microsoft"
+  },
+  "mau-chu-ky-email-sinh-vien-thuc-tap-sinh-gui-cv": {
+    "file": "assets/guides/outlook-19-1.webp",
+    "source": "https://support.microsoft.com/en-us/outlook/training/create-and-send-email-in-outlook",
+    "by": "Microsoft"
+  },
+  "mau-chu-ky-email-song-ngu-anh-viet-xuat-nhap-khau": {
+    "file": "assets/guides/outlook-20-2.webp",
+    "source": "https://support.microsoft.com/en-us/outlook/training/sign-in-and-create-a-signature-for-outlook-on-the-web",
+    "by": "Microsoft"
+  },
+  "cau-truc-viet-email-cong-viec-chuan-quoc-te": {
+    "file": "assets/guides/outlook-19-1.webp",
+    "source": "https://support.microsoft.com/en-us/outlook/training/create-and-send-email-in-outlook",
+    "by": "Microsoft"
+  },
+  "phan-biet-to-cc-bcc-trong-email": {
+    "file": "assets/guides/outlook-02-2.webp",
+    "source": "https://support.microsoft.com/en-us/outlook/training/create-and-send-email-in-outlook",
+    "by": "Microsoft"
+  },
+  "bay-loi-chu-ky-email-thieu-chuyen-nghiep": {
+    "file": "assets/guides/outlook-20-2.webp",
+    "source": "https://support.microsoft.com/en-us/outlook/training/sign-in-and-create-a-signature-for-outlook-on-the-web",
+    "by": "Microsoft"
+  },
+  "so-sanh-cong-cu-tao-chu-ky-email-mien-phi-2026": {
+    "file": "assets/guides/outlook-20-2.webp",
+    "source": "https://support.microsoft.com/en-us/outlook/training/sign-in-and-create-a-signature-for-outlook-on-the-web",
+    "by": "Microsoft"
+  },
+  "chen-ma-qr-vao-chu-ky-email": {
+    "file": "assets/guides/outlook-20-2.webp",
+    "source": "https://support.microsoft.com/en-us/outlook/training/sign-in-and-create-a-signature-for-outlook-on-the-web",
+    "by": "Microsoft"
+  },
+  "cai-chu-ky-gmail-tren-dien-thoai": {
+    "file": "assets/guides/gmail-signature-ios-11.webp",
+    "source": "https://support.google.com/mail/answer/8395?co=GENIE.Platform%3DiOS",
+    "by": "Google"
+  },
+  "thu-hoi-email-da-gui-tren-gmail": {
+    "file": "assets/guides/gmail-undo-11.webp",
+    "source": "https://blog.google/products-and-platforms/products/gmail/how-to-unsend-email-gmail/",
+    "by": "Google"
+  }
+}

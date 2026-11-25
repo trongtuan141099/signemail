@@ -496,3 +496,5 @@ html { scroll-padding-top: 12px; }
     .motion-picker { grid-template-columns: repeat(2,minmax(0,1fr)); }
     .studio-layout.has-left.has-right { grid-template-columns: minmax(0,1fr); grid-template-areas: "main" "left" "right"; }
 }
+.article-content table { width: 100%; border-collapse: collapse; margin: 1em 0; }
+.article-content th, .article-content td { padding: .6em; border: 1px solid var(--border); text-align: left; vertical-align: top; overflow-wrap: anywhere; }

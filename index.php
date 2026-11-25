@@ -6,8 +6,8 @@ $templates = array_map('template_record', db()->query('SELECT id,name,style,role
 $posts = published_posts(3);
 $popular = array_map('intval', array_column(popular_templates(30, 6), 'id'));
 page_header(
-    'Tạo Chữ Ký Email Online Miễn Phí (Gmail & Outlook) | SignEmail Studio',
-    'Công cụ tạo chữ ký email chuyên nghiệp miễn phí cho Gmail và Outlook. Hơn 100 mẫu đẹp, chữ ký động GIF, chèn logo & mạng xã hội chỉ với 1 cú nhấp copy-paste.',
+    'Tạo chữ ký email miễn phí cho Gmail và Outlook | SignEmail Studio',
+    'Tạo chữ ký email miễn phí cho Gmail và Outlook. Chọn mẫu, thêm logo, số điện thoại và mạng xã hội, xem trước rồi sao chép chữ ký ngay trên trình duyệt.',
     'tool',
     linkto(),
     '',
@@ -59,11 +59,11 @@ $steps = ['templates'=>['▤','Mẫu chữ ký'], 'personal'=>['◉','Hồ sơ']
     <section class="studio-hero shell">
         <div class="studio-intro">
             <p class="eyebrow"><span aria-hidden="true"></span> SignEmail Studio</p>
-            <h1>Chữ ký email <em>mang dấu ấn riêng.</em></h1>
-            <p>Tạo chữ ký có logo thương hiệu, liên kết và GIF. Xem trước rồi sao chép vào Gmail hoặc Outlook.</p>
+            <h1>Tạo chữ ký email miễn phí <em>cho Gmail và Outlook</em></h1>
+            <p>Chọn mẫu chữ ký, thêm logo công ty, thông tin liên hệ và biểu tượng mạng xã hội. Xem trước rồi sao chép chữ ký vào email của bạn.</p>
             <a class="button studio-start" href="#editor">Bắt đầu thiết kế</a>
         </div>
-        <div class="studio-illustration" aria-hidden="true">
+        <div class="studio-illustration" aria-hidden="true" data-nosnippet>
             <div class="hero-orbit orbit-outer"></div><div class="hero-orbit orbit-inner"></div>
             <div class="hero-note hero-note-behind"><span></span><span></span><span></span></div>
             <div class="hero-note hero-note-main">
@@ -76,7 +76,7 @@ $steps = ['templates'=>['▤','Mẫu chữ ký'], 'personal'=>['◉','Hồ sơ']
             <div class="hero-stamp">✦</div>
         </div>
     </section>
-    <div class="studio-layout<?= h($railClass) ?><?= !$railClass ? ' shell' : '' ?>">
+    <div class="studio-layout<?= h($railClass) ?><?= !$railClass ? ' shell' : '' ?>" data-nosnippet>
     <section class="studio-work" id="editor" aria-label="Trình tạo chữ ký">
         <header class="studio-heading">
             <h2>Thiết kế chữ ký</h2>
@@ -231,6 +231,7 @@ $steps = ['templates'=>['▤','Mẫu chữ ký'], 'personal'=>['◉','Hồ sơ']
     </section>
 </main>
 <dialog id="copy-dialog">
+    <div data-nosnippet>
     <form method="dialog">
         <button class="dialog-close" value="close" aria-label="Đóng">×</button>
         <h2 id="copy-title">Cài chữ ký email</h2>
@@ -245,6 +246,7 @@ $steps = ['templates'=>['▤','Mẫu chữ ký'], 'personal'=>['◉','Hồ sơ']
         <p><strong>Outlook</strong><br>Mở Cài đặt → Tài khoản → Chữ ký. Với Outlook cổ điển, mở Tệp → Tùy chọn → Thư → Chữ ký. Dán rồi lưu. <a class="text-link" href="<?= h(post_url('cai-chu-ky-trong-outlook')) ?>">Đọc hướng dẫn chi tiết</a></p>
         <button class="button" value="close">Đóng</button>
     </form>
+    </div>
 </dialog>
 <script type="application/json" id="template-data"><?= json_encode($templates, JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_THROW_ON_ERROR) ?></script>
 <script type="application/json" id="editor-config"><?= json_encode([

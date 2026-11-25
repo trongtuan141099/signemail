@@ -14,10 +14,10 @@ function db(): PDO
         PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
     ]);
     $connection->exec('PRAGMA busy_timeout = 5000; PRAGMA foreign_keys = ON');
-    if ((int) $connection->query('PRAGMA user_version')->fetchColumn() < 10) {
+    if ((int) $connection->query('PRAGMA user_version')->fetchColumn() < 11) {
         immediate_write($connection, static function () use ($connection): void {
             $version = (int) $connection->query('PRAGMA user_version')->fetchColumn();
-            if ($version >= 10) return;
+            if ($version >= 11) return;
             $connection->exec(file_get_contents(__DIR__ . '/database.sql'));
             add_release_columns($connection);
 
@@ -42,7 +42,8 @@ function db(): PDO
                 $source->execute([$previous, $current, 'hen-gio-gui-va-hoan-tac-gmail', $previous]);
             }
             if ($version < 9) install_outlook_guides($connection, $version === 8);
-            $connection->exec('PRAGMA user_version = 10');
+            install_posts($connection, 'posts-office-2026.json');
+            $connection->exec('PRAGMA user_version = 11');
         });
     }
     return $db = $connection;
@@ -204,7 +205,7 @@ function guide_html(array $guide, ?array $reference = null): string
 function guide_cover_credit(array $post): ?string
 {
     if ($post['cover']) return null;
-    $photo = outlook_photo_index()[$post['slug']] ?? guide_references()[$post['slug']]['figures'][0] ?? null;
+    $photo = editorial_cover_info($post['slug']);
     if (!$photo || !$photo['source']) return null;
     return $photo['by'] === 'Microsoft' ? 'Microsoft · Used with permission from Microsoft.' : 'Ảnh giao diện: ' . $photo['by'] . '.';
 }
@@ -265,6 +266,9 @@ function post_url(string $slug): string
 function canonical_url(string $path): string
 {
     $origin = rtrim(getenv('SIGNEMAIL_ORIGIN') ?: '', '/');
+    if ($origin === '' && strtolower($_SERVER['HTTP_HOST'] ?? '') === 'tt-hub.io.vn') {
+        $origin = 'https://tt-hub.io.vn';
+    }
     return web_url($origin) ? $origin . $path : $path;
 }
 
@@ -384,7 +388,7 @@ function clean_fragment(string $html, bool $signature): string
     [$dom, $body] = document_fragment($html);
     $tags = explode(' ', $signature
         ? 'table tbody thead tfoot tr td th img a span strong b em i br p div'
-        : 'p div br h1 h2 h3 h4 strong b em i u s ul ol li blockquote pre code a img hr small figure figcaption');
+        : 'p div br h1 h2 h3 h4 strong b em i u s ul ol li blockquote pre code a img hr small figure figcaption table thead tbody tr th td');
     $discard = ['script', 'style', 'iframe', 'object', 'embed', 'svg', 'math', 'template', 'form', 'textarea'];
     $walk = function (DOMNode $parent) use (&$walk, $tags, $discard, $signature): void {
         foreach (iterator_to_array($parent->childNodes) as $node) {
@@ -530,10 +534,17 @@ function blog_categories(): array
     return ['Outlook', 'Gmail', 'Chữ ký email', 'Năng suất'];
 }
 
+function editorial_cover_info(string $slug): ?array
+{
+    static $office;
+    $office ??= json_decode(file_get_contents(__DIR__ . '/data/office-covers.json'), true, 64, JSON_THROW_ON_ERROR);
+    return $office[$slug] ?? outlook_photo_index()[$slug] ?? guide_references()[$slug]['figures'][0] ?? null;
+}
+
 function blog_cover(array $post): string
 {
     if ($post['cover']) return linkto('uploads/' . $post['cover']);
-    $reference = outlook_photo_index()[$post['slug']]['file'] ?? guide_references()[$post['slug']]['figures'][0]['file'] ?? '';
+    $reference = editorial_cover_info($post['slug'])['file'] ?? '';
     if ($reference && is_file(__DIR__ . '/' . $reference)) return linkto($reference);
     $edition = 'assets/guides/' . $post['slug'] . '-cover.webp';
     if (preg_match('/^[a-z0-9-]+$/D', $post['slug']) && is_file(__DIR__ . '/' . $edition)) return linkto($edition);
