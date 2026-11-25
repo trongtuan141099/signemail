@@ -14,10 +14,10 @@ function db(): PDO
         PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
     ]);
     $connection->exec('PRAGMA busy_timeout = 5000; PRAGMA foreign_keys = ON');
-    if ((int) $connection->query('PRAGMA user_version')->fetchColumn() < 12) {
+    if ((int) $connection->query('PRAGMA user_version')->fetchColumn() < 13) {
         immediate_write($connection, static function () use ($connection): void {
             $version = (int) $connection->query('PRAGMA user_version')->fetchColumn();
-            if ($version >= 12) return;
+            if ($version >= 13) return;
             $connection->exec(file_get_contents(__DIR__ . '/database.sql'));
             add_release_columns($connection);
 
@@ -43,8 +43,15 @@ function db(): PDO
             }
             if ($version < 9) install_outlook_guides($connection, $version === 8);
             if ($version < 11) install_posts($connection, 'posts-office-2026.json');
-            install_templates($connection, 'templates-batch-03.json');
-            $connection->exec('PRAGMA user_version = 12');
+            if ($version < 12) install_templates($connection, 'templates-batch-03.json');
+            if ($version >= 11) {
+                $slug = '15-mau-chu-ky-email-giam-doc-quan-ly';
+                $edition = array_column(json_decode(file_get_contents(__DIR__ . '/data/posts-office-2026.json'), true, 64, JSON_THROW_ON_ERROR), null, 'slug')[$slug];
+                $update = $connection->prepare('UPDATE posts SET title=?, excerpt=?, content=?, meta_title=?, meta_description=? WHERE slug=?');
+                $update->execute([$edition['title'], $edition['excerpt'], clean_fragment($edition['content'], false),
+                    $edition['meta_title'], $edition['meta_description'], $slug]);
+            }
+            $connection->exec('PRAGMA user_version = 13');
         });
     }
     return $db = $connection;
