@@ -14,10 +14,10 @@ function db(): PDO
         PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
     ]);
     $connection->exec('PRAGMA busy_timeout = 5000; PRAGMA foreign_keys = ON');
-    if ((int) $connection->query('PRAGMA user_version')->fetchColumn() < 11) {
+    if ((int) $connection->query('PRAGMA user_version')->fetchColumn() < 12) {
         immediate_write($connection, static function () use ($connection): void {
             $version = (int) $connection->query('PRAGMA user_version')->fetchColumn();
-            if ($version >= 11) return;
+            if ($version >= 12) return;
             $connection->exec(file_get_contents(__DIR__ . '/database.sql'));
             add_release_columns($connection);
 
@@ -42,8 +42,9 @@ function db(): PDO
                 $source->execute([$previous, $current, 'hen-gio-gui-va-hoan-tac-gmail', $previous]);
             }
             if ($version < 9) install_outlook_guides($connection, $version === 8);
-            install_posts($connection, 'posts-office-2026.json');
-            $connection->exec('PRAGMA user_version = 11');
+            if ($version < 11) install_posts($connection, 'posts-office-2026.json');
+            install_templates($connection, 'templates-batch-03.json');
+            $connection->exec('PRAGMA user_version = 12');
         });
     }
     return $db = $connection;

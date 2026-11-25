@@ -1,6 +1,6 @@
 # SignEmail Studio
 
-Trình tạo chữ ký email bằng PHP thuần, SQLite, Vanilla JavaScript và Tailwind CDN. Kho mặc định có 70 mẫu và 11 bài viết tiếng Việt.
+Trình tạo chữ ký email bằng PHP thuần, SQLite, Vanilla JavaScript và Tailwind CDN. Kho mặc định có 80 mẫu chữ ký.
 
 ## Chạy trên XAMPP
 
@@ -55,6 +55,7 @@ router.php                  Router cho máy chủ tích hợp của PHP
 
 - data/templates-batch-01.json gồm 20 mẫu Tối giản và Doanh nghiệp.
 - data/templates-batch-02.json gồm 50 mẫu bổ sung thuộc 10 nhóm phong cách.
+- data/templates-batch-03.json gồm 10 mẫu lấy cảm hứng từ thiết kế biên tập, du lịch, kiến trúc và các ngành sáng tạo. Năm mẫu có GIF mặc định.
 
 Cả hai dùng trực tiếp trong **Quản trị → Mẫu chữ ký → Nhập JSON**. Mỗi tệp có tối đa 1.000 mẫu. Admin xuất JSON cùng định dạng và bỏ qua mẫu trùng hoàn toàn khi nhập.
 
