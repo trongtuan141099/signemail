@@ -220,7 +220,7 @@ function guide_cover_credit(array $post): ?string
 
 function editorial_image(string $src): bool
 {
-    return (bool) preg_match('~^assets/guides/[a-z0-9-]+-[1-9][0-9]*\.webp$~D', $src);
+    return (bool) preg_match('~^(?:assets/guides/[a-z0-9-]+-[1-9][0-9]*\.webp|uploads/[a-f0-9]{32}\.(?:png|jpg|gif|webp))$~D', $src);
 }
 
 function h(?string $text): string
@@ -391,12 +391,33 @@ function signature_styles(string $source): string
     return implode(';', $safe);
 }
 
+function article_styles(string $source): string
+{
+    $rules = [
+        'text-align' => 'left|right|center|justify|start|end',
+        'font-weight' => 'normal|bold|[1-9]00',
+        'font-style' => 'normal|italic',
+        'text-decoration' => 'underline|line-through|none',
+        'text-decoration-line' => 'underline|line-through|none',
+        'font-size' => '(?:[1-9]|[1-8][0-9])(?:px|pt)',
+        'font-family' => '[a-zA-Z0-9 ,\x22\x27-]{1,100}',
+        'color' => '#[a-f0-9]{3,8}|rgba?\([\d., %]+\)|[a-z]{3,20}',
+        'background-color' => '#[a-f0-9]{3,8}|rgba?\([\d., %]+\)|[a-z]{3,20}',
+    ];
+    $safe = [];
+    foreach (explode(';', $source) as $pair) {
+        [$key, $value] = array_map('trim', array_pad(explode(':', $pair, 2), 2, ''));
+        if (isset($rules[$key]) && preg_match('~^(?:' . $rules[$key] . ')$~iD', $value)) $safe[] = $key . ':' . $value;
+    }
+    return implode(';', $safe);
+}
+
 function clean_fragment(string $html, bool $signature): string
 {
     [$dom, $body] = document_fragment($html);
     $tags = explode(' ', $signature
         ? 'table tbody thead tfoot tr td th img a span strong b em i br p div'
-        : 'p div br h1 h2 h3 h4 strong b em i u s ul ol li blockquote pre code a img hr small figure figcaption table thead tbody tr th td');
+        : 'p div span br h1 h2 h3 h4 h5 h6 strong b em i u s sup sub ul ol li blockquote pre code a img hr small figure figcaption table caption thead tbody tfoot tr th td');
     $discard = ['script', 'style', 'iframe', 'object', 'embed', 'svg', 'math', 'template', 'form', 'textarea'];
     $walk = function (DOMNode $parent) use (&$walk, $tags, $discard, $signature): void {
         foreach (iterator_to_array($parent->childNodes) as $node) {
@@ -434,9 +455,11 @@ function clean_fragment(string $html, bool $signature): string
                     'src' => $tag === 'img' && (web_url($value) || (!$signature && editorial_image($value))
                         || ($signature && preg_match('~^\{\{(?:avatar|avatar_url|logo_url|banner_url|motion_url)\}\}$~D', $value))),
                     'alt' => $tag === 'img',
-                    'style' => $signature,
-                    'width' => $signature && preg_match('~^(?:\d{1,3}%?|\{\{logo_width\}\})$~D', $value),
-                    'height', 'cellpadding', 'cellspacing', 'border', 'colspan', 'rowspan'
+                    'style' => $signature || article_styles($value) !== '',
+                    'width' => ($signature && preg_match('~^(?:\d{1,3}%?|\{\{logo_width\}\})$~D', $value)) || (!$signature && $tag === 'img' && preg_match('~^[1-9]\d{0,3}$~D', $value)),
+                    'colspan', 'rowspan' => $signature ? preg_match('~^\d{1,3}%?$~D', $value)
+                        : in_array($tag, ['td', 'th'], true) && preg_match('~^[1-9]\d{0,2}$~D', $value),
+                    'height', 'cellpadding', 'cellspacing', 'border'
                         => $signature && preg_match('~^\d{1,3}%?$~D', $value),
                     'role' => $signature && $tag === 'table' && $value === 'presentation',
                     'align' => $signature && in_array($value, ['left','center','right'], true),
@@ -449,7 +472,7 @@ function clean_fragment(string $html, bool $signature): string
                 if (!$safe) {
                     $node->removeAttribute($key);
                 } elseif ($key === 'style') {
-                    $node->setAttribute('style', signature_styles($value));
+                    $node->setAttribute('style', $signature ? signature_styles($value) : article_styles($value));
                 }
             }
             if ($tag === 'a' && !$signature) {

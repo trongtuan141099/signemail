@@ -132,7 +132,7 @@ function admin_error(Throwable $error): string
     return 'Thao tác chưa hoàn tất. Vui lòng thử lại.';
 }
 
-function admin_header(string $title, string $active = '', ?array $user = null, bool $quill = false): void
+function admin_header(string $title, string $active = '', ?array $user = null, bool $richEditor = false): void
 {
     ?><!doctype html>
 <html lang="vi"><head>
@@ -142,9 +142,8 @@ function admin_header(string $title, string $active = '', ?array $user = null, b
 <link rel="stylesheet" href="<?= h(asset_url('assets/site.css')) ?>">
 <link rel="stylesheet" href="<?= h(asset_url('assets/studio.css')) ?>">
 <link rel="stylesheet" href="<?= h(asset_url('admin/admin.css')) ?>">
-<?php if ($quill): ?>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.snow.css">
-<script defer src="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.js"></script>
+<?php if ($richEditor): ?>
+<script defer src="<?= h(asset_url('admin/vendor/tinymce/tinymce.min.js')) ?>"></script>
 <?php endif; ?>
 <script defer src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 <script defer src="<?= h(asset_url('admin/admin.js')) ?>"></script>

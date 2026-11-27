@@ -40,10 +40,8 @@
 .activity-report { margin-top: 17px; }
 .activity-report .admin-overflow { max-height: 28rem; overflow: auto; }
 .login-card { display: grid; gap: 14px; width: min(440px, 100%); margin: 22px auto; padding: 24px; }
-#post-quill { min-height: 170px; font-size: .95rem; }
-#post-quill .ql-editorial-figure { margin: 12px 0; }
-#post-quill .ql-editorial-figure img { display: block; width: min(100%, 520px); border-radius: 8px; }
-#post-quill .ql-editorial-figure figcaption { margin-top: 4px; color: var(--muted); }
+#post-form .tox-tinymce { width: 100%; min-width: 0; }
+#editor-status:not(:empty) { padding: 8px 12px; background: var(--pale); }
 @media (max-width: 680px) {
     .admin-shell { width: calc(100% - 24px); }
     .admin-nav { flex-wrap: wrap; padding-block: 9px; }
