@@ -303,23 +303,39 @@ function upload_image(string $field): string
     return store_uploaded_image($_FILES[$field] ?? null);
 }
 
+final class ImageStorageException extends RuntimeException {}
+
 function store_uploaded_image(?array $file): string
 {
     if (!$file || $file['error'] === UPLOAD_ERR_NO_FILE) {
         return '';
     }
-    if ($file['error'] !== UPLOAD_ERR_OK || $file['size'] > 2 * 1024 * 1024 || !is_uploaded_file($file['tmp_name'])) {
+    if (in_array($file['error'], [UPLOAD_ERR_NO_TMP_DIR, UPLOAD_ERR_CANT_WRITE, UPLOAD_ERR_EXTENSION], true)) {
+        throw new ImageStorageException('Hosting không nhận được tệp. Hãy kiểm tra thư mục tạm và cấu hình tải tệp của PHP.');
+    }
+    if (in_array($file['error'], [UPLOAD_ERR_INI_SIZE, UPLOAD_ERR_FORM_SIZE], true)) {
+        throw new InvalidArgumentException('Tệp vượt giới hạn tải lên của PHP. Hãy chọn ảnh nhỏ hơn.');
+    }
+    if ($file['error'] !== UPLOAD_ERR_OK || !is_uploaded_file($file['tmp_name'])) {
+        throw new InvalidArgumentException('Chưa nhận đủ dữ liệu ảnh. Hãy chọn lại tệp.');
+    }
+    if ($file['size'] > 2 * 1024 * 1024) {
         throw new InvalidArgumentException('Ảnh tải lên phải nhỏ hơn hoặc bằng 2 MB.');
     }
     $types = ['image/jpeg' => 'jpg', 'image/png' => 'png', 'image/gif' => 'gif', 'image/webp' => 'webp'];
-    $type = (new finfo(FILEINFO_MIME_TYPE))->file($file['tmp_name']);
     $image = @getimagesize($file['tmp_name']);
+    $type = $image['mime'] ?? '';
+    if ($image && class_exists('finfo')) {
+        $type = (new finfo(FILEINFO_MIME_TYPE))->file($file['tmp_name']);
+    }
     if (!$image || !isset($types[$type]) || $type !== $image['mime'] || max($image[0], $image[1]) > 5000) {
         throw new InvalidArgumentException('Chọn ảnh PNG, JPG, GIF hoặc WebP có mỗi chiều tối đa 5.000 px.');
     }
     $name = bin2hex(random_bytes(16)) . '.' . $types[$type];
-    if (!move_uploaded_file($file['tmp_name'], __DIR__ . '/uploads/' . $name)) {
-        throw new RuntimeException('Không thể lưu ảnh tải lên.');
+    $directory = __DIR__ . '/uploads';
+    if ((!is_dir($directory) && !@mkdir($directory, 0755) && !is_dir($directory)) ||
+        !@move_uploaded_file($file['tmp_name'], $directory . '/' . $name)) {
+        throw new ImageStorageException('Hosting không ghi được ảnh vào uploads/. Hãy kiểm tra quyền ghi của PHP và dung lượng còn trống.');
     }
     return $name;
 }

@@ -37,7 +37,12 @@
         data.append('image', blob, 'article-image');
         const response = await fetch(source.dataset.upload, { method: 'POST', body: data });
         const result = await response.json().catch(() => ({}));
-        if (!response.ok || !result.location) throw new Error(result.error || 'Tải ảnh thất bại. Kiểm tra phiên đăng nhập và thử lại.');
+        if (!response.ok || !result.location) {
+            const message = response.status === 403 ? 'Phiên biểu mẫu đã hết hạn. Mở lại trang quản trị trước khi tải ảnh.'
+                : response.status === 413 ? 'Tệp vượt giới hạn tải lên của hosting.'
+                : 'Máy chủ chưa nhận được ảnh (HTTP ' + response.status + ').';
+            throw new Error(result.error || message);
+        }
         return result.location;
     }
 
@@ -71,6 +76,64 @@
         }),
         setup(editor) {
             const imports = new Map();
+            const reading = new Set();
+            const foreignBlob = value => /^blob:/i.test(value) && !value.startsWith('blob:' + location.origin + '/');
+            const missingImage = 'Trang nguồn chỉ cung cấp liên kết ảnh tạm. Hãy tải ảnh gốc về máy rồi kéo tệp vào bài, hoặc dùng chức năng sao chép hình ảnh của trình duyệt.';
+            function readImage(file) {
+                return new Promise((resolve, reject) => {
+                    const reader = new FileReader();
+                    reader.onload = () => resolve(reader.result);
+                    reader.onerror = () => reject(new Error('Không đọc được tệp ảnh. Hãy chọn lại tệp.'));
+                    reader.readAsDataURL(file);
+                });
+            }
+            function handleTransfer(event) {
+                const transfer = event.clipboardData || event.dataTransfer;
+                if (!transfer) return;
+                const html = transfer.getData('text/html');
+                const template = document.createElement('template');
+                template.innerHTML = html;
+                const inaccessible = [...template.content.querySelectorAll('img')].filter(img => foreignBlob(img.getAttribute('src') || ''));
+                const foreignLink = ['text/uri-list', 'text/plain'].some(type => foreignBlob(transfer.getData(type).trim()));
+                if (!inaccessible.length && !foreignLink) return;
+                event.preventDefault();
+                event.stopImmediatePropagation();
+                const files = [...transfer.files].filter(file => /^image\/(png|jpeg|gif|webp)$/i.test(file.type));
+                const doc = editor.getDoc();
+                if (event.type === 'drop' && doc.caretRangeFromPoint) {
+                    const range = doc.caretRangeFromPoint(event.clientX, event.clientY);
+                    if (range && editor.getBody().contains(range.startContainer)) editor.selection.setRng(range);
+                }
+                const bookmark = editor.selection.getBookmark();
+                const insert = async () => {
+                    if (files.some(file => file.size > 2 * 1024 * 1024)) throw new Error('Ảnh vượt quá 2 MB. Hãy giảm dung lượng trước khi chèn.');
+                    const urls = await Promise.all(files.map(readImage));
+                    for (const img of inaccessible) {
+                        const replacement = urls.shift();
+                        if (replacement) img.setAttribute('src', replacement);
+                        else img.remove();
+                    }
+                    for (const url of urls) {
+                        const img = document.createElement('img');
+                        img.src = url;
+                        template.content.append(img);
+                    }
+                    if (files.length || template.content.textContent.trim()) {
+                        editor.selection.moveToBookmark(bookmark);
+                        editor.execCommand('mceInsertClipboardContent', false, {html: template.innerHTML});
+                    }
+                    if (files.length < Math.max(inaccessible.length, 1)) {
+                        status.textContent = missingImage;
+                        editor.notificationManager.open({text: missingImage, type: 'warning'});
+                    }
+                };
+                const task = insert().catch(error => { status.textContent = error.message; });
+                reading.add(task);
+                task.finally(() => reading.delete(task));
+            }
+            editor.on('init', () => {
+                for (const name of ['drop', 'paste']) editor.getDoc().addEventListener(name, handleTransfer, true);
+            });
             async function localize(img) {
                 const url = img.getAttribute('src');
                 if (!docsImage(url)) return;
@@ -102,6 +165,7 @@
                 saving = true;
                 status.textContent = 'Đang kiểm tra và tải ảnh trước khi lưu…';
                 try {
+                    await Promise.all(reading);
                     await importDocsImages();
                     await editor.uploadImages();
                     const invalid = Array.from(editor.getBody().querySelectorAll('img')).find(img => {
