@@ -21,6 +21,12 @@
     if (!form) return;
     const source = document.getElementById('post-content');
     const status = document.getElementById('editor-status');
+    function excludeGrammarly(element) {
+        for (const attribute of ['data-gramm', 'data-gramm_editor', 'data-enable-grammarly']) {
+            element.setAttribute(attribute, 'false');
+        }
+    }
+    form.querySelectorAll('textarea, input[type="text"]').forEach(excludeGrammarly);
     // Keep legacy, hash-approved diagrams byte-for-byte when editing these articles.
     if (/<svg\b/i.test(source.value)) {
         status.textContent = 'Bài có sơ đồ SVG cũ. Chế độ HTML giữ nguyên cấu trúc sơ đồ.';
@@ -132,6 +138,7 @@
                 task.finally(() => reading.delete(task));
             }
             editor.on('init', () => {
+                excludeGrammarly(editor.getBody());
                 for (const name of ['drop', 'paste']) editor.getDoc().addEventListener(name, handleTransfer, true);
             });
             async function localize(img) {
@@ -156,13 +163,12 @@
             editor.on('PastePostProcess', () => {
                 setTimeout(() => importDocsImages().catch(error => { status.textContent = error.message; }), 0);
             });
-            let saving = false;
-            let ready = false;
+            const saveButton = document.getElementById('save-post');
+            window.addEventListener('pageshow', () => { saveButton.disabled = false; });
             form.addEventListener('submit', async event => {
-                if (ready) return;
                 event.preventDefault();
-                if (saving) return;
-                saving = true;
+                if (saveButton.disabled) return;
+                saveButton.disabled = true;
                 status.textContent = 'Đang kiểm tra và tải ảnh trước khi lưu…';
                 try {
                     await Promise.all(reading);
@@ -174,15 +180,17 @@
                     });
                     if (invalid) throw new Error('Có ảnh chưa tải lên máy chủ. Hãy thay ảnh bằng tệp PNG, JPEG, GIF hoặc WebP rồi lưu lại.');
                     editor.save();
-                    if (source.value.length > 160000) throw new Error('Nội dung vượt giới hạn 160.000 ký tự HTML.');
-                    status.textContent = '';
-                    ready = true;
-                    form.requestSubmit(event.submitter || undefined);
+                    if (Array.from(source.value.trim()).length > 160000) throw new Error('Nội dung vượt giới hạn 160.000 ký tự HTML.');
+                    if (!form.reportValidity()) {
+                        saveButton.disabled = false;
+                        status.textContent = 'Hãy kiểm tra trường được đánh dấu rồi lưu lại.';
+                        return;
+                    }
+                    status.textContent = 'Đang gửi bài viết đến máy chủ…';
+                    HTMLFormElement.prototype.submit.call(form);
                 } catch (error) {
+                    saveButton.disabled = false;
                     status.textContent = error.message || 'Chưa lưu được bài. Vui lòng thử lại.';
-                } finally {
-                    ready = false;
-                    saving = false;
                 }
             });
         }

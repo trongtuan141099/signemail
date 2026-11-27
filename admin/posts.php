@@ -141,11 +141,12 @@ admin_header('Bài viết blog', 'posts.php', $user, (bool) $edit);
             <label for="post-content">Nội dung bài viết</label>
             <p>Kéo ảnh vào bài hoặc dán nội dung từ Google Docs bằng Ctrl+V (⌘V trên Mac). Ảnh PNG, JPEG, GIF và WebP tối đa 2 MB mỗi ảnh.</p>
             <textarea id="post-content" name="content" rows="14" maxlength="160000" data-base="<?= h(linkto()) ?>" data-upload="<?= h(linkto('admin/post-image.php')) ?>"><?= h(is_string($edit['content'] ?? null) ? $edit['content'] : '') ?></textarea>
-            <p id="editor-status" role="status" aria-live="polite"></p>
         </div>
         <div class="admin-fields"><?php admin_input('meta_title','Meta Title',$edit,120); ?></div>
         <label class="field"><span>Meta Description</span><textarea name="meta_description" rows="2" maxlength="250"><?= h(is_string($edit['meta_description'] ?? null) ? $edit['meta_description'] : '') ?></textarea></label>
-        <div><button class="button">Lưu bài viết</button></div>
+        <div><button class="button" type="submit" id="save-post">Lưu bài viết</button>
+            <p id="editor-status" role="status" aria-live="polite"></p>
+        </div>
     </form>
 </section>
 <?php endif; ?>
