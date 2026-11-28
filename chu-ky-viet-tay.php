@@ -1,10 +1,24 @@
 <?php
 declare(strict_types=1);
 require __DIR__ . '/layout.php';
-page_header('Tạo chữ ký viết tay online và tải PNG trong suốt | SignEmail', 'Vẽ hoặc gõ chữ ký, thêm họ tên bên dưới và xem trước trước khi tải PNG hoặc chèn vào chữ ký email.', 'handwriting', linkto('chu-ky-viet-tay.php'));
+$path = linkto('chu-ky-viet-tay.php');
+$name = 'Công cụ tạo chữ ký viết tay online miễn phí';
+$description = 'Vẽ chữ ký bằng chuột hoặc ngón tay, hoặc tạo chữ ký theo tên với 16 mẫu. Chọn màu mực, tải PNG nền trong suốt để chèn vào Gmail, Outlook, Word hoặc PDF.';
+page_header($name . ' | SignEmail', $description, 'handwriting', $path, '', '', [
+    '@context' => 'https://schema.org',
+    '@type' => 'WebApplication',
+    'name' => $name,
+    'url' => canonical_url($path),
+    'description' => $description,
+    'applicationCategory' => 'BusinessApplication',
+    'operatingSystem' => 'Any',
+    'inLanguage' => 'vi',
+    'isAccessibleForFree' => true,
+    'offers' => ['@type' => 'Offer', 'price' => '0', 'priceCurrency' => 'VND'],
+]);
 ?>
 <main class="shell ink-page" data-upload="<?= h(linkto('brand-upload.php')) ?>" data-editor="<?= h(linkto()) ?>">
-    <header><h1>Tạo chữ ký viết tay</h1><p>Ký trực tiếp hoặc gõ tên, rồi thêm dòng họ tên bên dưới theo phong cách của bạn.</p></header>
+    <header><h1><?= h($name) ?></h1><p>Vẽ bằng chuột hoặc ngón tay, hoặc nhập tên để chọn một trong 16 mẫu chữ ký. Tải ảnh PNG nền trong suốt để dùng trong email và tài liệu.</p></header>
     <div class="ink-workspace">
         <section class="ink-tool" aria-labelledby="ink-title">
             <h2 id="ink-title">Thiết kế chữ ký</h2>

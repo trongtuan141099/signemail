@@ -9,6 +9,7 @@
             <h2 class="font-semibold">Khám phá</h2>
             <ul class="list-none space-y-2 mt-3">
                 <li><a href="<?= h(linkto('#editor')) ?>">Trình tạo chữ ký email</a></li>
+                <li><a href="<?= h(linkto('chu-ky-viet-tay.php')) ?>">Tạo chữ ký viết tay theo tên</a></li>
                 <li><a href="<?= h(linkto('blog.php')) ?>">Cẩm nang Outlook và Gmail</a></li>
                 <li><a href="<?= h(post_url('cai-chu-ky-trong-outlook')) ?>">Cách cài chữ ký Outlook</a></li>
             </ul>
