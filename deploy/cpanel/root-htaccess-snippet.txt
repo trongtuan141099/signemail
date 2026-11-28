@@ -1,0 +1,4 @@
+# Ghép vào public_html/.htaccess sau quy tắc HTTPS/tên miền, trước quy tắc bắt mọi URL.
+RewriteEngine On
+RewriteCond %{HTTP_HOST} ^tt-hub\.io\.vn(?::[0-9]+)?$ [NC]
+RewriteRule ^$ tao-chu-ky-email/tt-hub.html [L]

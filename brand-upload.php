@@ -29,7 +29,7 @@ if (!extension_loaded('gd')) {
 }
 
 $kind = $_POST['kind'] ?? 'logo_url';
-if (!in_array($kind, ['logo_url','avatar_url','banner_url'], true)) {
+if (!in_array($kind, ['logo_url','avatar_url','banner_url','handwriting_url'], true)) {
     image_problem(400, 'kind', 'Vị trí ảnh không hợp lệ.');
 }
 

@@ -108,7 +108,7 @@
     }
 
     function renderValues(model, values) {
-        for (const name of ['website', 'avatar_url', 'logo_url', 'banner_url', 'banner_link', 'cta_url']) {
+        for (const name of ['website', 'avatar_url', 'logo_url', 'handwriting_url', 'banner_url', 'banner_link', 'cta_url']) {
             values[name] = httpUrl(values[name]);
         }
         if (values.cta_url && !values.cta_label) values.cta_label = 'Đặt lịch hẹn';
@@ -237,6 +237,9 @@
             if (values.logo_url && !model.html.includes('{{logo_url}}')) {
                 appendSignatureImage(table, values.logo_url, Number(values.logo_width), 0, 'Logo ' + values.company, 0);
             }
+            if (values.handwriting_url) {
+                appendSignatureImage(table, values.handwriting_url, 160, 0, 'Chữ ký viết tay', 0);
+            }
             if (values.greeting) {
                 const cell = table.insertRow(0).insertCell();
                 cell.style.cssText = 'padding:0 0 8px;font-family:' + values.font_family + ';font-size:' + values.font_size + 'px';
@@ -266,7 +269,7 @@
         const personal = selected && readFields(selected);
         const data = personal ? (exampleMode ? exampleFields(selected) : draftPreview(selected, personal)) : null;
         if (data) signature.append(buildSignature(selected, data));
-        const hasProfile = personal && ['full_name','company','job_title','phone','email','website','address','logo_url','avatar_url','banner_url','social_icons','cta_url','greeting'].some((key) => personal[key]);
+        const hasProfile = personal && ['full_name','company','job_title','phone','email','website','address','logo_url','avatar_url','handwriting_url','banner_url','social_icons','cta_url','greeting'].some((key) => personal[key]);
         byId('mail-signoff').hidden = !!data?.greeting;
         byId('example-fill-label').hidden = exampleMode;
         byId('selected-preview').textContent = selected ? selected.name + ' · ' + selected.style : 'Chưa có mẫu để xem';
@@ -536,6 +539,7 @@
                 touched.add(key);
                 status.textContent = 'Đã tải ảnh.';
                 syncThumbnail();
+                return true;
             } catch (error) {
                 if (!control.signal.aborted) status.textContent = error instanceof SyntaxError ? 'Không thể tải ảnh. Hãy thử lại.' : error.message;
             } finally {
@@ -709,6 +713,29 @@
     });
 
     if (selected) colorField.value = selected.accent;
+    function insertHandwriting(filename) {
+        if (!selected || typeof filename !== 'string' || !/^[a-f0-9]{32}\.png$/.test(filename)) return false;
+        const field = document.querySelector('[data-field="handwriting_url"]');
+        field.value = new URL('uploads/brand/' + filename, new URL(config.upload, location.href)).href;
+        field.dispatchEvent(new Event('input'));
+        selectTab(byId('tab-images'));
+        signature.scrollIntoView({block: 'center'});
+        return true;
+    }
+    document.addEventListener('signemail:handwriting', event => {
+        if (insertHandwriting(event.detail)) event.preventDefault();
+    });
+    for (const link of document.querySelectorAll('[data-open-handwriting]')) {
+        link.addEventListener('click', event => {
+            if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
+            if (window.open(link.href, '_blank')) event.preventDefault();
+        });
+    }
+    if (location.hash.startsWith('#ink=') && insertHandwriting(location.hash.slice(5))) {
+        history.replaceState(null, '', '#editor');
+    } else if (location.hash === '#chu-ky-viet-tay') {
+        location.replace(document.querySelector('[data-open-handwriting]').href);
+    }
     drawTemplates();
     render();
 })();

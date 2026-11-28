@@ -40,6 +40,7 @@ function page_header(string $title, string $description, string $active = '', st
         <a class="brand" href="<?= h(linkto()) ?>"><img class="brand-icon" src="<?= h(linkto('assets/sign-mark.png')) ?>" width="36" height="36" alt="">Sign<span>Email</span></a>
         <nav aria-label="Điều hướng chính">
             <a <?= $active === 'tool' ? 'aria-current="page"' : '' ?> href="<?= h(linkto()) ?>">Trình tạo</a>
+            <a data-open-handwriting <?= $active === 'handwriting' ? 'aria-current="page"' : '' ?> href="<?= h(linkto('chu-ky-viet-tay.php')) ?>">Ký tay</a>
             <a <?= $active === 'blog' ? 'aria-current="page"' : '' ?> href="<?= h(linkto('blog.php')) ?>">Cẩm nang</a>
         </nav>
         <a class="button button-small nav-action" href="<?= h(linkto('#editor')) ?>">Tạo chữ ký</a>

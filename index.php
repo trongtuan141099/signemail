@@ -128,6 +128,8 @@ $steps = ['templates'=>['▤','Mẫu chữ ký'], 'personal'=>['◉','Hồ sơ']
                 <div id="images" class="tab-pane field-grid" role="tabpanel" aria-labelledby="tab-images" hidden>
                     <?php brand_field('logo_url','Logo công ty','Tải logo hoặc kéo ảnh vào đây. PNG giữ nền trong suốt.'); ?>
                     <?php brand_field('avatar_url','Ảnh đại diện','Tải ảnh hoặc nhập URL. Bạn có thể điều chỉnh góc ảnh ở bước Thiết kế.'); ?>
+                    <?php brand_field('handwriting_url','Chữ ký viết tay','Dùng ảnh chữ ký có sẵn hoặc tự ký trên bảng vẽ.'); ?>
+                    <a class="text-link" data-open-handwriting href="<?= h(linkto('chu-ky-viet-tay.php')) ?>">Mở bảng vẽ chữ ký</a>
                     <label class="field"><span>Chiều rộng logo</span><select data-field="logo_width"><option value="64">64 px</option><option value="88" selected>88 px</option><option value="112">112 px</option><option value="136">136 px</option></select></label>
                     <p class="editor-hint wide">Tệp tối đa <?= h((string) (floor($uploadLimit / 1048576 * 10) / 10)) ?> MB theo cấu hình máy chủ. GIF tối đa 3 MB.</p>
                 </div>
